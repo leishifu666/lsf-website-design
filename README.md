@@ -5,6 +5,34 @@
 
 给 AI 编程助手使用的网站设计 skill：从参考站研究、版式与动效制作，到实际浏览器核验和独立评审。
 
+## 置顶案例：Codex 模型怎么选
+
+**制作模型：Claude Opus 5.5。** 这是雷师傅目前最满意的作品之一，模型归属和评价由作者确认。
+
+[在线体验](https://hark.com/site/6987019b-6557-46da-bf40-a0ed2d58dcfe?hark_region=us) · [观看 / 下载约 39 秒录屏](https://github.com/leishifu666/lsf-website-design/raw/refs/heads/main/examples/videos/codex-model-guide.mp4) · [15 张独立截图](examples/screenshots/codex-model-guide) · [九个场景长图](examples/screenshots/codex-model-guide-long.jpg)
+
+[![Claude Opus 5.5 制作的 Codex 模型选择指南](examples/screenshots/codex-model-guide-featured.jpg)](https://hark.com/site/6987019b-6557-46da-bf40-a0ed2d58dcfe?hark_region=us)
+
+六个章节分别展示日常开发、复杂项目、协作文案、预算路线、轻量任务与作品选择。页面包含场景转场、章节导航、任务与偏好选择、模型搜索。下面的动态预览来自实际操作录屏，点击可查看完整 MP4。
+
+[![Claude Opus 5.5 作品的章节转场动态预览](examples/screenshots/codex-model-guide-preview.gif)](https://github.com/leishifu666/lsf-website-design/raw/refs/heads/main/examples/videos/codex-model-guide.mp4)
+
+![Claude Opus 5.5 作品的六个章节场景](examples/screenshots/codex-model-guide-scenes.jpg)
+
+完整录屏包含六章切换、正文、任务推荐和 DeepSeek 搜索；无配音。GIF 为其中约 10 秒的加速节选，截图长图为精选场景拼接，均未重绘网页内容。[更多截图、交互说明及来源](examples/作品展示.md#置顶案例codex-模型怎么选)
+
+## 首版制作的模型建议
+
+以下是雷师傅的使用建议，具体型号及可用入口以所用平台为准。
+
+| 方案 | 模型 | 说明 |
+|---|---|---|
+| 推荐首选 | **Claude Opus 5.5、GPT 6 Ultra、GPT 6 Pro** | 推荐用来制作网站的第一版 |
+| 平替方案 | **DeepSeek V4.1 Flash** | 可用真实项目试做，仓库已有其成品展示 |
+| 待测方案 | **Kimi K3.1** | 雷师傅尚未测试，欢迎大家测试后提交案例，帮助完善仓库 |
+
+补充 Kimi K3.1 案例时，欢迎通过 Issue 或 PR 提供实际入口、模型名称、skill 版本、任务与参考网址、成品链接或截图、可复现的使用记录。耗时与用量如有记录也可附上；请勿提交密钥和账号凭据。未提交有效结果前，保留“待测”标记。
+
 支持风格参考、原创探索、找参考、反推提示词和成品评审。规则、模板和脚本按任务读取。
 
 ![LSF-网站设计作品截图](examples/screenshots/showcase-overview.jpg)
@@ -31,7 +59,7 @@
 | 万圣夜 · 槐安里十三号 | [打开 Hark 作品](https://hark.com/site/6ea9e899-ceba-4306-966c-0622f3f47ee8?hark_region=us) | Claude Opus 5.5 | [开场 / 档案 / 轮播 / 球体](examples/screenshots/hark-halloween.jpg) |
 | 长沙特辑 · The Changsha Edition | [打开 Hark 作品](https://hark.com/site/77af0857-a085-4f73-9456-4db0641e3a45?hark_region=us) | Claude Opus 5.5 | [开场 / 湘江 / 岳麓 / 小吃](examples/screenshots/hark-changsha-edition.jpg) |
 
-全部为实际页面截图，长图由多个场景拼接。截图时间：2026-11-04；单屏视口：1440 × 1000。模型信息以作者提供的记录为准，不根据托管平台推断。详细来源见[作品展示](examples/作品展示.md)和[截图记录](examples/screenshots/manifest.json)。
+全部为实际页面截图，长图由多个场景拼接。截图时间：2026-11-04；桌面截图视口：1440 × 1000，置顶案例另含 375 × 812 手机截图和 1440 × 810 录屏。模型信息以作者提供的记录为准，不根据托管平台推断。详细来源见[作品展示](examples/作品展示.md)和[截图记录](examples/screenshots/manifest.json)。
 
 ## 安装
 

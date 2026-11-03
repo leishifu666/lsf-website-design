@@ -59,6 +59,297 @@
       "model_version": "V4.1 Flash",
       "used_skill": false,
       "attribution": "作者在本次对话确认"
+    },
+    {
+      "id": "codex-model-guide",
+      "title": "Codex 模型怎么选 · 雷师傅的工作台",
+      "url": "https://hark.com/site/6987019b-6557-46da-bf40-a0ed2d58dcfe?hark_region=us",
+      "capture_url": "https://hark.site/s/6987019b-6557-46da-bf40-a0ed2d58dcfe/index.html?hark_region=us&via=app",
+      "model": "Claude Opus 5.5",
+      "model_attribution": "作者在本次对话确认",
+      "author_assessment": "作者目前最满意的作品之一",
+      "skill_status": "作者提供的作品展示；页面标注使用公开基础版",
+      "assets": [
+        {
+          "file": "examples/screenshots/codex-model-guide/01-opening.jpg",
+          "label": "开场场景",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 750.2857055664062,
+          "sha256": "0e13e7e9d96f5df992aabc1b49962e0ec45a0b57e878144781d2f4e23650ea1b",
+          "source_capture": "cover-0750.png",
+          "source_sha256": "de0c76018157453434e1486d35a65e82b4c38a7589e7df33565df94ffed1fe03"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/02-transition.jpg",
+          "label": "章节转场",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 1100,
+          "sha256": "62da635a03a507a4807bfbbdb758e2aa5634bd996d00752d451536b34813a466",
+          "source_capture": "cover-1100.png",
+          "source_sha256": "f427210937b48fb5eabd865dfee6e2e7a137028b32648fa114b224c7aa17fa15"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/03-daily.jpg",
+          "label": "日常开发",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 1550.2857666015625,
+          "sha256": "81d08738293873ca30951bd83dfd3918f2346d45b8bfc560dc896213c269c8c9",
+          "source_capture": "daily.png",
+          "source_sha256": "0c90c99bf3314022f524a70d0448228f0a796f927beba2689ca01bbdfed5c3fa"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/04-settings.jpg",
+          "label": "配置与正文",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 2700,
+          "sha256": "21d1fa55b5197df1cee822750d1252711cb9bec660c16fce540f3c947437af39",
+          "source_capture": "daily-details.png",
+          "source_sha256": "b6069faca856964124080ca5433561139ecab323932e04aee0dbcf54d3b71ed7"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/05-complex.jpg",
+          "label": "复杂项目",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 4160,
+          "sha256": "c8bfcc55907092c1db1d5a4afe4c89550cde3f04dd64f0106fb678b5205dec37",
+          "source_capture": "complex.png",
+          "source_sha256": "111b14ccccd6cda8712bbdc645dd99ed7ab8df87bf4b88c349825db1be17f4c8"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/06-copywriting.jpg",
+          "label": "协作文案",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 6600,
+          "sha256": "6c18a514c6f3b25a4413362480c0d64ba231192fa81cb2c0ca88a113acebcd1d",
+          "source_capture": "collaboration.png",
+          "source_sha256": "9a132bbc7a01ebc4f782ad774b1749a200c13964c28cbf55a70c3cff6a790c45"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/07-budget.jpg",
+          "label": "预算路线",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 8950.2861328125,
+          "sha256": "9d823975acedd497c6f388c7d7fa5a046e4f94180c7f178fe63ff3bc4b1486ab",
+          "source_capture": "budget.png",
+          "source_sha256": "5c2ab7e5fa5b37bf3640dd7bf31d5d4dc84d505eb3b6912bb38ec99c86f154d0"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/08-light.jpg",
+          "label": "轻量任务",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 11450.2861328125,
+          "sha256": "10fc45cee736d7390ddf3cd040ff46f4fb4713692f7e02fd727283b0a969e566",
+          "source_capture": "light.png",
+          "source_sha256": "9595fdd94645fb67b05a8b0835c7d6c78f2904a10046f74f92254a4f3c79fe3a"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/09-works.jpg",
+          "label": "作品与选法",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 13840,
+          "sha256": "c4dfa57d4d72d0bfa42d27d70d0d236fd5916b4e5f0280e78b8433956f5a94f8",
+          "source_capture": "works.png",
+          "source_sha256": "0aaacea8c70b2690668615e60f4e8e4c7ca02b33845d45c7ee9ada6ad46a0808"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/10-chooser.jpg",
+          "label": "任务选择器",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 15700,
+          "sha256": "138abab5194d63efcc2c354037b7f576c5adae4dbf93287d2f5a794745159f9f",
+          "source_capture": "chooser-default.png",
+          "source_sha256": "15b14a8568bc62269bd842167119641d82b4974fb09c0830584b2b5a8f371223"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/11-copy-choice.jpg",
+          "label": "切换文案推荐",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 15700,
+          "sha256": "b95fd3370f9d4f945333c52050ca0ed9b10c48cbec376696e6cb182ee3727cb3",
+          "source_capture": "chooser-copywriting.png",
+          "source_sha256": "4258cb96637d1f5fa70c51a199ce61b6bd8c6d02b5e476f15e5cf0175ad3e0da"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/12-search.jpg",
+          "label": "模型搜索",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 15700,
+          "sha256": "0beb781999fa7c7955ae28316d585cab24bfe778a4c26ac211f103f22a1d74de",
+          "source_capture": "search-deepseek.png",
+          "source_sha256": "33c45ef381666bbbf0d615d316f1394415f774a5fdd2128c53ef394cd173ade4"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/13-gallery.jpg",
+          "label": "已有作品画廊",
+          "viewport": [
+            1440,
+            1000
+          ],
+          "scrollY": 16600,
+          "sha256": "7c97a82e6a36c676ac9a55d35e8690d445284e7eb3d1142981703d0c9ce40873",
+          "source_capture": "case-gallery.png",
+          "source_sha256": "491b673181df673b82ef7095b437ecb4e37e0ac751ca9a110da534120c9e14de"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/14-mobile.jpg",
+          "label": "手机章节",
+          "viewport": [
+            375,
+            812
+          ],
+          "scrollY": 1218.2857666015625,
+          "sha256": "b6201140db0f6f2f74db5e27e8747d525689a5fb8263bb27f57d7af52171e153",
+          "source_capture": "mobile-daily.png",
+          "source_sha256": "f0404f2aaa1d21d83fa782da0bbdc618de8e1fed1e5484e8a582af03b2dc5cd2"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide/15-mobile-menu.jpg",
+          "label": "手机目录",
+          "viewport": [
+            375,
+            812
+          ],
+          "scrollY": 1218.2857666015625,
+          "sha256": "21f7594085ea1fb503b129e6e3ce5d80c5cb96e4374f96e846681e38133efaf7",
+          "source_capture": "mobile-menu.png",
+          "source_sha256": "bc9111c0bee95c3b4f9176db266cae386ff2d13c6a36457cb98ecaddec252976"
+        }
+      ],
+      "composites": [
+        {
+          "file": "examples/screenshots/codex-model-guide-featured.jpg",
+          "sha256": "28b56374362d4e2dca1369f21defd4dd8a8ff4ccbeb6db8925c168f49a8723ed"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide-scenes.jpg",
+          "sha256": "7d9b644213e4d267e4b2f2d032db84b82e11e1cae4d032e456d88fa66dccfd92"
+        },
+        {
+          "file": "examples/screenshots/codex-model-guide-long.jpg",
+          "sha256": "ecc3c864ab721aa14305983df48e9198bdeac6df9c3d6183aa349c00a7d4037f"
+        }
+      ],
+      "video": {
+        "file": "examples/videos/codex-model-guide.mp4",
+        "sha256": "00efa31b5182cb370e138c1db8caa24bf99ff855006c99b8abc134252997ae52",
+        "duration_seconds": 38.967,
+        "viewport": [
+          1440,
+          810
+        ],
+        "output_resolution": [
+          1440,
+          810
+        ],
+        "fps": 30,
+        "audio": false,
+        "method": "Ego Lite CDP screencast 实际连续操作；按帧时间戳合成 H.264 MP4",
+        "preview_gif": {
+          "file": "examples/screenshots/codex-model-guide-preview.gif",
+          "sha256": "2b05876cc41b8d761454a622bd1d173fe3594629d8f9566f140a8d498f066f65",
+          "source_start_seconds": 7.5,
+          "source_length_seconds": 12.5,
+          "playback_speed": 1.25
+        },
+        "actions": [
+          {
+            "name": "开场场景显现",
+            "at": 1.211
+          },
+          {
+            "name": "滚动进入工作台",
+            "at": 1.626
+          },
+          {
+            "name": "日常开发章节",
+            "at": 4.089
+          },
+          {
+            "name": "正文与配置",
+            "at": 6.384
+          },
+          {
+            "name": "复杂项目",
+            "at": 8.169
+          },
+          {
+            "name": "协作文案",
+            "at": 11.417
+          },
+          {
+            "name": "预算路线",
+            "at": 14.565
+          },
+          {
+            "name": "轻量任务",
+            "at": 17.722
+          },
+          {
+            "name": "作品与选法",
+            "at": 20.868
+          },
+          {
+            "name": "打开任务选择器",
+            "at": 24.026
+          },
+          {
+            "name": "选择文案任务",
+            "at": 26.735
+          },
+          {
+            "name": "选择复杂项目",
+            "at": 29.072
+          },
+          {
+            "name": "切换速度与用量偏好",
+            "at": 31.464
+          },
+          {
+            "name": "搜索模型",
+            "at": 33.632
+          },
+          {
+            "name": "回到日常开发",
+            "at": 36.443
+          }
+        ]
+      }
     }
   ],
   "captures": [

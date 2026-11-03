@@ -1,0 +1,49 @@
+{
+  "viewport": { "width": 1440, "height": 900 },
+  "urls": { "reference": "https://reference.example/", "implementation": "http://localhost:4173/" },
+  "targets": {
+    "scene": { "selector": { "reference": "#hero", "implementation": ".city-hero" } },
+    "control": {
+      "selector": { "reference": "#menu-toggle", "implementation": "#chapter-toggle" },
+      "pseudos": ["::before", "::after"],
+      "children": { "icon": { "reference": ":scope > .icon", "implementation": ":scope > svg" } }
+    },
+    "panel": { "selector": { "reference": "#menu-list", "implementation": "#chapters" }, "animations": true },
+    "link": { "selector": { "reference": "#hero a[href='#chapter']", "implementation": ".city-hero a[href='#city']" } }
+  },
+  "experiments": [
+    { "id": "first-and-warm", "category": "load", "watch": ["scene","control"], "steps": [
+      { "action": "visit", "observeMs": 1400, "screenshotsMs": [80,500], "screenshot": true },
+      { "action": "reload", "observeMs": 1400, "screenshotsMs": [80,500], "screenshot": true }
+    ] },
+    { "id": "wheel-reverse", "category": "scroll", "watch": ["scene"], "steps": [
+      { "action": "move", "x": 680, "y": 400, "observeMs": 50 },
+      { "action": "wheel", "dy": 50, "count": 4, "intervalMs": 140, "observeMs": 350 },
+      { "action": "wheel", "dy": 800, "observeMs": 80 },
+      { "action": "wheel", "dy": -400, "observeMs": 700, "screenshot": true },
+      { "action": "wait", "observeMs": 350 }
+    ] },
+    { "id": "leave-and-reenter", "category": "hover", "watch": ["control"], "steps": [
+      { "action": "hover", "target": "control", "observeMs": 80 },
+      { "action": "move", "x": 100, "y": 300, "observeMs": 40 },
+      { "action": "hover", "target": "control", "observeMs": 420, "screenshot": true }
+    ] },
+    { "id": "pointer-reverse", "category": "pointer", "watch": ["scene"], "steps": [
+      { "action": "move", "x": 680, "y": 430, "observeMs": 80 },
+      { "action": "move", "x": 860, "y": 500, "observeMs": 80 },
+      { "action": "move", "x": 680, "y": 430, "observeMs": 500 }
+    ] },
+    { "id": "open-close", "category": "component", "watch": ["control","panel"], "steps": [
+      { "action": "down", "target": "control", "observeMs": 70 },
+      { "action": "up", "target": "control", "observeMs": 500, "screenshotsMs": [80], "screenshot": true },
+      { "action": "focus", "target": "control", "observeMs": 50 },
+      { "action": "key", "key": "Enter", "target": "control", "observeMs": 500 }
+    ] },
+    { "id": "route-history", "category": "navigation", "watch": ["scene","link"], "steps": [
+      { "action": "link", "target": "link", "observeMs": 600, "screenshot": true },
+      { "action": "back", "observeMs": 450 },
+      { "action": "forward", "observeMs": 450 },
+      { "action": "direct", "url": { "reference": "/#chapter", "implementation": "/#city" }, "observeMs": 800, "screenshot": true }
+    ] }
+  ]
+}

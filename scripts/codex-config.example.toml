@@ -1,0 +1,28 @@
+# 复制需要的部分到 ~/.codex/config.toml（或项目内 .codex/config.toml）
+# 格式依据：https://developers.openai.com/codex/mcp
+# 状态：按官方文档格式拼装，未实测。
+
+# 必装：拆解取证 + 评审（截图、CSS、网络、性能 trace、Lighthouse）
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest", "--no-usage-statistics"]
+startup_timeout_sec = 20
+
+# 推荐：网站 → 设计令牌（MCP 参数取自 dembrandt README 的安装配置，未实测）
+[mcp_servers.dembrandt]
+command = "npx"
+args = ["-y", "dembrandt", "mcp"]
+
+# 可选：与 chrome-devtools 功能重叠，二选一常驻
+# [mcp_servers.playwright]
+# command = "npx"
+# args = ["@playwright/mcp@latest"]
+
+# 必装：Figma MCP（远程端点，见 https://help.figma.com/hc/en-us/articles/32132100833559 ）
+# 远程 HTTP 服务用 url 字段；首次使用运行 `codex mcp login figma` 完成 OAuth（未实测）
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+# 独立评审子 Agent 的并发设置（见 https://developers.openai.com/codex/subagents ）
+[agents]
+max_concurrent_threads_per_session = 6

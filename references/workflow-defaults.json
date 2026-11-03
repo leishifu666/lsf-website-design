@@ -1,0 +1,151 @@
+{
+  "gemini_mode": "aistudio",
+  "gemini_url": "https://aistudio.google.com/prompts/new_chat",
+  "api_fallback": false,
+  "copywriter": "gemini",
+  "independent_copy_review": true,
+  "independent_design_review": true,
+  "authority": "用户于2026-10-31明确将网站文案的Gemini默认入口改为Google AI Studio，替代此前贞贞API偏好；贞贞API仅在之后明确指定时使用，不自动兜底。保留Gemini文案和独立审核要求。",
+  "scope": "使用本技能新建或重新生成网站；只分析、更新技能和局部修 Bug 不触发外发。当前用户指令优先。",
+  "design_review_loop": {
+    "automatic": true,
+    "new_reviewer_each_round": true,
+    "main_agent_verifies_feedback": true,
+    "minimum_score": 85,
+    "requires_dimension_floors": true,
+    "requires_hard_gates": true,
+    "authority_date": "2026-11-02",
+    "authority": "用户2026-10-31要求减少冗余评审，确认实施Claude核对后的方案：默认最多两次调用、一次集中修改，首审通过即止，按需定向复核；预算用尽如实收尾，不无限追分；2026-11-02优先Gemini/Claude评审，缺少可用渠道时才用当前模型的新子Agent；同一预算",
+    "scope": "本技能网站制作；只讨论/更新技能不触发，用户之后明确撤销或限制时按新指令",
+    "rubric": "references/design-review-policy.json",
+    "scoring_scope": "design-aesthetics-only",
+    "technical_metrics_affect_score": false,
+    "previous_authority": {
+      "date": "2026-10-19",
+      "text": "用户在当前对话明确要求：做完自查满意后交给子Agent独立评分和意见，主Agent核对并优化，再开新子Agent重复，直到分数达标；流程自动化"
+    },
+    "loop_policy": "review-loop-v2",
+    "max_reviewer_calls": 2,
+    "max_fix_batches": 1,
+    "reviewer_selection": {
+      "preferred": [
+        "gemini",
+        "claude"
+      ],
+      "route_source": "lsf-ai-agent",
+      "fallback": "fresh-subagent-inherits-current-model",
+      "fallback_only_when": "no-available-gemini-or-claude",
+      "browser": "ego-browser",
+      "budget_shared": true
+    }
+  },
+  "animation": {
+    "engine": "gsap",
+    "coverage": [
+      "page-content",
+      "components",
+      "icons",
+      "interactions",
+      "state-changes"
+    ],
+    "audit_required": true,
+    "independent_review_required": true,
+    "skills": [
+      "gsap-core",
+      "gsap-timeline",
+      "gsap-scrolltrigger"
+    ],
+    "authority_date": "2026-10-19",
+    "authority": "用户明确要求任何内容（组件、图标、交互）添加动画并审查，页面动画用GSAP技能制作，技能联动",
+    "scope": "本技能网站制作，按需加载适用GSAP技能，保留减少动态效果和无障碍要求",
+    "forbidden_effects": [
+      "button-hover-lift",
+      "hover-icon-translation",
+      "hover-icon-rotation",
+      "hover-icon-scale",
+      "hover-icon-bounce"
+    ],
+    "reduce_for_performance_metrics": false
+  },
+  "components": {
+    "lookup_required": true,
+    "source_reuse_required": true,
+    "bookmark_path": "设计类工具网站/有趣高级的组件",
+    "catalog": "references/component-bookmarks.json",
+    "workflow": "references/组件书签与源码复用.md",
+    "source_audit": "references/组件网站源码核查.md",
+    "catalog_checked_at": "2026-10-19",
+    "catalog_entries": 31,
+    "access_does_not_prove_source": true,
+    "license_checked_per_component": true
+  },
+  "current_stage": "front-end-visual-design",
+  "performance_optimization": "only-when-user-requests",
+  "latest_authority": "用户2026-10-19更正：只评设计美感，性能不占分、不因性能减动画，禁用按钮上浮和hover图标运动，组件必须查书签取源码",
+  "reference_prompt_mode": {
+    "mode": "4",
+    "name": "参考网站反推提示词",
+    "agent": "website_prompt_reverser",
+    "agent_definition": "agents/website-prompt-reverser.toml",
+    "role_instructions": "agents/website-prompt-reverser.md",
+    "workflow": "references/参考网站反推提示词.md",
+    "input_template": "templates/反推任务输入.md",
+    "output_template": "templates/网站制作提示词.md",
+    "defaults": {
+      "scope": "single-page-with-necessary-states",
+      "fidelity": "high",
+      "write_website_code": false,
+      "viewports": [
+        1440,
+        768,
+        375
+      ],
+      "component_catalog": "references/component-bookmarks.json"
+    },
+    "fallback": "new default subagent loads identical role and templates when custom role not exposed",
+    "authority_date": "2026-10-19",
+    "authority": "用户直接要求将所附完整角色及B/C模板制作成子Agent，作为参考网站反推提示词模式调用",
+    "auto_start_website_workflow": false,
+    "auto_call_gemini": false,
+    "website_review_required_for_prompt_only": false,
+    "url_first": true,
+    "research_owner": "subagent",
+    "main_agent_preanalysis_required": false,
+    "attachments": "forward-only-when-user-provided",
+    "use_user_reference_only": true,
+    "latest_authority": "用户更正：默认子Agent直接看用户具体网址，附件仅用户主动提供时转交；Shopify有很多网站，不得擅自选平台官网或商店，也不得搜站替代",
+    "ambiguous_platform_name": "ask-for-specific-reference-url",
+    "search_for_replacement_reference": false
+  },
+  "image_assets": {
+    "authority_date": "2026-11-02",
+    "authority": "网页新素材必须调用Codex内置生图（用户指定GPT Image 2.5），每条提示词以固定画质句结束；透明请求保留真实alpha；后台型号按实际回执记录，不自动切渠道",
+    "generation_tool": "builtin-image_gen",
+    "strategy": "reference-driven-layered-assets",
+    "transparent_single_subjects_preferred_when_compositing": true,
+    "all_assets_must_be_transparent": false,
+    "fixed_generation_quota": null,
+    "transparent_tool_parameter": {
+      "transparent_background": true
+    },
+    "real_alpha_and_edges_check_required": true,
+    "prompt_suffix": "画面干净通透，材质完整自然，纹理平滑统一，主体清晰，避免过度锐化、色斑、噪点、碎纹、崩坏和畸变。",
+    "prompt_suffix_excluded_models": [],
+    "suffix_must_be_final": true,
+    "guide": "references/氛围图片.md",
+    "modeF_delivers_asset_plan_and_per_asset_prompts": true,
+    "modeF_generates_images_only_if_explicitly_requested": true
+  },
+  "default_design_mode": "A",
+  "image_generation": {
+    "tool": "codex-built-in-image-gen",
+    "user_requested_model": "GPT Image 2.5",
+    "model_identity": "actual-tool-receipt-only",
+    "transparent_supported": true,
+    "transparent_parameter": "transparent_background",
+    "prompt_suffix": "画面干净通透，材质完整自然，纹理平滑统一，主体清晰，避免过度锐化、色斑、噪点、碎纹、崩坏和畸变。",
+    "suffix_must_be_final": true,
+    "automatic_provider_fallback": false,
+    "scope": "网页需要新位图时；只更新技能或反推提示词不实际生图"
+  }
+}

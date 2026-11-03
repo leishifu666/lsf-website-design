@@ -1,0 +1,930 @@
+{
+  "source": "用户Chrome书签API实际读取",
+  "read_at": "2026-10-19",
+  "folder": "设计类工具网站/有趣高级的组件",
+  "count": 31,
+  "verification": "31条原始书签已逐项尝试读取；HTTP可达、源码取得和许可分别记录。源码样本仅验证所列文件，不表示依赖齐全、代码已运行或全站免费。",
+  "items": [
+    {
+      "title": "可以做宣传片ai视频的",
+      "url": "https://remocn.dev/docs/getting-started/introduction",
+      "id": "bookmark-01",
+      "name": "Remocn",
+      "checked_at": "2026-10-19",
+      "purpose": "视频模板",
+      "current_url": "https://remocn.dev/docs/getting-started/introduction",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://remocn.dev/docs/getting-started/introduction",
+        "html_bytes": 449848,
+        "html_sha256": "711eac180767728e7faec5d134865c3fc98ece559dfc9c39a83b85e028258224",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "打开模板文档或官方 registry，读取模板入口及它引用的 scenes/ui 文件；按 Remotion 视频用途使用。",
+      "source_samples": [
+        {
+          "repo": "Remocn/remocn",
+          "path": "registry/remocn-templates/launch-anything/index.tsx",
+          "url": "https://raw.githubusercontent.com/Remocn/remocn/main/registry/remocn-templates/launch-anything/index.tsx",
+          "bytes": 3912,
+          "sha256": "488042fa1fc592919a1ccb39486e53af2b8ea3f33596f2b885c2262fe06364b4"
+        }
+      ],
+      "license": {
+        "summary": "MIT（仓库代码）；具体素材另核对",
+        "url": "https://raw.githubusercontent.com/Remocn/remocn/main/LICENSE"
+      },
+      "audit_note": "已读取真实模板入口；不是普通网页组件的首选"
+    },
+    {
+      "title": "Liquid metal — Animated metal shader effect",
+      "url": "https://metal.jakubantalik.com/",
+      "id": "bookmark-02",
+      "name": "Liquid metal / Metal FX",
+      "checked_at": "2026-10-19",
+      "purpose": "液态金属",
+      "current_url": "https://libraries.dev/metal",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://metal.jakubantalik.com/",
+        "html_bytes": 978,
+        "html_sha256": "b9432601d09875b0d46ed3bd6a32ca0350525fdaf055797b9a525d3d0fef05f5",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "原金属页为脚本演示；当前 Libraries.dev 的 Metal 页面及官方仓库可取 MetalFx.tsx、engine、样式等依赖。",
+      "source_samples": [
+        {
+          "repo": "Jakubantalik/Libraries.dev",
+          "path": "packages/metal-fx/src/MetalFx.tsx",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/packages/metal-fx/src/MetalFx.tsx",
+          "bytes": 21815,
+          "sha256": "adde95086cbf42df1d9434b8faafff9d84c51502272aae7872cced1700e0245f"
+        }
+      ],
+      "license": {
+        "summary": "MIT（已读取官方仓库 LICENSE）",
+        "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/LICENSE"
+      },
+      "audit_note": "旧页未观察到显式迁移提示；当前同作者 Metal 源码另经官方页面和仓库确认"
+    },
+    {
+      "title": "动态边界光束",
+      "url": "https://beam.jakubantalik.com/",
+      "id": "bookmark-03",
+      "name": "Border Beam",
+      "checked_at": "2026-10-19",
+      "purpose": "边界光束",
+      "current_url": "https://libraries.dev/beam",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://beam.jakubantalik.com/",
+        "html_bytes": 9806,
+        "html_sha256": "5a2aa2538625ef8f667694e0960021cea4916e9f128cccddbc538f193b05150c",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "旧站明确提示迁移；用当前页面的 API 和官方 packages/border-beam/src 源码。",
+      "source_samples": [
+        {
+          "repo": "Jakubantalik/Libraries.dev",
+          "path": "packages/border-beam/src/BorderBeam.tsx",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/packages/border-beam/src/BorderBeam.tsx",
+          "bytes": 10487,
+          "sha256": "691c54d304b3b8b183e8041d97ec9c230586bab4eda9c5d0f765c28da75020f3"
+        }
+      ],
+      "license": {
+        "summary": "MIT",
+        "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/LICENSE"
+      },
+      "audit_note": "已取得 Web React 实现，不以 React Native 移植代替"
+    },
+    {
+      "title": "动态思考球",
+      "url": "https://orbs.jakubantalik.com/",
+      "id": "bookmark-04",
+      "name": "Thinking Orbs",
+      "checked_at": "2026-10-19",
+      "purpose": "思考球",
+      "current_url": "https://libraries.dev/orbs",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://orbs.jakubantalik.com/",
+        "html_bytes": 9375,
+        "html_sha256": "a65a1712b47c02442a425a13fca2425021d4bdbaad9ad720905bad51fef6c160",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "旧站明确提示迁移；读取 packages/thinking-orbs/src/ThinkingOrb.tsx 及 engine 依赖。",
+      "source_samples": [
+        {
+          "repo": "Jakubantalik/Libraries.dev",
+          "path": "packages/thinking-orbs/src/ThinkingOrb.tsx",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/packages/thinking-orbs/src/ThinkingOrb.tsx",
+          "bytes": 5765,
+          "sha256": "1c0bdc43869d2758919876f603b19f254e062c275e3869575d6660ec4f2f1bd0"
+        }
+      ],
+      "license": {
+        "summary": "MIT",
+        "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/LICENSE"
+      },
+      "audit_note": "已读取真实组件"
+    },
+    {
+      "title": "粘稠的液体效果（有源码）",
+      "url": "https://gooey.jakubantalik.com/",
+      "id": "bookmark-05",
+      "name": "Liquid Gooey",
+      "checked_at": "2026-10-19",
+      "purpose": "粘稠液体",
+      "current_url": "https://libraries.dev/gooey",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://gooey.jakubantalik.com/",
+        "html_bytes": 9649,
+        "html_sha256": "fca60b6eeeba5ef2af81080aec9f0c07a08792bee6b417cf04f6b85d00e23d64",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "旧站明确提示迁移；读取 packages/liquid-gooey/src/Gooey.tsx 和配套文件。",
+      "source_samples": [
+        {
+          "repo": "Jakubantalik/Libraries.dev",
+          "path": "packages/liquid-gooey/src/Gooey.tsx",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/packages/liquid-gooey/src/Gooey.tsx",
+          "bytes": 9676,
+          "sha256": "5c8052fa6ba89e02e171a5696fa046b397e7897a7f4bf90237e39622e4085850"
+        }
+      ],
+      "license": {
+        "summary": "MIT",
+        "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/LICENSE"
+      },
+      "audit_note": "已读取真实组件"
+    },
+    {
+      "title": "Accordion — Transitions.dev",
+      "url": "https://transitions.dev/detail.html?t=dropdown-menu-morph",
+      "id": "bookmark-06",
+      "name": "Transitions.dev",
+      "checked_at": "2026-10-19",
+      "purpose": "过渡与变形",
+      "current_url": "https://transitions.dev/detail.html?t=dropdown-menu-morph",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://transitions.dev/detail.html?t=dropdown-menu-morph",
+        "html_bytes": 787662,
+        "html_sha256": "b514dd12587444bc6cbe181d53c6e5b2f6498ca633d7b727eba21666f101a129",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "详情可经普通 HTTP 读取；直接读取官方仓库 transitions/dropdown-menu-morph/index.html，其他效果按各自目录取源码。",
+      "source_samples": [
+        {
+          "repo": "Jakubantalik/transitions.dev",
+          "path": "transitions/dropdown-menu-morph/index.html",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/transitions.dev/main/transitions/dropdown-menu-morph/index.html",
+          "bytes": 16657,
+          "sha256": "b98540c4bfdcbb5eef65ab69bc6b4720e50ba552e899e4a66000ddf3b2a59c6b"
+        }
+      ],
+      "license": {
+        "summary": "自定义 Transitions.dev 条款；免费/Pro 分开，禁止重新打包竞争库",
+        "url": "https://raw.githubusercontent.com/Jakubantalik/transitions.dev/main/LICENSE"
+      },
+      "audit_note": "已取得这一个效果完整 HTML；公开免费效果不代表全部 Pro 可免费取用，模板分发另看条款"
+    },
+    {
+      "title": "Vault",
+      "url": "https://www.arlan.me/vault",
+      "id": "bookmark-07",
+      "name": "Arlan Vault",
+      "checked_at": "2026-10-19",
+      "purpose": "文字与交互实验",
+      "current_url": "https://www.arlan.me/vault/arcade-pixel",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.arlan.me/vault",
+        "html_bytes": 149767,
+        "html_sha256": "38a927eee22457a429b97e255822f132a1569cd65292efa2fdbca6ee9b63b221",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_unverified",
+      "status_label": "入口可读，完整源码未取得",
+      "retrieval_method": "进入具体实验查看演示与源码入口；本次读到了 Arcade pixel 的说明，但未取到完整组件文件。",
+      "source_samples": [],
+      "license": {
+        "summary": "首页标示 MIT；具体文件仍须核对",
+        "url": "https://www.arlan.me/vault"
+      },
+      "audit_note": "可作为检索候选；未取得源文件前不能登记为已复用"
+    },
+    {
+      "title": "Labs — Interactive React Component Playgrounds | Aceternity UI",
+      "url": "https://ui.aceternity.com/labs",
+      "id": "bookmark-08",
+      "name": "Aceternity Labs",
+      "checked_at": "2026-10-19",
+      "purpose": "React 实验组件",
+      "current_url": "https://ui.aceternity.com/labs",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://ui.aceternity.com/labs",
+        "html_bytes": 163280,
+        "html_sha256": "973932c512c2c251bb58d24d1f8579915ed0b6024ddcf5664e31c22890ba2eb3",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "mixed_access",
+      "status_label": "免费与付费混合，具体源码待核实",
+      "retrieval_method": "按具体实验查 Code/CLI/注册表；SVG path morphing 页本次只读到加载中的 playground。免费与 Pro 分别核对。",
+      "source_samples": [],
+      "license": {
+        "summary": "免费与 Pro 条款按组件核实",
+        "url": "https://ui.aceternity.com/labs"
+      },
+      "audit_note": "可读目录；本次没有取得该 Labs 示例的完整源码，不能把其他免费组件当作证明"
+    },
+    {
+      "title": "作品集轮播效果",
+      "url": "https://github.com/Yousuf-developer/Viscose-carousel",
+      "id": "bookmark-09",
+      "name": "Viscose Carousel",
+      "checked_at": "2026-10-19",
+      "purpose": "作品集轮播",
+      "current_url": "https://github.com/Yousuf-developer/Viscose-carousel",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://github.com/Yousuf-developer/Viscose-carousel",
+        "html_bytes": 382750,
+        "html_sha256": "747acbd5c64277f03c8f95d4aa9404b5b354e647829ed8f5a8ee380c8f0822b4",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "读取 components/Carousel.jsx 及其依赖；替换主题文案、项目图片、视频和字体。",
+      "source_samples": [
+        {
+          "repo": "Yousuf-developer/Viscose-carousel",
+          "path": "components/Carousel.jsx",
+          "url": "https://raw.githubusercontent.com/Yousuf-developer/Viscose-carousel/main/components/Carousel.jsx",
+          "bytes": 154273,
+          "sha256": "70202bec170384a4e085ce711b26049f8411b4936115b2084936abfa4f5b8bf3"
+        }
+      ],
+      "license": {
+        "summary": "代码 MIT；public 素材/字体不统一适用 MIT",
+        "url": "https://raw.githubusercontent.com/Yousuf-developer/Viscose-carousel/main/LICENSE"
+      },
+      "audit_note": "源码引用 React、Three.js、GSAP；许可明确排除 public 素材，商业字体不可照搬"
+    },
+    {
+      "title": "Beautiful UI — Crafted primitives for AI-native interfaces",
+      "url": "https://www.beautifului.dev/",
+      "id": "bookmark-10",
+      "name": "Beautiful UI",
+      "checked_at": "2026-10-19",
+      "purpose": "AI 界面组件",
+      "current_url": "https://www.beautifului.dev/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.beautifului.dev/",
+        "html_bytes": 648946,
+        "html_sha256": "d8663369a6f5767918609b30cae0e6bfeb28925ed004db175d38f630fda9e683",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_unverified",
+      "status_label": "入口可读，完整源码未取得",
+      "retrieval_method": "先选具体组件并打开 Code/Copy 源码；本次已读官网许可，未取得完整组件源码。",
+      "source_samples": [],
+      "license": {
+        "summary": "官网 MIT；保留版权与许可说明",
+        "url": "https://www.beautifului.dev/license"
+      },
+      "audit_note": "可访问与许可已确认；源码复制流程仍待具体组件实测"
+    },
+    {
+      "title": "The Foundation for your Design System - shadcn/ui",
+      "url": "https://ui.shadcn.com/",
+      "id": "bookmark-11",
+      "name": "shadcn/ui",
+      "checked_at": "2026-10-19",
+      "purpose": "基础交互组件",
+      "current_url": "https://ui.shadcn.com/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://ui.shadcn.com/",
+        "html_bytes": 782163,
+        "html_sha256": "3cd26ad0bf4d921498077e41fbcf85b053e15c530afb1dc4e27dcfc8fb8f670e",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "按实际框架和已有底座选择官方 registry；不要混用 radix/base/aria 实现。",
+      "source_samples": [
+        {
+          "repo": "shadcn-ui/ui",
+          "path": "apps/v4/registry/bases/radix/ui/accordion.tsx",
+          "url": "https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/v4/registry/bases/radix/ui/accordion.tsx",
+          "bytes": 2830,
+          "sha256": "cdd4ad1df94e3c1ae85c77e916e3a6b7dc459efe454ccee35933b0160d2b386e"
+        }
+      ],
+      "license": {
+        "summary": "MIT",
+        "url": "https://raw.githubusercontent.com/shadcn-ui/ui/main/LICENSE.md"
+      },
+      "audit_note": "已读取 Accordion 源文件；只是基础底座，视觉仍需按主题适配"
+    },
+    {
+      "title": "Rare UI — Rare Animated React Components",
+      "url": "https://www.rareui.com/components/foldercomponent",
+      "id": "bookmark-12",
+      "name": "Rare UI",
+      "checked_at": "2026-10-19",
+      "purpose": "动画文件夹",
+      "current_url": "https://www.rareui.com/components/foldercomponent",
+      "access": {
+        "http_status": null,
+        "final_url": null,
+        "html_bytes": null,
+        "html_sha256": null,
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_unverified",
+      "status_label": "入口可读，完整源码未取得",
+      "retrieval_method": "页面给出 shadcn 注册表入口 swamimalode07/rare-ui/folder-component；点击代码入口或读取对应公开注册表后再复用，本次未取得完整源码。",
+      "source_samples": [],
+      "license": {
+        "summary": "页面标示 MIT + Commons Clause，并要求署名回链",
+        "url": "https://www.rareui.com/components/foldercomponent"
+      },
+      "audit_note": "直接 HTTP 收到429，但网页正文工具可读；不应将429写成所有访问失败，也不标为纯 MIT"
+    },
+    {
+      "title": "MetalForge — Beautiful Metal shaders for SwiftUI",
+      "url": "https://metalforge.xyz/editor",
+      "note": "原书签带一组调参查询；此清单保存同一编辑器入口",
+      "id": "bookmark-13",
+      "name": "MetalForge",
+      "checked_at": "2026-10-19",
+      "purpose": "Shader 编辑器",
+      "current_url": "https://metalforge.xyz/editor",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://metalforge.xyz/editor",
+        "html_bytes": 20170,
+        "html_sha256": "1e29a1d9abd2dba89fcd84d1d8f894f01e6a16881b1f0df5bef06c6af0e36213",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "export_unverified",
+      "status_label": "编辑器可达，导出未验证",
+      "retrieval_method": "进入编辑器选择目标平台后检查 Export/Code；本次拿到页面 HTML，未验证导出及完整 shader 代码。",
+      "source_samples": [],
+      "license": {
+        "summary": "导出许可未确认",
+        "url": "https://metalforge.xyz/editor"
+      },
+      "audit_note": "当前页面标题覆盖 SwiftUI、React Native、Web；不能沿用旧书签标题断言只支持 SwiftUI"
+    },
+    {
+      "title": "用于网络的玻璃建筑 — Building Glass for the Web",
+      "url": "https://aave.com/design/building-glass-for-the-web",
+      "id": "bookmark-14",
+      "name": "Aave Glass",
+      "checked_at": "2026-10-19",
+      "purpose": "玻璃材质文章",
+      "current_url": "https://aave.com/design/building-glass-for-the-web",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://aave.com/design/building-glass-for-the-web",
+        "html_bytes": 192015,
+        "html_sha256": "fca40c9268825035847bfc6f4a1193d5bf95924d878716bf742774aeb45fd355",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "snippet_only",
+      "status_label": "仅取得用法片段",
+      "retrieval_method": "读取文章中的 React/Glass 用法片段作为技术线索；完整组件或 shader 实现尚未确认。",
+      "source_samples": [],
+      "license": {
+        "summary": "文章及示例的复制许可另核对",
+        "url": "https://aave.com/design/building-glass-for-the-web"
+      },
+      "audit_note": "HTTP HTML 中有5个 pre 代码块；不等于拿到了完整玻璃组件实现"
+    },
+    {
+      "title": "Three.js Components, Templates & Interactive Shaders | ThreeUI",
+      "url": "https://threeui.com/browse",
+      "id": "bookmark-15",
+      "name": "ThreeUI",
+      "checked_at": "2026-10-19",
+      "purpose": "Three.js 与 Shader",
+      "current_url": "https://threeui.com/browse",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://threeui.com/browse",
+        "html_bytes": 301126,
+        "html_sha256": "221ff642683bfe4bccd188561e62268e0761357745405ac831ea277ec61a16f1",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "mixed_access",
+      "status_label": "免费与付费混合，具体源码待核实",
+      "retrieval_method": "按具体组件查看免费或 Pro 标记、代码权限和配套素材；Pro 源码需要对应权限。",
+      "source_samples": [],
+      "license": {
+        "summary": "免费/Pro 分别适用，未确认全库统一开源",
+        "url": "https://threeui.com/pricing"
+      },
+      "audit_note": "目录与价格页可读；没有取得具体组件完整源码，不承诺免费全量可复制"
+    },
+    {
+      "title": "ai 各个对话的组件",
+      "url": "https://www.aicss.dev/components/image-generation",
+      "id": "bookmark-16",
+      "name": "AICSS",
+      "checked_at": "2026-10-19",
+      "purpose": "AI 组件",
+      "current_url": "https://www.aicss.dev/components/image-generation",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.aicss.dev/components/image-generation",
+        "html_bytes": 84143,
+        "html_sha256": "feb236dfe0c13b56cc2520bc9e61d33171045135acbef0a56693902be0c6b8f3",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "paid_specific_free_other",
+      "status_label": "书签项受限，另有免费源码",
+      "retrieval_method": "书签对应页面出现登录与 Pro 访问提示；官方公开仓库 kvnkld/aicss 有免费子集，可读取 DataTable 等具体文件。",
+      "source_samples": [
+        {
+          "repo": "kvnkld/aicss",
+          "path": "packages/react/src/data-table/DataTable.tsx",
+          "url": "https://raw.githubusercontent.com/kvnkld/aicss/main/packages/react/src/data-table/DataTable.tsx",
+          "bytes": 4752,
+          "sha256": "1b8e6d31504425b75144821a6ab83478d43babb66474ee44349ac40c96327efc"
+        }
+      ],
+      "license": {
+        "summary": "公开仓库 MIT；不据此推定 Pro 组件免费",
+        "url": "https://raw.githubusercontent.com/kvnkld/aicss/main/LICENSE"
+      },
+      "audit_note": "实际取到的是免费 DataTable，未取到书签 Image Processing/Generation 的 Pro 源码"
+    },
+    {
+      "title": "Libraries.dev: High-crafted UI libraries for AI agents",
+      "url": "https://libraries.dev/",
+      "id": "bookmark-17",
+      "name": "Libraries.dev",
+      "checked_at": "2026-10-19",
+      "purpose": "光束、思考球、金属、液体",
+      "current_url": "https://libraries.dev/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://libraries.dev/",
+        "html_bytes": 100000,
+        "html_sha256": "ee2507265daec7694cfee6172d5e1bf0d509bba7ac4c766f469ba2044427230c",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "官方目录选择效果后读取 Jakubantalik/Libraries.dev 下对应 packages 的 Web src 和依赖文件。",
+      "source_samples": [
+        {
+          "repo": "Jakubantalik/Libraries.dev",
+          "path": "packages/border-beam/src/BorderBeam.tsx",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/packages/border-beam/src/BorderBeam.tsx",
+          "bytes": 10487,
+          "sha256": "691c54d304b3b8b183e8041d97ec9c230586bab4eda9c5d0f765c28da75020f3"
+        },
+        {
+          "repo": "Jakubantalik/Libraries.dev",
+          "path": "packages/metal-fx/src/MetalFx.tsx",
+          "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/packages/metal-fx/src/MetalFx.tsx",
+          "bytes": 21815,
+          "sha256": "adde95086cbf42df1d9434b8faafff9d84c51502272aae7872cced1700e0245f"
+        }
+      ],
+      "license": {
+        "summary": "MIT（已核对公开仓库 LICENSE）",
+        "url": "https://raw.githubusercontent.com/Jakubantalik/Libraries.dev/main/LICENSE"
+      },
+      "audit_note": "已验证四种效果的 Web 源文件；不据此承诺每个付费扩展都免费"
+    },
+    {
+      "title": "Duo Studio — Make it yours",
+      "url": "https://duo-fold.vercel.app/",
+      "id": "bookmark-18",
+      "name": "Duo Studio",
+      "checked_at": "2026-10-19",
+      "purpose": "3D 手机展示",
+      "current_url": "https://duo-fold.vercel.app/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://duo-fold.vercel.app/",
+        "html_bytes": 10723,
+        "html_sha256": "573d803c1f41dd640826dd04b7b1e105755a00b16f5e5f1f7d8b8ab12826ba0f",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "demo_only",
+      "status_label": "仅确认演示",
+      "retrieval_method": "可打开演示查看视觉；本次未发现该演示对应的源码入口。",
+      "source_samples": [],
+      "license": {
+        "summary": "源码与模型权利未确认",
+        "url": "https://duo-fold.vercel.app/"
+      },
+      "audit_note": "页面署有 Apple 原模型/动画提示；不能直接复制模型或认定与另一份 GitHub 书签是同一项目"
+    },
+    {
+      "title": "iphone-duo-motion-study",
+      "url": "https://github.com/bravohenry/iphone-duo-motion-study",
+      "id": "bookmark-19",
+      "name": "iPhone Duo Motion Study",
+      "checked_at": "2026-10-19",
+      "purpose": "3D 手机研究",
+      "current_url": "https://github.com/bravohenry/iphone-duo-motion-study",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://github.com/bravohenry/iphone-duo-motion-study",
+        "html_bytes": 327066,
+        "html_sha256": "670bd10bf3898750cad569d748d3a2a2b6594dd883846339bdb9debc1cf787e0",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_license_unclear",
+      "status_label": "已取得源码，复制许可未确认",
+      "retrieval_method": "已读取 main.js；其引用 app、assets、GLTF 等文件。可研究结构，实际复制前确认代码及模型/壁纸权利。",
+      "source_samples": [
+        {
+          "repo": "bravohenry/iphone-duo-motion-study",
+          "path": "main.js",
+          "url": "https://raw.githubusercontent.com/bravohenry/iphone-duo-motion-study/main/main.js",
+          "bytes": 7469,
+          "sha256": "442a13fd5e8f2bae37c7d4eac791b1b39798a381c437008dcf7faed046ff9eb9"
+        }
+      ],
+      "license": {
+        "summary": "本次仓库树未找到顶层 LICENSE；GitHub 未识别许可证",
+        "url": "https://github.com/bravohenry/iphone-duo-motion-study"
+      },
+      "audit_note": "公开可读源码不等于已授予复制许可；不能当作 MIT 库直接用"
+    },
+    {
+      "title": "非常多的 UI 组件",
+      "url": "https://shoogle.dev/search?preview=https%3A%2F%2Freui.io%2Fblocks%2Fapplication%2Fflow&kw=scroll+animation",
+      "id": "bookmark-20",
+      "name": "Shoogle",
+      "checked_at": "2026-10-19",
+      "purpose": "组件搜索",
+      "current_url": "https://shoogle.dev/search?preview=https%3A%2F%2Freui.io%2Fblocks%2Fapplication%2Fflow&kw=scroll+animation",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://shoogle.dev/search?preview=https%3A%2F%2Freui.io%2Fblocks%2Fapplication%2Fflow&kw=scroll+animation",
+        "html_bytes": 85045,
+        "html_sha256": "894ca15ee4afceae1ea0c6ab5163a66e2aae045032f87c4a1141a7cf02c987d0",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "aggregator",
+      "status_label": "搜索聚合，需跟进提供方",
+      "retrieval_method": "作为发现入口，进入结果的实际作者站/注册表（此书签含 ReUI Flow 预览）取源码和许可。",
+      "source_samples": [],
+      "license": {
+        "summary": "随最终组件提供方变化",
+        "url": "https://shoogle.dev/"
+      },
+      "audit_note": "HTTP 可读；不是所有搜索结果代码的统一许可来源"
+    },
+    {
+      "title": "Bencho - UI interactive blocks",
+      "url": "https://bencho.dev/finds",
+      "id": "bookmark-21",
+      "name": "Bencho Finds",
+      "checked_at": "2026-10-19",
+      "purpose": "交互灵感收藏",
+      "current_url": "https://bencho.dev/finds",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://bencho.dev/finds",
+        "html_bytes": 50124,
+        "html_sha256": "045ff17b247f287d27f50c60edd61ad95add7956f34065d548c3020a6db7531d",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "inspiration_only",
+      "status_label": "灵感图库，未确认统一源码",
+      "retrieval_method": "看案例后跟进原作者、原组件站；不可把 Finds 的案例集合当成 Bencho 全部提供源码。",
+      "source_samples": [],
+      "license": {
+        "summary": "随原作者变化",
+        "url": "https://bencho.dev/finds"
+      },
+      "audit_note": "与 Bencho 首页组件目录分开记录"
+    },
+    {
+      "title": "Detail · Where craft lives",
+      "url": "https://detail.design/",
+      "id": "bookmark-22",
+      "name": "Detail",
+      "checked_at": "2026-10-19",
+      "purpose": "设计细节",
+      "current_url": "https://detail.design/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://detail.design/",
+        "html_bytes": 127305,
+        "html_sha256": "ac1a7c0973ae5cf6b58dda5610efa1f20cf0f2f36432db180c4f97ba36e9d436",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "inspiration_only",
+      "status_label": "灵感图库，未确认统一源码",
+      "retrieval_method": "按案例研究构图、交互及设计判断，源码跟进原作者公开地址。",
+      "source_samples": [],
+      "license": {
+        "summary": "随原作者变化",
+        "url": "https://detail.design/"
+      },
+      "audit_note": "本次取得案例信息，未确认统一可复制源码"
+    },
+    {
+      "title": "收集X上各种有趣的设计交互组件",
+      "url": "https://www.inspora.design/",
+      "id": "bookmark-23",
+      "name": "Inspora",
+      "checked_at": "2026-10-19",
+      "purpose": "交互灵感归档",
+      "current_url": "https://www.inspora.design/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.inspora.design/",
+        "html_bytes": 72137,
+        "html_sha256": "f11edc41c926a9136f2c4461b383c713f894702af11a21f1c2846d07b29394ac",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "inspiration_only",
+      "status_label": "灵感图库，未确认统一源码",
+      "retrieval_method": "浏览具体帖子并追溯原作者；本次未确认源码出口。",
+      "source_samples": [],
+      "license": {
+        "summary": "随原作者变化",
+        "url": "https://www.inspora.design/"
+      },
+      "audit_note": "站点 HTTP 可达；不能只看演示就称作源码复用"
+    },
+    {
+      "title": "React UI Components | ObsidianUI",
+      "url": "https://www.obsidianui.dev/components",
+      "id": "bookmark-24",
+      "name": "ObsidianUI",
+      "checked_at": "2026-10-19",
+      "purpose": "React 组件与区块",
+      "current_url": "https://www.obsidianui.dev/components",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.obsidianui.dev/components",
+        "html_bytes": 546804,
+        "html_sha256": "70ec7d9015894bf751cd47c896172f300a6afab325a8b804219b2942936ae90b",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "官网链接至 Atharvsinh-codez/ObsidianUI；读取具体 src/components 组件及其引用文件。",
+      "source_samples": [
+        {
+          "repo": "Atharvsinh-codez/ObsidianUI",
+          "path": "src/components/analytics-dashboard/details.tsx",
+          "url": "https://raw.githubusercontent.com/Atharvsinh-codez/ObsidianUI/main/src/components/analytics-dashboard/details.tsx",
+          "bytes": 9163,
+          "sha256": "4685720f54a40bde6451daa9d4e1a355318f0b1d09300d4414334801b5da084b"
+        }
+      ],
+      "license": {
+        "summary": "MIT",
+        "url": "https://raw.githubusercontent.com/Atharvsinh-codez/ObsidianUI/main/LICENSE"
+      },
+      "audit_note": "已读取真实 Analytics Dashboard 组件文件"
+    },
+    {
+      "title": "Remocn - Make a product demo video with your AI agent",
+      "url": "https://remocn.dev/docs/getting-started/agent-skill",
+      "id": "bookmark-25",
+      "name": "Remocn Agent Skill",
+      "checked_at": "2026-10-19",
+      "purpose": "视频技能与模板入口",
+      "current_url": "https://remocn.dev/docs/getting-started/agent-skill",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://remocn.dev/docs/getting-started/agent-skill",
+        "html_bytes": 442846,
+        "html_sha256": "868b604c17ca0f449bc6af8dafa305f4f4e8d7789f366a6a57575a2cdb833708",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "文档代码块与官方 plugins/remocn/skills 目录可作为视频联动入口；本次核查不自动安装技能。",
+      "source_samples": [
+        {
+          "repo": "Remocn/remocn",
+          "path": "plugins/remocn/skills/remocn/SKILL.md",
+          "url": "https://raw.githubusercontent.com/Remocn/remocn/main/plugins/remocn/skills/remocn/SKILL.md",
+          "bytes": 10966,
+          "sha256": "c547d0d78c0c669568e4cc41c52b8bd33308b1b18b7617d3c65e4d9552c4ed6f"
+        }
+      ],
+      "license": {
+        "summary": "MIT（公开仓库代码）",
+        "url": "https://raw.githubusercontent.com/Remocn/remocn/main/LICENSE"
+      },
+      "audit_note": "已读取官方 Remocn 技能文件，作为资料核查，未执行或安装"
+    },
+    {
+      "title": "Amicro — Premium React Micro-transitions & Interaction Components",
+      "url": "https://amicro.vercel.app/",
+      "id": "bookmark-26",
+      "name": "Amicro",
+      "checked_at": "2026-10-19",
+      "purpose": "微交互组件",
+      "current_url": "https://amicro.vercel.app/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://amicro.dev/",
+        "html_bytes": 4875,
+        "html_sha256": "c8f142d5676a907f82c352171521a17a5a761b6fa7f6308a791eb47503820eb4",
+        "body_readable_via_web_tool": false
+      },
+      "source_status": "source_unverified",
+      "status_label": "入口可读，完整源码未取得",
+      "retrieval_method": "站点介绍给出 @subhanhq/amicro CLI；需要进入具体组件并取得公开源码或确认注册表再使用，不自动执行安装命令。",
+      "source_samples": [],
+      "license": {
+        "summary": "未读取具体源码许可",
+        "url": "https://amicro.vercel.app/"
+      },
+      "audit_note": "网页提取工具403，但直接 HTTP200；源码界面未实测，不能因宣传开源就标为已取得"
+    },
+    {
+      "title": "Bencho — Interactive React UI Components & Micro-interactions",
+      "url": "https://bencho.dev/",
+      "id": "bookmark-27",
+      "name": "Bencho Components",
+      "checked_at": "2026-10-19",
+      "purpose": "交互区块",
+      "current_url": "https://bencho.dev/blocks/faq-accordion",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://bencho.dev/",
+        "html_bytes": 19482,
+        "html_sha256": "ad24545faedefa29502409d4001f431345de866d75f2d1840a4f9ee574688145",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_unverified",
+      "status_label": "入口可读，完整源码未取得",
+      "retrieval_method": "首页选组件；已读取 FAQ Accordion 的演示描述，下一步需打开源码界面或公开注册表。",
+      "source_samples": [],
+      "license": {
+        "summary": "未读取具体源码许可",
+        "url": "https://bencho.dev/"
+      },
+      "audit_note": "浏览器详情导航超时，不能声称 Copy 已操作或完整源码已获得；不得把网站前端打包脚本当组件源码"
+    },
+    {
+      "title": "网站页脚的灵感库：Footer.design",
+      "url": "https://www.footer.design/",
+      "id": "bookmark-28",
+      "name": "Footer.design",
+      "checked_at": "2026-10-19",
+      "purpose": "页脚",
+      "current_url": "https://www.footer.design/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.footer.design/",
+        "html_bytes": 39496,
+        "html_sha256": "2eabf3c13be4d2fe78bee1e558ac2bbb4696fdc04cae6e24ea27ce26aa107f35",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "inspiration_only",
+      "status_label": "灵感图库，未确认统一源码",
+      "retrieval_method": "作为页脚构图和信息组织参考，按条目跟进原网站；需要可复制代码时转其他已确认的组件来源。",
+      "source_samples": [],
+      "license": {
+        "summary": "随原作者变化",
+        "url": "https://www.footer.design/"
+      },
+      "audit_note": "可读灵感图库，不是已验证的源码库"
+    },
+    {
+      "title": "按钮灵感库：CTA.gallery",
+      "url": "https://www.cta.gallery/",
+      "id": "bookmark-29",
+      "name": "CTA.gallery",
+      "checked_at": "2026-10-19",
+      "purpose": "CTA 设计",
+      "current_url": "https://www.cta.gallery/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.cta.gallery/",
+        "html_bytes": 714037,
+        "html_sha256": "af177d7b2a416a009d62ee86635b1774a52c180b3940262b20d7e803de4f7c55",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "inspiration_only",
+      "status_label": "灵感图库，未确认统一源码",
+      "retrieval_method": "研究 CTA 构图与视觉，条目如另有模板则单独核对源码和许可。",
+      "source_samples": [],
+      "license": {
+        "summary": "随具体案例/模板变化",
+        "url": "https://www.cta.gallery/"
+      },
+      "audit_note": "不能把图库全部案例当成免费按钮组件"
+    },
+    {
+      "title": "404 页面库：404s.design",
+      "url": "https://www.404s.design/",
+      "id": "bookmark-30",
+      "name": "404s.design",
+      "checked_at": "2026-10-19",
+      "purpose": "404 页面",
+      "current_url": "https://www.404s.design/",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://www.404s.design/",
+        "html_bytes": 100775,
+        "html_sha256": "4863e918d52e65049a52c81ecdcb79cf42e40680e49f9f00c8553f1baad23939",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "inspiration_only",
+      "status_label": "灵感图库，未确认统一源码",
+      "retrieval_method": "查看错误页视觉与布局；跟进原作者公开模板，未取得则只作参考。",
+      "source_samples": [],
+      "license": {
+        "summary": "随原作者变化",
+        "url": "https://www.404s.design/"
+      },
+      "audit_note": "可读错误页灵感图库"
+    },
+    {
+      "title": "React Bits - Animated UI Components For React",
+      "url": "https://reactbits.dev/get-started/index",
+      "id": "bookmark-31",
+      "name": "React Bits",
+      "checked_at": "2026-10-19",
+      "purpose": "文字、背景与交互效果",
+      "current_url": "https://reactbits.dev/get-started/index",
+      "access": {
+        "http_status": 200,
+        "final_url": "https://reactbits.dev/get-started/index",
+        "html_bytes": 48015,
+        "html_sha256": "c9bbd281a397bdde145a5546568bed9f1ece6d3a420430adc19fba1be16f024c",
+        "body_readable_via_web_tool": true
+      },
+      "source_status": "source_verified",
+      "status_label": "已取得组件/模板源码",
+      "retrieval_method": "进入具体组件的 Code/CLI/GitHub；已读取 CountUp 的普通 CSS 和 Tailwind JSX 版本，按项目只选一种并保留依赖来源。",
+      "source_samples": [
+        {
+          "repo": "DavidHDev/react-bits",
+          "path": "src/content/TextAnimations/CountUp/CountUp.jsx",
+          "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/main/src/content/TextAnimations/CountUp/CountUp.jsx",
+          "bytes": 15407,
+          "sha256": "7c3d3b6cdbd6957484fd7f3a2149d9cd56ad3e4df11437e09dcfa84225b648e3"
+        }
+      ],
+      "license": {
+        "summary": "MIT + Commons Clause；非纯 MIT",
+        "url": "https://raw.githubusercontent.com/DavidHDev/react-bits/main/LICENSE.md"
+      },
+      "audit_note": "允许作为网站/产品组成部分使用；禁止单独倒卖/重发组件库及相关工具、导出资源包；CountUp 当前使用 motion/react，GSAP适配须明确记录"
+    }
+  ],
+  "schema_version": 2,
+  "checked_at": "2026-10-19",
+  "status_labels": {
+    "source_verified": "已取得组件/模板源码",
+    "source_unverified": "入口可读，完整源码未取得",
+    "mixed_access": "免费与付费混合，具体源码待核实",
+    "export_unverified": "编辑器可达，导出未验证",
+    "snippet_only": "仅取得用法片段",
+    "paid_specific_free_other": "书签项受限，另有免费源码",
+    "demo_only": "仅确认演示",
+    "source_license_unclear": "已取得源码，复制许可未确认",
+    "aggregator": "搜索聚合，需跟进提供方",
+    "inspiration_only": "灵感图库，未确认统一源码"
+  },
+  "status_counts": {
+    "source_verified": 12,
+    "source_unverified": 5,
+    "mixed_access": 2,
+    "export_unverified": 1,
+    "snippet_only": 1,
+    "paid_specific_free_other": 1,
+    "demo_only": 1,
+    "source_license_unclear": 1,
+    "aggregator": 1,
+    "inspiration_only": 6
+  }
+}

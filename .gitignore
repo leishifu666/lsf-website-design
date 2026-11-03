@@ -1,0 +1,19 @@
+# Local dependencies and caches
+node_modules/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated browser / test output
+playwright-report/
+test-results/
+.lighthouseci/
+scripts/out/

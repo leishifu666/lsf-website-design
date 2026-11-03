@@ -1,0 +1,519 @@
+{
+  "version": 2,
+  "scope": "C",
+  "provenance": {
+    "kind": "LSF编写的构图方法，不是已验证组件或客户业务事实",
+    "inspiration": "https://github.com/Leonxlnx/taste-skill/tree/main/skills/taste-skill/library",
+    "note": "借鉴Taste的方法库与条件筛选组织方式；16项方法由LSF编写，不是已验证组件。更多产品线索见product-reference-seeds.json，网站任务仍需实际五站研究。"
+  },
+  "directions": [
+    {
+      "id": "name-as-space",
+      "name": "名称成为空间",
+      "sectors": [
+        "culture",
+        "studio",
+        "event"
+      ],
+      "tones": [
+        "bold",
+        "editorial"
+      ],
+      "needs": [],
+      "hero": [
+        "名称沿共同网格放大，真实内容嵌入字形留白，说明与主动作置于同一边线",
+        "名称分置画面两端，中间容纳主题主体，形成从名称到对象的阅读路径"
+      ],
+      "flow": [
+        "主视觉 → 作品索引 → 代表内容展开 → 联系",
+        "主视觉 → 一段具体介绍 → 内容对照 → 行动"
+      ],
+      "type": "展示字与正文形成明显尺度差；沿用已有字体角色，不把长中文名硬压成英文宽度",
+      "materials": "主题自有图或独立生图作为字形中的内容，不能用通用装饰填空",
+      "mobile": "按中文实际断行重新排名称；主体与主动作保持首屏可见，不缩成桌面缩略图",
+      "interaction": "选择一个真实内容后，名称中的对应窗口切换并支持键盘操作",
+      "pitfall": "名称不可读或只有大字没有产品内容",
+      "transparent": false,
+      "family": "typographic-space"
+    },
+    {
+      "id": "object-stage",
+      "name": "主体与分层舞台",
+      "sectors": [
+        "product",
+        "commerce",
+        "fashion"
+      ],
+      "tones": [
+        "luxury",
+        "bold",
+        "warm"
+      ],
+      "needs": [
+        "imagegen"
+      ],
+      "hero": [
+        "透明主体跨越两栏，标题和参数沿共同边线排布，前中后景分离",
+        "主体沿对角线占据主视觉，一侧留出真实规格与主动作，背景单独生成"
+      ],
+      "flow": [
+        "主体全貌 → 局部材质 → 规格对照 → 选择",
+        "主体全貌 → 使用场景 → 细节展开 → 行动"
+      ],
+      "type": "标题、规格和正文三个角色有明确关系，不把规格当装饰性数字",
+      "materials": "生成完整透明主体；环境图按需另生成，统一光源、透视与材质",
+      "mobile": "主体重新构图，参数改为顺序阅读；不得裁掉决定产品识别的部位",
+      "interaction": "材料或配置选择引起有依据的主体/规格变化，真实三维按场景技术实现",
+      "pitfall": "用图片位移冒充三维部件、把真实UI烘焙进图片",
+      "transparent": true,
+      "family": "object-stage"
+    },
+    {
+      "id": "editorial-index",
+      "name": "内容索引与阅读轨道",
+      "sectors": [
+        "culture",
+        "education",
+        "studio"
+      ],
+      "tones": [
+        "editorial",
+        "quiet"
+      ],
+      "needs": [],
+      "hero": [
+        "具体主张与一张代表内容同屏，侧边内容索引连接后续章节",
+        "标题占一条轨道，案例或资料沿另一条轨道展开，共用稳定的对齐线"
+      ],
+      "flow": [
+        "主张与内容 → 索引 → 重点展开 → 下一步",
+        "问题 → 证据对照 → 方法 → 行动"
+      ],
+      "type": "用标题、正文与注释表达内容层级，必要的标签和分隔按阅读需要保留",
+      "materials": "主题相关插图或案例图；不用与正文无关的情绪图冒充证据",
+      "mobile": "索引折叠成明确导航，正文保持阅读顺序，横向轨道改为纵向",
+      "interaction": "索引定位、筛选或章节切换服务真实阅读任务",
+      "pitfall": "小字、空泛引言或把所有章节做成相同左右分栏",
+      "transparent": false,
+      "family": "information-index"
+    },
+    {
+      "id": "place-story",
+      "name": "场所成为叙事",
+      "sectors": [
+        "hospitality",
+        "architecture",
+        "restaurant"
+      ],
+      "tones": [
+        "warm",
+        "luxury",
+        "quiet"
+      ],
+      "needs": [
+        "imagegen"
+      ],
+      "hero": [
+        "环境图与明确的地点/服务信息同屏，文字放入为阅读预留的空间",
+        "环境大景与局部细节形成尺度对照，入口动作直接通往实际服务"
+      ],
+      "flow": [
+        "场所全貌 → 行走路径 → 细节 → 到达/预约",
+        "环境 → 使用经历 → 服务信息 → 联系"
+      ],
+      "type": "让地点、服务与行动可快速识别，保留必要正文，不用空泛口号代替信息",
+      "materials": "生成有主题依据的环境图并明确其示意属性；不能伪称真实门店照片",
+      "mobile": "按主体与文字位置单独生成或裁切移动构图，预约入口不被场景遮住",
+      "interaction": "房型、路线或服务切换有清晰结果；滚动叙事须有阅读停顿",
+      "pitfall": "虚构地址、真实场所或让满版图片淹没必要信息",
+      "transparent": false,
+      "family": "spatial-story"
+    },
+    {
+      "id": "material-lab",
+      "name": "材料与细节实验台",
+      "sectors": [
+        "product",
+        "architecture",
+        "fashion"
+      ],
+      "tones": [
+        "technical",
+        "luxury"
+      ],
+      "needs": [
+        "imagegen"
+      ],
+      "hero": [
+        "同一主体的全貌与微距形成大小对照，用真实细节引导阅读",
+        "主体居于稳定框架内，材料样本与说明在两侧形成比较关系"
+      ],
+      "flow": [
+        "全貌 → 材料对照 → 工艺过程 → 规格",
+        "一个细节 → 使用结果 → 全貌 → 行动"
+      ],
+      "type": "参数对齐且单位完整，标题与说明分工，不以大量小标签装饰主体",
+      "materials": "同一光线下生成透明主体和局部材质图，保留参考有意纹理",
+      "mobile": "先全貌再细节，材料选择器有触屏和文字反馈，不能只靠hover",
+      "interaction": "材质对照或细节放大支持键盘与触屏，状态有可读名称",
+      "pitfall": "材料纹理噪杂、主体畸变、参数没有依据",
+      "transparent": true,
+      "family": "material-comparison"
+    },
+    {
+      "id": "artifact-system",
+      "name": "主题物件组织信息",
+      "sectors": [
+        "event",
+        "commerce",
+        "restaurant",
+        "education"
+      ],
+      "tones": [
+        "playful",
+        "editorial",
+        "warm"
+      ],
+      "needs": [
+        "imagegen"
+      ],
+      "hero": [
+        "把主题已有的票、菜单或标签作为构图框架，核心内容仍由真实HTML呈现",
+        "一个主题物件连接时间、价格或流程信息，形成有来由的阅读路线"
+      ],
+      "flow": [
+        "主题物件 → 内容展开 → 具体信息 → 行动",
+        "选择 → 结果预览 → 依据 → 行动"
+      ],
+      "type": "文字角色来自内容的实际用途，中文可读性优先，不照搬微小票据字",
+      "materials": "生成透明道具或纸张载体，界面文字与交互保持为HTML",
+      "mobile": "拆开重叠内容并保留物件特征，触屏目标不受装饰遮挡",
+      "interaction": "选项改变票面、配置或顺序，生成的结果对应真实输入",
+      "pitfall": "物件只是装饰，没有帮助理解主题",
+      "transparent": true,
+      "family": "artifact-system"
+    },
+    {
+      "id": "product-performs",
+      "name": "产品直接演示结果",
+      "sectors": [
+        "software",
+        "finance",
+        "education"
+      ],
+      "tones": [
+        "technical",
+        "quiet",
+        "playful"
+      ],
+      "needs": [
+        "product-ui"
+      ],
+      "hero": [
+        "一句具体主张与可操作的产品片段同屏，用真实输入输出解释用途",
+        "任务输入、执行状态与结果形成连续轨道，主动作紧邻结果"
+      ],
+      "flow": [
+        "可操作结果 → 能力证据 → 使用过程 → 行动",
+        "用户问题 → 真实演示 → 对照与边界 → 行动"
+      ],
+      "type": "营销标题与应用数据各用适合的层级，数字精度和单位一致",
+      "materials": "真实产品UI使用现有组件；背景或解释插图按需要生图，不替代可操作产品",
+      "mobile": "保留最小可完成任务，数据有明确阅读顺序，复杂操作提供可用入口",
+      "interaction": "输入、计算或筛选得到真实结果，含空态、错误与恢复",
+      "pitfall": "用灰条和虚构数字伪装产品界面",
+      "transparent": false,
+      "family": "live-workflow"
+    },
+    {
+      "id": "chapter-fields",
+      "name": "章节与色域节奏",
+      "sectors": [
+        "event",
+        "culture",
+        "studio",
+        "software"
+      ],
+      "tones": [
+        "bold",
+        "playful"
+      ],
+      "needs": [],
+      "hero": [
+        "主内容占一个明确色域，用尺度变化引出下一段而非堆卡片",
+        "标题与主题图形建立强主次，下一章节的边缘提示阅读连续性"
+      ],
+      "flow": [
+        "一个主张 → 一个证据 → 一个过程 → 一个行动",
+        "主题 → 内容章节 → 重点展开 → 收尾"
+      ],
+      "type": "跨章节维持同一字体体系与对齐角色，色域变化不造成字号失控",
+      "materials": "色域来自品牌或主题；主题插图按需生图，所有章节保持材质一致",
+      "mobile": "保留章节节奏与清楚标题，滚动距离按实际内容调整",
+      "interaction": "进度或章节切换对应实际内容，减少动态效果时顺序仍完整",
+      "pitfall": "换色替代内容、每章同一种入场或异常长的空白",
+      "transparent": false,
+      "family": "chapter-rhythm"
+    },
+    {
+      "id": "configuration-compare",
+      "name": "配置与结果对照",
+      "family": "decision-comparison",
+      "sectors": [
+        "product",
+        "commerce",
+        "software"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "verified-specs"
+      ],
+      "hero": [
+        "真实配置分置两条轨道，中央显示选择后可观察的结果",
+        "主体与参数对齐，通过前后/方案对照揭示差别"
+      ],
+      "flow": [
+        "配置选择 → 真实差别 → 使用情境 → 行动",
+        "一个结果 → 参数依据 → 方案选择"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "产品图使用自有或实际生成素材，规格来自确认数据，不将数字烘焙进图",
+      "mobile": "保留一组可完成比较的选项，比较表可顺序阅读",
+      "interaction": "切换配置明确改变主体、规格或计算结果，保留可回退选择",
+      "pitfall": "虚构规格、价格、优势或用纯换色假装配置变化",
+      "transparent": false
+    },
+    {
+      "id": "route-atlas",
+      "name": "路线与空间索引",
+      "family": "spatial-navigation",
+      "sectors": [
+        "hospitality",
+        "architecture",
+        "restaurant",
+        "culture"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "verified-locations"
+      ],
+      "hero": [
+        "真实地点与空间图组成索引，关键任务与目的地同屏",
+        "从一个入口展开到有依据的区域或路径，文字跟随所选对象"
+      ],
+      "flow": [
+        "入口 → 路线/空间 → 具体体验 → 到达",
+        "空间索引 → 局部展开 → 服务行动"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "地图和空间关系使用确认资料；示意图明确标注，不伪称精确导航",
+      "mobile": "以清晰地点列表替代拥挤空间图，操作与地址可读",
+      "interaction": "选择真实区域显示对应内容，触屏和键盘可完成同一任务",
+      "pitfall": "虚构地址、距离或让用户只能拖动画面寻找入口",
+      "transparent": false
+    },
+    {
+      "id": "workflow-journey",
+      "name": "任务穿过产品",
+      "family": "live-workflow",
+      "sectors": [
+        "software",
+        "education",
+        "finance",
+        "dev-tool"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "product-ui"
+      ],
+      "hero": [
+        "输入、处理、结果沿一条轨道展开，真实产品组件直接承担视觉中心",
+        "一个实际任务逐步改变同一产品界面，说明紧邻结果"
+      ],
+      "flow": [
+        "任务输入 → 状态变化 → 结果 → 后续动作",
+        "结果样例 → 可操作过程 → 能力边界"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "真实UI与已验证样例；需要主题背景时另生图，不用假数据框填充",
+      "mobile": "复杂流程缩成可完成的最小任务，保留错误和恢复入口",
+      "interaction": "用户输入实际改变结果；滚动只解释过程，不代替可操作任务",
+      "pitfall": "伪造AI执行、成功反馈、数据或把完整应用截图当交互",
+      "transparent": false
+    },
+    {
+      "id": "evidence-exhibit",
+      "name": "证据成为展台",
+      "family": "evidence-sequence",
+      "sectors": [
+        "education",
+        "health",
+        "finance",
+        "product"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "verified-evidence"
+      ],
+      "hero": [
+        "一项确认结论与其证据同屏，后续内容沿证据关系展开",
+        "原始对象与解释形成主次，在细节之间建立可追溯对照"
+      ],
+      "flow": [
+        "问题 → 可核对证据 → 方法 → 适用边界 → 行动",
+        "一项结果 → 具体依据 → 使用方式"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "用户确认的样本、记录或资料；生成图明确是解释示意，不冒充实验与客户成果",
+      "mobile": "证据与结论保持相邻，图表有文字替代与来源入口",
+      "interaction": "选择样本或条件，显示对应真实资料及解释；没有数据不装成实时计算",
+      "pitfall": "虚构科研、疗效、客户背书或将动画当证据",
+      "transparent": false
+    },
+    {
+      "id": "catalog-focus",
+      "name": "一个主角带出系列",
+      "family": "catalog-focus",
+      "sectors": [
+        "commerce",
+        "fashion",
+        "culture"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "imagegen"
+      ],
+      "hero": [
+        "一个代表对象占据主视觉，相关系列沿另一条尺度轨道展开",
+        "对象细节与系列选择共享一个舞台，说明随真实选择变化"
+      ],
+      "flow": [
+        "代表对象 → 系列关系 → 场景与细节 → 选择",
+        "系列索引 → 一个对象展开 → 行动"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "统一主题的真实产品素材或实际生图，不能把示意图当在售实物照片",
+      "mobile": "优先一个对象与清晰选择器，其他内容顺序展开，避免密集缩略图",
+      "interaction": "真实选项切换对应对象与说明；操作期间标题和主动作位置稳定",
+      "pitfall": "无产品内容、混用材质或靠多余拖拽制造趣味",
+      "transparent": true
+    },
+    {
+      "id": "time-stage",
+      "name": "时间推进一场体验",
+      "family": "time-sequence",
+      "sectors": [
+        "event",
+        "music",
+        "culture",
+        "education"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [],
+      "hero": [
+        "一个明确时刻或主题占据主视觉，后续内容沿真实时间顺序推进",
+        "代表内容与日程并置，选中章节改变当前内容而非只改颜色"
+      ],
+      "flow": [
+        "主题 → 时间/章节 → 代表内容 → 参与",
+        "一个片段 → 上下文 → 完整安排 → 行动"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "使用确认的时间、内容与素材；新插图按任务实际生图，不造活动嘉宾或日期",
+      "mobile": "日程改为可阅读列表，章节跳转不依赖长距离滚动",
+      "interaction": "选择章节进入对应片段，支持返回和键盘，滚动叙事可倒滚与直达",
+      "pitfall": "编造日程、自动播放遮住信息或制造异常空白拖长体验",
+      "transparent": false
+    },
+    {
+      "id": "community-voices",
+      "name": "真实声音组织内容",
+      "family": "people-evidence",
+      "sectors": [
+        "education",
+        "health",
+        "culture",
+        "software"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "approved-testimonials"
+      ],
+      "hero": [
+        "一个真实人物或故事为主，其他声音形成有层级的入口",
+        "已授权引述与对应使用片段相邻，索引连接实际问题"
+      ],
+      "flow": [
+        "人物问题 → 具体经历 → 产品作用 → 后续动作",
+        "真实引述 → 上下文 → 多样例 → 行动"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "已授权人物、原话与资料；生成插图只能作为明确示意，不伪造真人照片与推荐",
+      "mobile": "先讲一个完整故事，再提供可操作切换，文字不藏进轮播自动滚动",
+      "interaction": "按真实需求筛选故事，选择后显示对应证据，焦点与阅读顺序清楚",
+      "pitfall": "虚构评价、客户、头像、成果或把同一句空话换名字重复",
+      "transparent": false
+    },
+    {
+      "id": "assembly-reveal",
+      "name": "部件解释整体",
+      "family": "assembly-space",
+      "sectors": [
+        "product",
+        "architecture",
+        "dev-tool"
+      ],
+      "tones": [
+        "technical",
+        "editorial",
+        "playful"
+      ],
+      "needs": [
+        "imagegen",
+        "verified-specs"
+      ],
+      "hero": [
+        "有依据的整体与部件形成空间关系，说明对应到真实结构",
+        "主体在滚动或选择中逐层展开，始终能看清整体位置"
+      ],
+      "flow": [
+        "整体 → 一项部件关系 → 工作过程 → 应用",
+        "使用结果 → 结构解释 → 全貌 → 行动"
+      ],
+      "type": "标题说明当前任务，关键结果与操作共享对齐线；数据与必要说明清晰，不堆装饰标签",
+      "materials": "依据确认结构准备生成参考与授权模型；建模优先现有开源组件和工具，不虚构内部构造",
+      "mobile": "保留完整结构图和顺序说明，触屏点选有文字反馈，不依赖悬停",
+      "interaction": "鼠标选择部件显示真实用途；滚动、触屏和键盘都能回到整体",
+      "pitfall": "没有结构依据却制作假剖面、用图片位移冒充真实三维",
+      "transparent": true
+    }
+  ]
+}

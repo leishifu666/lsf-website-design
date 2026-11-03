@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "source": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/library/sites.json",
+  "license": "https://github.com/Leonxlnx/taste-skill/blob/main/LICENSE",
+  "checked_at": "2026-11-02",
+  "verification": "本轮核对上游站点元数据；未逐站实测。仅供发现，不是当前项目五站研究记录、获奖证明或可复用源码。",
+  "sites": [
+    {
+      "id": "aww-seasats",
+      "name": "Seasats",
+      "url": "https://www.seasats.com/",
+      "kind": "physical-product"
+    },
+    {
+      "id": "aww-vero-new-york",
+      "name": "Vero New-York",
+      "url": "https://verostudio.com/",
+      "kind": "physical-product"
+    },
+    {
+      "id": "aww-illoca",
+      "name": "Illoca",
+      "url": "https://illoca.unseen.co/",
+      "kind": "saas"
+    },
+    {
+      "id": "opl-juggle",
+      "name": "Juggle",
+      "url": "https://www.joinjuggle.com",
+      "kind": "saas"
+    },
+    {
+      "id": "opl-heyclicky",
+      "name": "heyclicky",
+      "url": "https://www.heyclicky.com",
+      "kind": "ai-product"
+    },
+    {
+      "id": "aww-cerebrium",
+      "name": "Cerebrium",
+      "url": "https://cerebrium.ai/",
+      "kind": "ai-product"
+    },
+    {
+      "id": "aww-made-with-gsap-1",
+      "name": "Made With Gsap",
+      "url": "https://madewithgsap.com/",
+      "kind": "dev-tool"
+    },
+    {
+      "id": "opl-dialkit",
+      "name": "DialKit",
+      "url": "https://www.dialkit.dev/",
+      "kind": "dev-tool"
+    },
+    {
+      "id": "aww-aardvark-book-club",
+      "name": "Aardvark Book Club",
+      "url": "https://aardvarkbookclub.com",
+      "kind": "ecommerce"
+    },
+    {
+      "id": "opl-sand-studio",
+      "name": "Sand Studio",
+      "url": "https://www.sandstudio.shop/",
+      "kind": "ecommerce"
+    },
+    {
+      "id": "opl-le-petit-bleu",
+      "name": "Le Petit Bleu",
+      "url": "https://www.lepetitbleucafe.com/",
+      "kind": "restaurant"
+    },
+    {
+      "id": "opl-madie",
+      "name": "Madie",
+      "url": "https://madie.es",
+      "kind": "restaurant"
+    },
+    {
+      "id": "aww-white-desert",
+      "name": "White Desert",
+      "url": "https://white-desert.com/",
+      "kind": "hospitality"
+    },
+    {
+      "id": "aww-tengile-malamala-collection",
+      "name": "Tengile Malamala Collection",
+      "url": "https://tengilemalamala.com/",
+      "kind": "hospitality"
+    },
+    {
+      "id": "aww-kononenko-architectural-bureau",
+      "name": "Kononenko Architectural Bureau",
+      "url": "https://kononenkogroup.com",
+      "kind": "architecture"
+    },
+    {
+      "id": "aww-izanami",
+      "name": "IZANAMI",
+      "url": "https://izanami-official.com/",
+      "kind": "architecture"
+    },
+    {
+      "id": "opl-the-queue",
+      "name": "The Queue",
+      "url": "https://sheets.works/data-viz/the-queue/",
+      "kind": "culture"
+    },
+    {
+      "id": "aww-mosbys-files",
+      "name": "Mosby’s Files",
+      "url": "https://www.mosbyfiles.com/",
+      "kind": "culture"
+    },
+    {
+      "id": "opl-compile",
+      "name": "Cursor Compile",
+      "url": "https://cursor.com/compile",
+      "kind": "event"
+    },
+    {
+      "id": "opl-sarah-matt-wedding",
+      "name": "Sarah & Matt Wedding",
+      "url": "https://sarahandmatt.wedding",
+      "kind": "event"
+    },
+    {
+      "id": "aww-dragonfly-redux",
+      "name": "Dragonfly Redux",
+      "url": "https://dragonfly2.studiofreight.dev/",
+      "kind": "finance"
+    },
+    {
+      "id": "aww-sharplink",
+      "name": "Sharplink",
+      "url": "https://www.sharplink.com/",
+      "kind": "finance"
+    },
+    {
+      "id": "opl-zara-webb",
+      "name": "Zara Webb",
+      "url": "https://zperinatal.com",
+      "kind": "health"
+    },
+    {
+      "id": "opl-neuropelvic-surgery",
+      "name": "Neuropelvic Surgery",
+      "url": "https://neuropelvicsurgery.com",
+      "kind": "health"
+    },
+    {
+      "id": "aww-serotoninn",
+      "name": "Serotoninn",
+      "url": "https://serotoninn.com/",
+      "kind": "fashion"
+    },
+    {
+      "id": "aww-decathlon-yestalgia",
+      "name": "Decathlon Yestalgia",
+      "url": "https://decathlonyestalgia.com/",
+      "kind": "fashion"
+    },
+    {
+      "id": "opl-screentune",
+      "name": "ScreenTune",
+      "url": "https://screentune.app",
+      "kind": "consumer-app"
+    },
+    {
+      "id": "opl-postaway",
+      "name": "Postaway",
+      "url": "https://www.postaway.space",
+      "kind": "consumer-app"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "lsf-web-replica",
+    "title": "风格参考",
+    "mode": "A",
+    "description": "风格参考：高精度参考主站的视觉、交互与真实技术，默认直接制作一套，可选同提示词的三个预览",
+    "kind": "replica"
+  },
+  {
+    "name": "lsf-web-reference",
+    "title": "参考创作",
+    "mode": "B",
+    "description": "参考创作：用户明确只学方法时，迁移适用原则，为当前主题形成自己的表达",
+    "kind": "reference"
+  },
+  {
+    "name": "lsf-web-original",
+    "title": "原创探索",
+    "mode": "C",
+    "description": "原创探索：五站研究后，用构图方法库和种子形成三个真实预览，再制作选定方向",
+    "kind": "original"
+  },
+  {
+    "name": "lsf-web-discover",
+    "title": "寻找参考",
+    "mode": "D",
+    "description": "寻找参考：用户明确要先找站或看候选时，研究至少五站并交付候选与分析",
+    "kind": "discover"
+  },
+  {
+    "name": "lsf-web-prompt",
+    "title": "反推提示词",
+    "mode": "F",
+    "description": "反推提示词：只取证参考并交付建站与素材提示词，不自动建站",
+    "kind": "prompt"
+  },
+  {
+    "name": "lsf-web-review",
+    "title": "视觉评审",
+    "mode": "G",
+    "description": "视觉评审：独立Agent通过Ego Lite实测与截图，优先Gemini/Claude评分，当前模型仅作备选",
+    "kind": "review"
+  },
+  {
+    "name": "lsf-web-copy-review",
+    "title": "文案评审",
+    "mode": "H",
+    "description": "文案评审：独立Agent检查成品冗余文字，保留有价值的模块和场景",
+    "kind": "copy-review"
+  }
+]

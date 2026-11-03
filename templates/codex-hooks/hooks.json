@@ -1,0 +1,16 @@
+{
+  "description": "LSF-网站设计：网站任务没评审、没过检查、文案没走 Gemini 时，不让 Codex 结束",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.agents/skills/lsf-website-design/scripts/lsf-stop-gate.mjs\"",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

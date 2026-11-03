@@ -1,0 +1,420 @@
+{
+  "schema": 1,
+  "groups": {
+    "production-start": {
+      "purpose": "制作任务的范围与共享约束",
+      "files": [
+        "references/制作约定.md",
+        "references/制作流程.md"
+      ]
+    },
+    "a-start": {
+      "purpose": "A高精度风格参考、统一提示词与直接制作/可选预览分流",
+      "files": [
+        "templates/风格参考统一提示词.md",
+        "references/原站侦察与回放.md"
+      ]
+    },
+    "research": {
+      "purpose": "实际五站研究与产品记忆点",
+      "files": [
+        "references/五站调研与记忆点.md"
+      ]
+    },
+    "a-research": {
+      "purpose": "主参考的状态、素材与机制取证",
+      "files": [
+        "references/原站侦察与回放.md",
+        "references/参考取证与组件规格.md",
+        "references/A模式证据格式.md"
+      ]
+    },
+    "principles": {
+      "purpose": "参考创作与既有网站的拆解方法",
+      "files": [
+        "references/拆解方法.md"
+      ]
+    },
+    "original": {
+      "purpose": "原创产品候选、方法筛选与种子",
+      "files": [
+        "references/原创构图方法库.md",
+        "references/产品参考与复用来源.md"
+      ]
+    },
+    "discover": {
+      "purpose": "先找站或原创路径边界；只读对应C/D小节",
+      "files": [
+        "references/从零型与找参考.md"
+      ]
+    },
+    "previews": {
+      "purpose": "A可选三预览同提示词、同主题、同参考；C原创探索按范围执行",
+      "files": [
+        "references/三方向预览与确认.md"
+      ]
+    },
+    "build": {
+      "purpose": "正式实现的素材、技术与源码要求",
+      "files": [
+        "references/正式制作与核验.md",
+        "references/组件书签与源码复用.md",
+        "references/特殊渲染.md"
+      ]
+    },
+    "copy": {
+      "purpose": "Gemini候选与独立审核；成品审核另读page模式",
+      "files": [
+        "references/关联技能.md",
+        "references/topics/copy/00-使用边界.md",
+        "references/topics/copy/02-候选审核.md"
+      ]
+    },
+    "page-copy": {
+      "purpose": "成品页面冗余审核；文字与模块分别判断",
+      "files": [
+        "references/topics/copy/04-成品页面.md",
+        "agents/copy-reviewer.toml"
+      ]
+    },
+    "review-runner": {
+      "purpose": "独立视觉评审的派发、证据、来源和预算",
+      "files": [
+        "references/独立评审入口.md",
+        "references/外部视觉评审.md",
+        "references/视觉评审浏览器取证.md"
+      ]
+    },
+    "review-methods": {
+      "purpose": "评审实际注入规则；由评审策略按制作模式选择",
+      "review_methods": true
+    },
+    "deliver": {
+      "purpose": "最终核验、脚本边界与如实交付",
+      "files": [
+        "references/正式制作与核验.md",
+        "references/自动化与门槛.md"
+      ]
+    },
+    "prompt": {
+      "purpose": "F只反推提示词与素材方案",
+      "files": [
+        "references/参考网站反推提示词.md"
+      ]
+    },
+    "motion": {
+      "purpose": "场景动效、参数和逐项落地",
+      "files": [
+        "references/topics/motion/00-使用边界.md",
+        "references/交互动效.md",
+        "references/GSAP动效联动与审查.md"
+      ]
+    },
+    "motion-state": {
+      "purpose": "导航、开场、页面切换与状态过渡",
+      "files": [
+        "references/topics/motion/03-状态与转场.md"
+      ]
+    },
+    "motion-input": {
+      "purpose": "滚动手感、拖拽、弹簧和打断",
+      "files": [
+        "references/topics/motion/04-操作与工程.md",
+        "references/topics/motion/05-状态与细节.md"
+      ]
+    },
+    "fun": {
+      "purpose": "有趣动效、模型、鼠标交互与实际开源组件",
+      "files": [
+        "references/趣味动效与交互选型.md",
+        "references/产品参考与复用来源.md"
+      ]
+    },
+    "images": {
+      "purpose": "内置生图、透明素材、固定提示词结尾",
+      "files": [
+        "references/氛围图片.md"
+      ]
+    },
+    "type": {
+      "purpose": "文字断行、光学对齐、间距与层级",
+      "files": [
+        "references/排版细节.md"
+      ]
+    },
+    "icons": {
+      "purpose": "只用开源图标库；SVG立体示意的适用边界",
+      "files": [
+        "references/图标与插画.md"
+      ]
+    },
+    "scroll": {
+      "purpose": "滚动叙事、分镜、pin与进度驱动",
+      "files": [
+        "references/滚动叙事.md"
+      ]
+    },
+    "interaction": {
+      "purpose": "可发现入口、反馈、恢复和直接操作",
+      "files": [
+        "references/以人为中心的交互设计.md"
+      ]
+    },
+    "native": {
+      "purpose": "原生交互与内容状态",
+      "files": [
+        "references/topics/frontend/00-使用边界.md",
+        "references/topics/frontend/03-原生交互.md"
+      ]
+    },
+    "surface": {
+      "purpose": "材质表面、图片边缘、圆角与滚动边界",
+      "files": [
+        "references/topics/frontend/00-使用边界.md",
+        "references/topics/frontend/04-视觉细节.md"
+      ]
+    },
+    "sources": {
+      "purpose": "组件来源、源码与许可证；按所选网站查询数据",
+      "files": [
+        "references/组件书签与源码复用.md",
+        "references/产品参考与复用来源.md"
+      ]
+    },
+    "install": {
+      "purpose": "仅首次安装交接的三个免费组件",
+      "files": [
+        "references/首次安装与依赖.md"
+      ]
+    },
+    "copy-sources": {
+      "purpose": "文案资料来源；引用原文或核对出处时读取",
+      "files": [
+        "references/topics/copy/01-规则与来源.md"
+      ]
+    },
+    "a-proof": {
+      "purpose": "A 模式的原站锁定、可运行样段与整站对照",
+      "files": [
+        "references/A模式证据格式.md"
+      ]
+    }
+  },
+  "modes": {
+    "A": {
+      "title": "风格参考",
+      "scope": "有参考网址先在原项目实查其页面、六类行为、主角与资产，再做样段、逐块对照。默认直接制作一套，用户明确比较时才做三个同提示词预览。",
+      "stages": {
+        "start": [
+          "production-start",
+          "a-start",
+          "a-proof"
+        ],
+        "research": [
+          "a-research"
+        ],
+        "prototype": [
+          "a-proof"
+        ],
+        "preview": [
+          "previews",
+          "sources",
+          "images"
+        ],
+        "copy": [
+          "copy"
+        ],
+        "build": [
+          "build",
+          "a-proof"
+        ],
+        "review": [
+          "page-copy",
+          "review-runner",
+          "a-proof"
+        ],
+        "deliver": [
+          "deliver",
+          "a-proof"
+        ]
+      }
+    },
+    "B": {
+      "title": "参考创作",
+      "scope": "用户明确只学方法时迁移原则；不自动加入A/C的三版确认。",
+      "stages": {
+        "start": [
+          "production-start",
+          "principles"
+        ],
+        "research": [
+          "research"
+        ],
+        "copy": [
+          "copy"
+        ],
+        "build": [
+          "build"
+        ],
+        "review": [
+          "page-copy",
+          "review-runner"
+        ],
+        "deliver": [
+          "deliver"
+        ]
+      }
+    },
+    "C": {
+      "title": "原创探索",
+      "scope": "实际研究后形成产品相关的原创方向；首批三个，不满意按反馈继续新方案。",
+      "stages": {
+        "start": [
+          "production-start",
+          "original"
+        ],
+        "research": [
+          "research",
+          "original"
+        ],
+        "preview": [
+          "previews",
+          "original",
+          "sources",
+          "images"
+        ],
+        "copy": [
+          "copy"
+        ],
+        "build": [
+          "build"
+        ],
+        "review": [
+          "page-copy",
+          "review-runner"
+        ],
+        "deliver": [
+          "deliver"
+        ]
+      }
+    },
+    "D": {
+      "title": "寻找参考",
+      "scope": "只找真实参考候选；用户选站后转A/B，沿用证据，不直接建站。",
+      "stages": {
+        "start": [
+          "discover"
+        ],
+        "research": [
+          "research",
+          "sources"
+        ]
+      }
+    },
+    "F": {
+      "title": "反推提示词",
+      "scope": "只反推和交付提示词，不运行建站begin、生图或评分。",
+      "stages": {
+        "start": [
+          "prompt"
+        ],
+        "research": [
+          "prompt"
+        ]
+      }
+    },
+    "G": {
+      "title": "视觉评审",
+      "scope": "只取证、评分和提意见；不修改页面，不启动建站或文案生成。",
+      "stages": {
+        "start": [
+          "review-runner"
+        ],
+        "review": [
+          "review-methods"
+        ]
+      }
+    },
+    "H": {
+      "title": "文案评审",
+      "scope": "只审核成品冗余文字；不直接删模块、不自动重写。",
+      "stages": {
+        "start": [
+          "page-copy"
+        ],
+        "review": [
+          "page-copy"
+        ]
+      }
+    }
+  },
+  "topics": {
+    "motion": "motion",
+    "motion-state": "motion-state",
+    "motion-input": "motion-input",
+    "fun": "fun",
+    "images": "images",
+    "type": "type",
+    "icons": "icons",
+    "scroll": "scroll",
+    "interaction": "interaction",
+    "native": "native",
+    "surface": "surface",
+    "sources": "sources",
+    "install": "install",
+    "copy-sources": "copy-sources"
+  },
+  "hubs": [
+    {
+      "file": "references/交互动效.md",
+      "title": "交互动效（hover、按压、滚动、页面切换、微交互）",
+      "boundary": "references/topics/motion/00-使用边界.md",
+      "children": [
+        "references/topics/motion/01-原则与参数.md",
+        "references/topics/motion/02-组件与落地.md",
+        "references/topics/motion/03-状态与转场.md",
+        "references/topics/motion/04-操作与工程.md",
+        "references/topics/motion/05-状态与细节.md"
+      ]
+    },
+    {
+      "file": "references/文案审核.md",
+      "title": "文案审核：资料、规则、试跑",
+      "boundary": "references/topics/copy/00-使用边界.md",
+      "children": [
+        "references/topics/copy/01-规则与来源.md",
+        "references/topics/copy/02-候选审核.md",
+        "references/topics/copy/03-历史案例与建议.md",
+        "references/topics/copy/04-成品页面.md"
+      ]
+    },
+    {
+      "file": "references/前卫设计与前端技巧.md",
+      "title": "前卫设计与前端技巧",
+      "boundary": "references/topics/frontend/00-使用边界.md",
+      "children": [
+        "references/topics/frontend/01-平台能力.md",
+        "references/topics/frontend/02-工程参考.md",
+        "references/topics/frontend/03-原生交互.md",
+        "references/topics/frontend/04-视觉细节.md"
+      ]
+    }
+  ],
+  "purposes": {
+    "SKILL.md": "常驻总入口：自动路由、共享边界和索引",
+    "README.md": "安装和使用说明；首次安装才触发依赖引导",
+    "INDEX.md": "全部资源的可点击总索引；不是加载清单",
+    "references/模式阅读导航.md": "按模式和当前阶段选读；由资源路由生成",
+    "references/资源路由.json": "模式、阶段、专题和拆分文件映射的维护源",
+    "references/component-bookmarks.json": "组件来源数据；按所选站点读取，不整份注入上下文",
+    "references/design-review-policy.json": "评分、预算、渠道及按制作模式选取评审资料的唯一配置",
+    "references/workflow-defaults.json": "现有文案入口与工作流偏好；按需读取",
+    "library/original-directions.json": "C原创构图方法；按行业与真实资源条件筛选",
+    "scripts/resource-index.mjs": "从资源路由与真实文件生成总索引、阅读导航和专题兼容索引",
+    "scripts/read-plan.mjs": "只查询模式/阶段读取清单，不执行页面工作",
+    "scripts/draw-original.mjs": "C方向筛选；首批三版或按反馈补充，不覆盖已有输出",
+    "scripts/README.md": "脚本命令、依赖和验证范围的详细用法",
+    "references/资料索引.md": "保留的原有专题资料、来源与章节指引",
+    "templates/风格参考统一提示词.md": "用户确认的A制作提示词；原文复用，三预览逐字相同；含Shopify填写案例"
+  }
+}

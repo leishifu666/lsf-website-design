@@ -1,0 +1,43 @@
+/* motion 令牌：全站只用这里的缓动和时长。数值来源见 references/交互动效.md B 节。 */
+:root {
+  /* 缓动（Emil Kowalski） */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);      /* 进出场 */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);  /* 屏内移动、变形 */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);   /* 抽屉、sheet */
+  /* 时长 */
+  --dur-press: 160ms;   /* 按压 */
+  --dur-hover: 200ms;   /* hover、tooltip */
+  --dur-pop: 250ms;     /* 下拉、popover */
+  --dur-modal: 350ms;   /* 弹窗、抽屉进场；退场用 --dur-pop */
+  --stagger: 50ms;      /* 列表交错，30–80ms */
+  /* 弹簧（给 Motion 用）：{ type: "spring", duration: 0.5, bounce: 0.2 } */
+}
+
+/* 按压回弹：所有可按元素 */
+:where(button, [role="button"], a.btn) {
+  transition: transform var(--dur-press) var(--ease-out);
+}
+:where(button, [role="button"], a.btn):active { transform: scale(0.97); }
+
+/* hover 只在有指针的设备上启用 */
+@media (hover: hover) and (pointer: fine) {
+  .lift { transition: transform var(--dur-hover) var(--ease-out); }
+  .lift:hover { transform: translateY(-2px); }
+}
+
+/* 弹层从触发点长出来，不从 scale(0) 开始 */
+.popover {
+  transform-origin: var(--transform-origin, top center);
+  transition: transform var(--dur-pop) var(--ease-out), opacity var(--dur-pop) var(--ease-out);
+}
+.popover[data-state="closed"] { opacity: 0; transform: scale(0.95); }
+@starting-style { .popover[data-state="open"] { opacity: 0; transform: scale(0.95); } }
+
+/* 跨页共享元素过渡（Chrome 126+、Safari 18.2；不支持时直接跳转） */
+@view-transition { navigation: auto; }
+
+/* 减少动效：去掉位移，保留淡入淡出 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-property: opacity, color, background-color !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

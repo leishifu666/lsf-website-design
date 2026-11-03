@@ -1,0 +1,118 @@
+{
+  "source": "https://参考站",
+  "measured_at": "YYYY-MM-DD",
+  "viewports": [
+    375,
+    1440
+  ],
+  "_说明": "由 scripts/spec-draft.mjs 生成草稿后人工确认。每类可以写成 {角色名: 值}（推荐）或数组。gen-tokens.mjs 按角色名生成变量名，如 colors.bg → --color-bg、type_scale.body → --text-body。",
+  "colors": {
+    "bg": "rgb(8,9,10)",
+    "surface": "rgb(15,16,17)",
+    "text": "rgb(247,248,248)",
+    "text-muted": "rgb(138,143,152)",
+    "line": "rgba(255,255,255,0.08)",
+    "accent": "",
+    "_来源": "实测"
+  },
+  "fonts": {
+    "sans": "\"Inter Variable\", -apple-system, sans-serif",
+    "mono": "",
+    "_来源": "实测；字体文件需自备授权"
+  },
+  "type_scale": {
+    "body": {
+      "size": "15px",
+      "line": "24px",
+      "weight": "400",
+      "tracking": "-0.165px"
+    },
+    "h1": {
+      "size": "48px",
+      "line": "48px",
+      "weight": "510",
+      "tracking": "-1.056px"
+    },
+    "_来源": "实测 1440；375 下不同的值另起名字，如 h1-m"
+  },
+  "spacing": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "6": "24px",
+    "8": "32px",
+    "section": "128px"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "pill": "9999px",
+    "round": "50%"
+  },
+  "shadows": {
+    "ring": "rgba(0, 0, 0, 0.2) 0px 0px 0px 1px"
+  },
+  "layout": {
+    "max_width": "",
+    "columns": "",
+    "gutter": ""
+  },
+  "motion": {
+    "libs": {
+      "gsap": "3.15.0",
+      "ScrollTrigger": true,
+      "lenis": {
+        "lerp": 0.1,
+        "_来源": "DevTools 读取"
+      }
+    },
+    "durations": {
+      "fast": "100ms",
+      "base": "160ms",
+      "slow": "400ms"
+    },
+    "easings": {
+      "out": "cubic-bezier(0.25,0.46,0.45,0.94)",
+      "drawer": "cubic-bezier(0.32,0.72,0,1)"
+    },
+    "hover": [
+      {
+        "target": "主按钮",
+        "change": "background rgb(229,229,230)→rgb(255,255,255)",
+        "duration": "fast",
+        "_来源": "实测"
+      }
+    ],
+    "press": [
+      {
+        "target": "主按钮",
+        "change": "transform scale(0.97)",
+        "_来源": "实测"
+      }
+    ],
+    "scroll": [
+      {
+        "section": "home-animate",
+        "effect": "钉住",
+        "trigger": "end +=3000px, scrub 1, pin",
+        "_来源": "ScrollTrigger.getAll() 读取"
+      }
+    ],
+    "page_transition": "",
+    "rendering": null,
+    "smooth_scroll": {
+      "type": "lenis",
+      "lerp": 0.12,
+      "t90ms": 405,
+      "_来源": "extract-motion smoothScroll 实测"
+    }
+  },
+  "exceptions": [
+    {
+      "category": "colors",
+      "value": "",
+      "reason": "参考站没有、但本项目必须有的值，写清楚理由"
+    }
+  ]
+}

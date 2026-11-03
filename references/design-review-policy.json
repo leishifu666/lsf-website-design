@@ -1,0 +1,87 @@
+{
+  "id": "design-aesthetics-v1",
+  "scope": "前端设计与视觉原型",
+  "minimum_score": 85,
+  "dimensions": [
+    {
+      "name": "构图与空间",
+      "max": 25,
+      "floor": 20
+    },
+    {
+      "name": "字体与排版",
+      "max": 20,
+      "floor": 16
+    },
+    {
+      "name": "色彩与材质",
+      "max": 20,
+      "floor": 16
+    },
+    {
+      "name": "风格与原创表达",
+      "max": 20,
+      "floor": 16
+    },
+    {
+      "name": "动效美感与叙事",
+      "max": 15,
+      "floor": 12
+    }
+  ],
+  "visual_gates": [
+    "视觉完整性",
+    "禁用效果",
+    "动效表现"
+  ],
+  "performance_scoring": false,
+  "performance_gate": false,
+  "auto_run_lighthouse": false,
+  "reduce_animation_for_metrics": false,
+  "engineering_checks_affect_design_verdict": false,
+  "authority": "用户2026-10-19更正：只按设计感、美感评审，不按性能评分或为性能减少动画；禁用按钮上浮、hover图标运动；组件必须先查指定书签并取源码",
+  "review_loop": {
+    "id": "review-loop-v2",
+    "max_reviewer_calls": 2,
+    "max_fix_batches": 1,
+    "close_on_first_pass": true,
+    "suggestions_max": 5,
+    "verification_new_findings": "regression-or-gate-only",
+    "on_budget_exhausted": "close-and-report",
+    "method_files": [
+      "templates/独立评审固定提示词.md",
+      "references/审查规则索引.md",
+      "references/评审共用约束.md",
+      "references/unslop-审查法.md",
+      "references/视觉评审浏览器取证.md",
+      "references/外部视觉评审.md"
+    ],
+    "method_files_by_design_mode": {
+      "A": [
+        "references/评审适用范围.md#模式a"
+      ],
+      "B": [
+        "references/评审适用范围.md#模式b",
+        "references/反套路清单.md"
+      ],
+      "C": [
+        "references/评审适用范围.md#模式c",
+        "references/反套路清单.md"
+      ],
+      "unknown": [
+        "references/评审适用范围.md#模式未知"
+      ]
+    }
+  },
+  "reviewer_selection": {
+    "preferred": [
+      "gemini",
+      "claude"
+    ],
+    "route_source": "lsf-ai-agent",
+    "fallback": "fresh-subagent-inherits-current-model",
+    "fallback_only_when": "no-available-gemini-or-claude",
+    "browser": "ego-browser",
+    "budget_shared": true
+  }
+}

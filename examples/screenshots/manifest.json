@@ -1,0 +1,194 @@
+{
+  "captured_on": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "browser": "Ego Lite",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "method": "实际浏览器截图；逐章或逐场景滚动后截图，等比缩放并拼接。未重绘或修改页面内容。长图是精选场景拼接，不是连续全页截图。",
+  "samples": [
+    {
+      "id": "fieldnotes",
+      "title": "长沙现场",
+      "url": "https://changsha-city-fieldnotes.leir0491.chatgpt.site/#intro",
+      "model": "GPT 6 PRO",
+      "model_attribution": "作者在本次对话确认",
+      "skill_status": "作者提供的作品展示"
+    },
+    {
+      "id": "edition",
+      "title": "长沙 · 山水洲城",
+      "url": "https://changsha-city-edition-v34.leir0491.chatgpt.site/#xiangjiang",
+      "model": "GPT 6 PRO",
+      "model_attribution": "作者在本次对话确认",
+      "skill_status": "作者提供的作品展示"
+    },
+    {
+      "id": "hark",
+      "title": "万圣夜 · 槐安里十三号",
+      "url": "https://hark.com/site/6ea9e899-ceba-4306-966c-0622f3f47ee8?hark_region=us",
+      "capture_url": "https://hark.site/s/6ea9e899-ceba-4306-966c-0622f3f47ee8/index.html?hark_region=us&via=app",
+      "model": "Claude Opus 5.5",
+      "model_attribution": "作者在本次对话确认",
+      "skill_status": "作者提供的作品展示"
+    },
+    {
+      "id": "deepseek-a",
+      "title": "长沙志 · 冬 2026",
+      "source_id": "000e433564488284",
+      "model": "DeepSeek",
+      "model_version": null,
+      "used_skill": true,
+      "attribution": "作者在本次对话确认"
+    },
+    {
+      "id": "deepseek-b",
+      "title": "长沙志 · 城市版本",
+      "source_id": "c73a2a18a05ddb58",
+      "model": "DeepSeek",
+      "model_version": null,
+      "used_skill": false,
+      "attribution": "作者在本次对话确认"
+    }
+  ],
+  "captures": [
+    {
+      "capture": "fieldnotes-01.png",
+      "sha256": "652a8a0919288fb409ff28a7e7f8d6ea942d760f6f548cd1fcc846322c50c1bc",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "fieldnotes-02.png",
+      "sha256": "f3545a54176a08b84e7d89b70fe50571c0d93ad9b6e0d072cb207bea20697b75",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "fieldnotes-03.png",
+      "sha256": "e62811a29ba42f6220c3b220c58f4d70ed9e8917874988b85fb99235a0097e0f",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "fieldnotes-04.png",
+      "sha256": "a1d55e0afb19e44a904dcf875c85c8b358ca5c53c4fbed389058e4809f9137c3",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "edition-01.png",
+      "sha256": "e5c9f153c26f6d8b6170e0ed902776101983e72709a98e0d063ed8fa7e30e09a",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "edition-02.png",
+      "sha256": "6556ef1537e232161994e471284bdfd2a6753ca531a6d883044e524dd66fad89",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "edition-03.png",
+      "sha256": "0e7a7bc99ba1b07fa1389695161c8ef5594992949bcc19d326fb641586bc76e3",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark-01.png",
+      "sha256": "e1ee028fdf88b58038add4179ee58c6e29304cd2c40a8ccf6411c3db1db39e0f",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark-02.png",
+      "sha256": "22ecea3e97407fcf46e49eb888602cb1e8cea531b28ca565dda243800ed32b57",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark-03.png",
+      "sha256": "b5ce3d748c60733288992d4f9555617e7c636e5cf86fd43fe32ef732fd82eb89",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark-04.png",
+      "sha256": "fec7c80e839fed9055385e9d9509545defeef18e02106980e1bd4b30caea36b3",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "deepseek-a-02.png",
+      "sha256": "0c2436397c7a634d0bfc4fceb4be380f922b9da47d4d71c629f48b2d8ec392ad",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "deepseek-a-04.png",
+      "sha256": "95937e1f4c6688c99ef1ec2c75b6b695a1cbd985bd1ef79fa4a9e5293ac422e3",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "deepseek-a-03.png",
+      "sha256": "1e569413012b3ca08a1795460fe904a63dce3d8a09323601e9a56c1d8cae1ee3",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "deepseek-b-02.png",
+      "sha256": "6bb676420169cc56c51b5d9880d4916a0542b1e8b698b809c392fc0ac7b8b07f",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "deepseek-b-04.png",
+      "sha256": "ad5ab35cc946cd27683f14bac7e138818e47228dc05a453bb2028f5f90fed71a",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "deepseek-b-03.png",
+      "sha256": "fc30c377eb4e7332163bc354e784a1a81f06f977508c8f4b4ddfcafae4189a10",
+      "viewport": [
+        1440,
+        1000
+      ]
+    }
+  ],
+  "comparison_limit": "仅展示作者提供的两个同主题成品；未取得相同提示词、参数、耗时或完整生成记录，不宣称严格受控评测。"
+}

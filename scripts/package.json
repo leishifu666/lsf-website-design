@@ -1,0 +1,41 @@
+{
+  "name": "lsf-website-design-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture": "node capture.mjs",
+    "tokens": "node extract-tokens.mjs",
+    "a11y": "node audit-a11y.mjs",
+    "gate": "playwright test tests/design-gate.spec.mjs",
+    "lhci": "lhci autorun",
+    "samples": "node check-samples.mjs",
+    "alpha": "node check-alpha.mjs",
+    "motion": "node extract-motion.mjs",
+    "tokens:check": "node check-tokens.mjs",
+    "components": "node extract-components.mjs",
+    "spec:draft": "node spec-draft.mjs",
+    "tokens:gen": "node gen-tokens.mjs",
+    "media": "node extract-media.mjs",
+    "image": "node process-image.mjs",
+    "transitions": "node check-transitions.mjs",
+    "wrap": "node check-text-wrap.mjs",
+    "align": "node check-alignment.mjs",
+    "rounds:snap": "node round-report.mjs snap",
+    "rounds:build": "node round-report.mjs build",
+    "icons": "node check-icons.mjs",
+    "copy:gemini": "node gemini-copy.mjs",
+    "copy:check": "node check-copy.mjs",
+    "review": "node review-round.mjs",
+    "hooks:install": "node install-hooks.mjs",
+    "test:review": "node --test tests/review-workflow.test.mjs"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "playwright": "^1.48.0",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@lhci/cli": "0.15.x"
+  }
+}

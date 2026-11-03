@@ -37,8 +37,8 @@
       "id": "deepseek-a",
       "title": "长沙志 · 冬 2026",
       "source_id": "000e433564488284",
-      "model": "DeepSeek",
-      "model_version": null,
+      "model": "DeepSeek V4.1 Flash",
+      "model_version": "V4.1 Flash",
       "used_skill": true,
       "attribution": "作者在本次对话确认"
     },
@@ -46,8 +46,8 @@
       "id": "deepseek-b",
       "title": "长沙志 · 城市版本",
       "source_id": "c73a2a18a05ddb58",
-      "model": "DeepSeek",
-      "model_version": null,
+      "model": "DeepSeek V4.1 Flash",
+      "model_version": "V4.1 Flash",
       "used_skill": false,
       "attribution": "作者在本次对话确认"
     }

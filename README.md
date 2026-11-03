@@ -11,14 +11,14 @@
 
 ## DeepSeek：使用与未使用 skill
 
-两边模型均为 **DeepSeek**，主题均为长沙；具体模型版本未提供。使用状态由作者确认，左侧使用 `lsf-website-design`，右侧未使用 skill。
+两边模型均为 **DeepSeek V4.1 Flash**，主题均为长沙。使用状态由作者确认，左侧使用 `lsf-website-design`，右侧未使用 skill。
 
 ![DeepSeek 使用与未使用 LSF-网站设计的同主题作品对照](examples/screenshots/deepseek-comparison.jpg)
 
 | 作品 | 模型 | skill 使用情况 | 原始样本 | 长图 |
 |---|---|---|---|---|
-| 长沙志 · 冬 2026 | DeepSeek（版本未提供） | 使用 LSF-网站设计 | `000e433564488284` | [查看截图](examples/screenshots/deepseek-with-skill.jpg) |
-| 长沙志 · 城市版本 | DeepSeek（版本未提供） | 未使用 skill | `c73a2a18a05ddb58` | [查看截图](examples/screenshots/deepseek-without-skill.jpg) |
+| 长沙志 · 冬 2026 | DeepSeek V4.1 Flash | 使用 LSF-网站设计 | `000e433564488284` | [查看截图](examples/screenshots/deepseek-with-skill.jpg) |
+| 长沙志 · 城市版本 | DeepSeek V4.1 Flash | 未使用 skill | `c73a2a18a05ddb58` | [查看截图](examples/screenshots/deepseek-without-skill.jpg) |
 
 截图来自作者提供的两个本地成品，按山水、文化、饮食三个主题对应排列。未取得相同提示词、参数及完整生成记录，因此这是一组成品展示，不能据此作严格受控评测的结论。
 

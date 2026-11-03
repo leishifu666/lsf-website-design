@@ -34,6 +34,15 @@
       "skill_status": "作者提供的作品展示"
     },
     {
+      "id": "hark-changsha",
+      "title": "长沙特辑 · The Changsha Edition · Autumn '26",
+      "url": "https://hark.com/site/77af0857-a085-4f73-9456-4db0641e3a45?hark_region=us",
+      "capture_url": "https://hark.site/s/77af0857-a085-4f73-9456-4db0641e3a45/index.html?hark_region=us&via=app",
+      "model": "Claude Opus 5.5",
+      "model_attribution": "作者在本次对话确认",
+      "skill_status": "作者提供的作品展示"
+    },
+    {
       "id": "deepseek-a",
       "title": "长沙志 · 冬 2026",
       "source_id": "000e433564488284",
@@ -136,6 +145,38 @@
     {
       "capture": "hark-04.png",
       "sha256": "fec7c80e839fed9055385e9d9509545defeef18e02106980e1bd4b30caea36b3",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark77-01.png",
+      "sha256": "0f6bbc963679b3de584a0118f1951b23fe9096adda0da52bdc833b2664eaacb6",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark77-02.png",
+      "sha256": "930f7947c967f3c1f4a3e2f81490116047640bd4a203bfda03b763c4fabc9f63",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark77-03.png",
+      "sha256": "3ba3a3ed3004afaa5343ca1d518eee4b334c4d9c92eed8bb043b61d10789e87e",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    {
+      "capture": "hark77-04.png",
+      "sha256": "758945c8b6e51d015aefe2b6d638aa8e6264a38e06e7b373782e2dafb02ab388",
       "viewport": [
         1440,
         1000

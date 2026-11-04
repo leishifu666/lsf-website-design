@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/lsf-website-design-cover.png" alt="LSF 网站设计 Skill · 开源基础版" width="480" />
+</p>
+
 # LSF-网站设计 · 基础版
 
 ![Version 34](https://img.shields.io/badge/version-34-1d4f3d)

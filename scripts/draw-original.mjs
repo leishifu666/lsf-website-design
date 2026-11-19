@@ -4,7 +4,8 @@ import {createHash,randomBytes} from 'node:crypto';
 import {dirname,resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-export const imageQuality='画面干净通透，材质完整自然，纹理平滑统一，主体清晰，避免过度锐化、色斑、噪点、碎纹、崩坏和畸变。';
+const {image_generation:imageGeneration}=JSON.parse(await readFile(new URL('../references/workflow-defaults.json',import.meta.url),'utf8'));
+export const imageQuality=imageGeneration.prompt_suffix;
 const library=JSON.parse(await readFile(new URL('../library/original-directions.json',import.meta.url),'utf8'));
 const digest=value=>createHash('sha256').update(value).digest('hex');
 
@@ -49,7 +50,7 @@ export function drawOriginal(brief,seed=randomBytes(12).toString('hex')){
     materials:d.materials,mobile:d.mobile,interaction:d.interaction,pitfall:d.pitfall,
     technology:'待Agent按实际构图选择渲染接口、资源与驱动；方法条目不是技术取证',
     image_request:have.includes('imagegen')?{
-      tool:'Codex内置image_gen（用户指定GPT Image 2.5，后台版本以实际回执为准）',
+      tool:imageGeneration.tool,
       transparent_background:d.transparent,
       prompt:`为${brief.subject}的网站制作${d.transparent?'完整独立主体，真实透明背景与干净alpha边缘':'主题场景配图，按网页内容留出排版空间'}。构图用途：${d.materials}。保持统一镜头、光线、材质与主体比例；不把网页文字或可交互UI烘焙进图片，不添加未经确认的业务事实。${imageQuality}`
     }:null,

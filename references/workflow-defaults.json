@@ -118,16 +118,13 @@
     "search_for_replacement_reference": false
   },
   "image_assets": {
-    "authority_date": "2026-11-02",
-    "authority": "网页新素材必须调用Codex内置生图（用户指定GPT Image 2.5），每条提示词以固定画质句结束；透明请求保留真实alpha；后台型号按实际回执记录，不自动切渠道",
-    "generation_tool": "builtin-image_gen",
+    "authority_date": "2026-11-19",
+    "authority": "网页新图默认调用当前 Agent 的内置生图工具，API 按用户选择启用。每条提示词保留固定画质句，透明素材验收真实 alpha。",
+    "generation_tool": "current-agent-native",
     "strategy": "reference-driven-layered-assets",
     "transparent_single_subjects_preferred_when_compositing": true,
     "all_assets_must_be_transparent": false,
     "fixed_generation_quota": null,
-    "transparent_tool_parameter": {
-      "transparent_background": true
-    },
     "real_alpha_and_edges_check_required": true,
     "prompt_suffix": "画面干净通透，材质完整自然，纹理平滑统一，主体清晰，避免过度锐化、色斑、噪点、碎纹、崩坏和畸变。",
     "prompt_suffix_excluded_models": [],
@@ -138,11 +135,10 @@
   },
   "default_design_mode": "A",
   "image_generation": {
-    "tool": "codex-built-in-image-gen",
-    "user_requested_model": "GPT Image 2.5",
+    "tool": "current-agent-native",
+    "api_channel": "user-selected",
     "model_identity": "actual-tool-receipt-only",
-    "transparent_supported": true,
-    "transparent_parameter": "transparent_background",
+    "transparent_parameter_mapping": "selected-tool-schema",
     "prompt_suffix": "画面干净通透，材质完整自然，纹理平滑统一，主体清晰，避免过度锐化、色斑、噪点、碎纹、崩坏和畸变。",
     "suffix_must_be_final": true,
     "automatic_provider_fallback": false,

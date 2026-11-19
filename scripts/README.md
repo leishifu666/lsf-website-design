@@ -120,7 +120,7 @@ node workflow-check.mjs prepare-review --root <原项目> --round rounds/round-0
 ```bash
 node check-alpha.mjs ../public/images/*.png
 ```
-输出每张图“通过 / 失败”和透明像素占比；有失败时退出码为 1。Codex 生图声称透明底的素材必须先过这一步（原因见 `references/氛围图片.md`）。
+输出每张图“通过 / 失败”和透明像素占比；有失败时退出码为 1。需要透明底的 PNG 用该命令辅助检查，并核对实际透明像素及深浅背景上的边缘（见[图片规则](../references/氛围图片.md)）。
 
 ## 示例图不上线检查
 ```bash

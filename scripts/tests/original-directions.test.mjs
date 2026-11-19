@@ -57,7 +57,13 @@ test('命令行保存真实候选，不覆盖用户已有输出',async()=>{
     const first=spawnSync(process.execPath,args,{encoding:'utf8',windowsHide:true});
     assert.equal(first.status,0,first.stderr);
     const content=await readFile(output,'utf8');
-    assert.equal(JSON.parse(content).seed,'cli');
+    const result=JSON.parse(content);
+    assert.equal(result.seed,'cli');
+    assert.equal(result.candidates.length,3);
+    for(const {image_request:request} of result.candidates){
+      assert.equal(request.tool,'current-agent-native');
+      assert.equal(typeof request.transparent_background,'boolean');
+    }
     assert.equal(spawnSync(process.execPath,args,{encoding:'utf8',windowsHide:true}).status,1);
     assert.equal(await readFile(output,'utf8'),content);
   }finally{assert(root.startsWith(base));await rm(root,{recursive:true,force:true});}

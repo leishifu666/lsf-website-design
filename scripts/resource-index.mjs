@@ -49,7 +49,7 @@ for(const file of referenced){
   }else await readResource(file);
 }
 const files=[...new Set([...await listResources(),...generated.keys(),'INDEX.md'])].sort();
-const categories=[['入口与说明',f=>!f.includes('/')],['按需资料',f=>f.startsWith('references/')&&!f.startsWith('references/topics/')],['拆分专题源文件',f=>f.startsWith('references/topics/')],['角色与模板',f=>/^(agents|templates)\//.test(f)],['方法数据与案例',f=>/^(library|examples)\//.test(f)],['脚本与测试',f=>f.startsWith('scripts/')]];
+const categories=[['入口与说明',f=>!f.includes('/')],['按需资料',f=>f.startsWith('references/')&&!f.startsWith('references/topics/')],['拆分专题源文件',f=>f.startsWith('references/topics/')],['角色与模板',f=>/^(agents|templates)\//.test(f)],['方法数据与案例',f=>/^(library|examples)\//.test(f)],['脚本与测试',f=>f.startsWith('scripts/')],['内置第三方源码',f=>f.startsWith('vendor/')]];
 const index=['# 网站设计技能总索引',marker,'先从[主入口](SKILL.md)判断任务，再用[模式与阶段导航](references/模式阅读导航.md)选择当前资料。本页只负责查找，不要求一次加载所有文件。',
   '维护入口：`references/资源路由.json`管理模式、阶段、专题和拆分映射；专题源文件可直接编辑，生成的总索引、阅读导航及旧文件索引运行 `node scripts/resource-index.mjs` 更新，用 `--check` 校验。大体量数据按条件查询，不把整个组件库或方法库塞进提示词。',
   '制作、文案审核、视觉评审、反推提示词有独立边界。`examples/`是历史证据；`scripts/tests/`是合成回归测试；二者不覆盖当前用户要求。'];

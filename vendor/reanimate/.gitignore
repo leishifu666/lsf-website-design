@@ -1,0 +1,26 @@
+node_modules/
+.cache/
+# Runtime artifacts belong in the user's project, never in the vendored package.
+.reanimate/
+captures/
+reports/
+.raw/
+.video/
+frames/
+assets/
+three/
+gl/
+capture.json
+inspect.json
+track.json
+gl-track.json
+frame-state.json
+frames.json
+assets.json
+report.json
+report.md
+*.png
+*.jpg
+*.mp4
+*.webm
+*.log

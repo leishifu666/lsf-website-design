@@ -47,5 +47,12 @@
     "mode": "H",
     "description": "文案评审：独立Agent检查成品冗余文字，保留有价值的模块和场景",
     "kind": "copy-review"
+  },
+  {
+    "name": "lsf-web-animate",
+    "title": "复刻动画",
+    "mode": "I",
+    "description": "复刻动画：从网页或录屏复刻指定动画与交互，抓取 Three.js、Canvas、WebGL 证据并逐帧对照",
+    "kind": "animation"
   }
 ]

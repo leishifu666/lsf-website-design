@@ -69,6 +69,6 @@ async function runResearch([address, ...args]) {
   console.log(JSON.stringify({stage:'research', survey:surveyFile, topology:topologyFile, discovered:topology.entries.length,
     entries_pending:survey.coverage.filter(row=>row.disposition==='pending').reduce((sum,row)=>sum+row.entries.length,0),
     categories_unchecked:survey.categories.filter(row=>row.status==='未检查').map(row=>row.id),
-    new_entries_to_classify:newIds, next:'检查可达页面和区块，逐类回放六类输入，记录尚未确认的行为。完成原站取证后运行 reference-check --stage source。'},null,2));
+    new_entries_to_classify:newIds, next:'检查可达页面和区块，逐类回放六类输入。核心动效按 references/动画取证与逐帧对照.md 运行 animation-tool.mjs；Canvas/WebGL 加 --gl --assets，保存 shader、JS/模型和连续帧，保留真实滚轮复核。完成原站取证后运行 reference-check --stage source。'},null,2));
 }
 runResearch(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode=1; });

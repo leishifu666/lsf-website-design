@@ -4,7 +4,7 @@
 
 # LSF-网站设计 · 基础版
 
-![Version 34](https://img.shields.io/badge/version-34-1d4f3d)
+![Version 35](https://img.shields.io/badge/version-35-1d4f3d)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 LSF-网站设计是一套给 AI 编程助手用的网站设计技能。给它一个主题，可以开始做新网站。再附上一个参考网址，它会先研究原站的布局和交互，再为你的主题设计和制作。
@@ -46,6 +46,7 @@ LSF-网站设计是一套给 AI 编程助手用的网站设计技能。给它一
 
 | 作品 | 在线体验 | 模型 | 场景长图 |
 |---|---|---|---|
+| 山水洲城 · 长沙漫游 | [打开作品](https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#overview) | 网页版 GPT 6 Pro（使用本技能） | — |
 | 长沙现场 | [打开作品](https://changsha-city-fieldnotes.leir0491.chatgpt.site/#intro) | GPT 6 PRO | [现场 / 山水 / 湘味 / 入夜](examples/screenshots/changsha-fieldnotes.jpg) |
 | 长沙 · 山水洲城 | [打开作品](https://changsha-city-edition-v34.leir0491.chatgpt.site/#xiangjiang) | GPT 6 PRO | [开场 / 湘江 / 风味](examples/screenshots/changsha-edition.jpg) |
 | 万圣夜 · 槐安里十三号 | [打开 Hark 作品](https://hark.com/site/6ea9e899-ceba-4306-966c-0622f3f47ee8?hark_region=us) | Claude Opus 5.5 | [开场 / 档案 / 轮播 / 球体](examples/screenshots/hark-halloween.jpg) |
@@ -57,7 +58,7 @@ LSF-网站设计是一套给 AI 编程助手用的网站设计技能。给它一
 
 ## 模式
 
-公开基础版有 A、B、C、D、F、G、H 七种模式。AI 会根据你的指令选择。
+公开基础版有 A、B、C、D、F、G、H、I 八种模式。AI 会根据你的指令选择。
 
 | 模式 | 适用任务 |
 |---|---|
@@ -68,6 +69,7 @@ LSF-网站设计是一套给 AI 编程助手用的网站设计技能。给它一
 | F 反推提示词 | 分析参考，交付建站及素材提示词 |
 | G 视觉评审 | 对已有页面独立取证和评审 |
 | H 文案评审 | 检查成品的文案冗余与用途 |
+| I 复刻动画 | 复刻指定动画、交互或录屏片段，并逐帧对照 |
 
 可以继续使用 `lsf-web-*` 调用名，生成兼容入口的方法见[脚本说明](scripts/README.md)。分析、反推提示词或评审任务会交付对应结果。子代理、模型、生图和浏览器能力由你使用的 AI 工具提供，选用 API 时使用自己的凭据。
 
@@ -134,6 +136,14 @@ Windows 可使用 `%USERPROFILE%\.agents\skills\lsf-website-design`，具体路�
 使用 $lsf-website-design，分析这个参考网站并反推完整建站提示词，本次只分析，不写网站代码。
 ```
 
+**复刻一段动画**
+
+```text
+使用 $lsf-web-animate，把参考页的首屏滚动转场做进当前项目，采集原效果并逐帧对照。
+```
+
+模式 I 从主技能自动分流。想直接指定模式 I，可以用 [入口生成器](scripts/README.md)安装 `lsf-web-animate`。
+
 ## 工作方式
 
 AI 助手按 [SKILL.md](SKILL.md) 里的规则判断任务。普通建站默认走 A 模式，贴近参考风格。下面是这个模式的做法。统一任务写法见[风格参考统一提示词](templates/风格参考统一提示词.md)。
@@ -141,6 +151,8 @@ AI 助手按 [SKILL.md](SKILL.md) 里的规则判断任务。普通建站默认�
 1. **先看参考站。** 实际操作原站，检查六类交互，并确认主要页面的布局、点击和滚动表现。具体怎么查，见[原站侦察命令](references/原站侦察与回放.md)。
 2. **做一段能操作的样板。** 默认由当前 AI 助手做一套。你明确想比较方案时，才用同一提示词、主题和参考站做三个预览。
 3. **对上参考后做完整网站。** 样板核对通过后再展开整站。三阶段的命令和验收要求见[取证格式](references/A模式证据格式.md)。
+
+模式 A 制作整站时，如果参考页有核心动效，会用[模式 I 的取证和逐帧对照流程](references/动画取证与逐帧对照.md)，把证据接回整站的样段和最终核对。只做指定动画或视频片段时，直接用[模式 I](references/复刻动画.md)。
 
 C 模式会探索三个原创方向，实际交付按你指定的范围执行。
 

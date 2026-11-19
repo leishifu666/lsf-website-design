@@ -2,6 +2,26 @@
 
 脚本基于 Playwright（Node 18+），`check-alpha.mjs` 无依赖。
 
+内置 reanimate 的 TypeScript 入口有独立运行时要求，见下节 doctor；上面的 Node 版本只适用于已有 `.mjs` 工具。
+
+## A核心动效与I复刻动画
+
+```text
+node animation-tool.mjs doctor
+node animation-tool.mjs setup
+node animation-tool.mjs capture --help
+node animation-tool.mjs gl --help
+node animation-tool.mjs compare --help
+```
+
+此入口运行 `vendor/reanimate/scripts/` 的实际源码，不只是生成采集建议。支持 capture、frames、gl、compare、easing、sheet；Windows 不依赖 bash。显式 setup 准备局部依赖；已有浏览器优先，额外下载以 doctor/帮助为准。来源版本及兼容补丁在 vendor 内记录，第三方素材不随技能分发。
+
+实际命令、GPU/JS/资产保存、真实与虚拟时钟、滚动坐标、比较口径见[动画取证与逐帧对照](../references/动画取证与逐帧对照.md)。I 从[独立模式](../references/复刻动画.md)开始；A 仍沿用原站侦察和 source/prototype/paired，核心动画补此证据。不要把像素比较退出码 0 当成复刻验收通过。
+
+### 安装模式 I 入口
+
+在技能的根目录执行 `node scripts/install-mode-entries.mjs --mode I`，生成 `$lsf-web-animate` 入口。需要指定技能安装目录时使用现有的 `--skills-dir` 参数。
+
 ## 脚本和评审的分工
 - 默认两次真实独立调用、一批集中修改。首审通过就结束；按需定向复核，到限如实闭合，命令见[自动化与门槛](../references/自动化与门槛.md)。
 - Agent独立给分；脚本校验口径、证据、预算并机械合成维度，不自行审美加分。工程检查另列，不按Lighthouse等分数删动画。
@@ -136,7 +156,7 @@ node check-samples.mjs ../dist
 - `node draw-original.mjs --brief <五站调研输入JSON> --out <新候选JSON>`：只用于C原创探索，记录种子与资源条件；候选不算真实预览。
 - Ego Lite现场取证：在当前指南要求的轮次脚本中导入`lib/ego-visual-evidence.mjs`，传入已有Page和原项目的绝对证据目录；不单独用node启动浏览器。
 - `node --test tests/original-directions.test.mjs tests/review-workflow.test.mjs`：候选、图标边界及原评审流程回归；不发送外部模型请求。
-- 模式入口由`references/命令入口.json`和install-mode-entries.mjs生成，显示统一基础版七种模式。视觉评审优先Gemini/Claude，安装引导只在首次安装执行。
+- 模式入口由`references/命令入口.json`和install-mode-entries.mjs生成，显示基础版八种模式。视觉评审优先Gemini/Claude，安装引导只在首次安装执行。
 
 ## v31渐进式披露与三版预览
 

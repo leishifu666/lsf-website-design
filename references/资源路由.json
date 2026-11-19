@@ -25,6 +25,7 @@
       "purpose": "主参考的状态、素材与机制取证",
       "files": [
         "references/原站侦察与回放.md",
+        "references/动画取证与逐帧对照.md",
         "references/参考取证与组件规格.md",
         "references/A模式证据格式.md"
       ]
@@ -196,7 +197,38 @@
     "a-proof": {
       "purpose": "A 模式的原站锁定、可运行样段与整站对照",
       "files": [
-        "references/A模式证据格式.md"
+        "references/A模式证据格式.md",
+        "references/动画取证与逐帧对照.md"
+      ]
+    },
+    "animation-start": {
+      "purpose": "I独立复刻指定动画的范围、保真目标与执行方式",
+      "files": [
+        "references/复刻动画.md",
+        "references/动画取证与逐帧对照.md"
+      ]
+    },
+    "animation-capture": {
+      "purpose": "实际录屏、连续帧、GPU追踪与网络资产采集",
+      "files": [
+        "references/动画取证与逐帧对照.md",
+        "vendor/reanimate/references/capture.md",
+        "vendor/reanimate/references/webgl.md"
+      ]
+    },
+    "animation-build": {
+      "purpose": "按真实采样规格在原项目实现指定效果",
+      "files": [
+        "templates/动画复刻规格.md",
+        "vendor/reanimate/references/analysis.md",
+        "vendor/reanimate/references/implementation.md"
+      ]
+    },
+    "animation-verify": {
+      "purpose": "同条件逐帧、属性与GPU通道对比；如实报告偏差",
+      "files": [
+        "references/动画取证与逐帧对照.md",
+        "vendor/reanimate/references/verify.md"
       ]
     }
   },
@@ -346,6 +378,27 @@
           "page-copy"
         ]
       }
+    },
+    "I": {
+      "title": "复刻动画",
+      "scope": "只复刻用户指定的动画、交互、场景或视频时段，在原项目实现并逐帧对照；不自动启动整站制作、文案或评分。",
+      "stages": {
+        "start": [
+          "animation-start"
+        ],
+        "research": [
+          "animation-capture"
+        ],
+        "build": [
+          "animation-build"
+        ],
+        "verify": [
+          "animation-verify"
+        ],
+        "deliver": [
+          "animation-verify"
+        ]
+      }
     }
   },
   "topics": {
@@ -362,7 +415,8 @@
     "surface": "surface",
     "sources": "sources",
     "install": "install",
-    "copy-sources": "copy-sources"
+    "copy-sources": "copy-sources",
+    "animation-capture": "animation-capture"
   },
   "hubs": [
     {
@@ -415,6 +469,8 @@
     "scripts/draw-original.mjs": "C方向筛选；首批三版或按反馈补充，不覆盖已有输出",
     "scripts/README.md": "脚本命令、依赖和验证范围的详细用法",
     "references/资料索引.md": "保留的原有专题资料、来源与章节指引",
-    "templates/风格参考统一提示词.md": "用户确认的A制作提示词；原文复用，三预览逐字相同；含Shopify填写案例"
+    "templates/风格参考统一提示词.md": "用户确认的A制作提示词；原文复用，三预览逐字相同；含Shopify填写案例",
+    "scripts/animation-tool.mjs": "内置reanimate的跨平台入口：检查、安装局部依赖、采集与比较",
+    "vendor/reanimate/UPSTREAM.md": "固定上游版本、MIT来源与本地兼容补丁"
   }
 }

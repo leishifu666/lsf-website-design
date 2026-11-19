@@ -6,16 +6,19 @@ import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {skillRoot,readingPlan,reviewFiles} from '../lib/resources.mjs';
 
-test('基础版安装器仅生成七个公开入口，移出的入口不可安装',async()=>{
+test('基础版安装器仅生成八个公开入口，移出的入口不可安装',async()=>{
   const temp=await mkdtemp(join(tmpdir(),'lsf-basic-'));
   try{
     const catalog=JSON.parse(await readFile(join(skillRoot,'references/命令入口.json'),'utf8'));
-    assert.deepEqual(catalog.map(e=>e.mode),['A','B','C','D','F','G','H']);
+    assert.deepEqual(catalog.map(e=>e.mode),['A','B','C','D','F','G','H','I']);
     const skills=join(temp,'skills');
     const result=spawnSync(process.execPath,[join(skillRoot,'scripts/install-mode-entries.mjs'),'--skills-dir',skills],{encoding:'utf8',windowsHide:true});
     assert.equal(result.status,0,result.stdout+result.stderr);
     assert.deepEqual((await readdir(skills)).sort(),catalog.map(e=>e.name).sort());
     for(const entry of catalog)assert((await readFile(join(skills,entry.name,'SKILL.md'),'utf8')).includes(`模式${entry.mode}`));
+    const animation=await readFile(join(skills,'lsf-web-animate','SKILL.md'),'utf8');
+    assert.match(animation,/references\/复刻动画\.md/);
+    assert.match(animation,/references\/动画取证与逐帧对照\.md/);
     const removed=spawnSync(process.execPath,[join(skillRoot,'scripts/install-mode-entries.mjs'),'--skills-dir',join(temp,'removed'),'--mode','E'],{encoding:'utf8',windowsHide:true});
     assert.notEqual(removed.status,0);
     assert.match(removed.stderr,/未找到指定模式/);

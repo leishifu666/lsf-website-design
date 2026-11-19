@@ -13,6 +13,7 @@
 | 文件 | 用途或阅读时机 |
 |---|---|
 | [INDEX.md](INDEX.md) | 全部资源的可点击总索引；不是加载清单 |
+| [LICENSE](LICENSE) | 对应功能的配置或实现；见脚本说明 |
 | [README.md](README.md) | 安装和使用说明；首次安装才触发依赖引导 |
 | [SKILL.md](SKILL.md) | 常驻总入口：自动路由、共享边界和索引 |
 
@@ -37,6 +38,7 @@
 | [references/制作约定.md](references/制作约定.md) | 制作任务的范围与共享约束 |
 | [references/前卫设计与前端技巧.md](references/前卫设计与前端技巧.md) | 前卫设计与前端技巧 |
 | [references/动态输入回放.md](references/动态输入回放.md) | 两侧动态输入回放 |
+| [references/动画取证与逐帧对照.md](references/动画取证与逐帧对照.md) | 主参考的状态、素材与机制取证；A 模式的原站锁定、可运行样段与整站对照；I独立复刻指定动画的范围、保真目标与执行方式；实际录屏、连续帧、GPU追踪与网络资产采集；同条件逐帧、属性与GPU通道对比；如实报告偏差 |
 | [references/原创构图方法库.md](references/原创构图方法库.md) | 原创产品候选、方法筛选与种子 |
 | [references/原站侦察与回放.md](references/原站侦察与回放.md) | A高精度风格参考、统一提示词与直接制作/可选预览分流；主参考的状态、素材与机制取证 |
 | [references/参考取证与组件规格.md](references/参考取证与组件规格.md) | 主参考的状态、素材与机制取证 |
@@ -44,6 +46,7 @@
 | [references/反套路清单.md](references/反套路清单.md) | 反套路清单（AI 生成感 / 行业平均值） |
 | [references/命令入口.json](references/命令入口.json) | 对应功能的配置或实现；见脚本说明 |
 | [references/图标与插画.md](references/图标与插画.md) | 只用开源图标库；SVG立体示意的适用边界 |
+| [references/复刻动画.md](references/复刻动画.md) | I独立复刻指定动画的范围、保真目标与执行方式 |
 | [references/外部视觉评审.md](references/外部视觉评审.md) | 独立视觉评审的派发、证据、来源和预算 |
 | [references/审查规则索引.md](references/审查规则索引.md) | 审查规则索引 |
 | [references/工具清单.md](references/工具清单.md) | 工具清单 |
@@ -108,6 +111,7 @@
 | [templates/motion-tokens.css](templates/motion-tokens.css) | 对应任务的模板；采用时再读取 |
 | [templates/reference-spec.json](templates/reference-spec.json) | 对应任务的模板；采用时再读取 |
 | [templates/review-rules.example.json](templates/review-rules.example.json) | 对应任务的模板；采用时再读取 |
+| [templates/动画复刻规格.md](templates/动画复刻规格.md) | 按真实采样规格在原项目实现指定效果 |
 | [templates/反推任务输入.md](templates/反推任务输入.md) | 反推任务输入 |
 | [templates/拆解报告模板.md](templates/拆解报告模板.md) | 拆解报告：〔网站名〕 |
 | [templates/独立评审固定提示词.md](templates/独立评审固定提示词.md) | 独立视觉评审固定提示词 |
@@ -123,6 +127,7 @@
 |---|---|
 | [examples/1B脚本实测记录.md](examples/1B脚本实测记录.md) | 模式A 脚本实测记录（2026-10-19） |
 | [examples/screenshots/manifest.json](examples/screenshots/manifest.json) | 对应功能的配置或实现；见脚本说明 |
+| [examples/videos/README.md](examples/videos/README.md) | 作品录屏 |
 | [examples/作品展示.md](examples/作品展示.md) | 作品展示与截图来源 |
 | [examples/试跑案例.md](examples/试跑案例.md) | 试跑案例：咖啡豆订阅品牌官网（模式B 参考型，参考 linear.app） |
 | [library/original-directions.json](library/original-directions.json) | C原创构图方法；按行业与真实资源条件筛选 |
@@ -133,6 +138,7 @@
 | 文件 | 用途或阅读时机 |
 |---|---|
 | [scripts/README.md](scripts/README.md) | 脚本命令、依赖和验证范围的详细用法 |
+| [scripts/animation-tool.mjs](scripts/animation-tool.mjs) | 内置reanimate的跨平台入口：检查、安装局部依赖、采集与比较 |
 | [scripts/audit-a11y.mjs](scripts/audit-a11y.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/capture.mjs](scripts/capture.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/check-alignment.mjs](scripts/check-alignment.mjs) | 对应功能的配置或实现；见脚本说明 |
@@ -156,6 +162,7 @@
 | [scripts/install-mode-entries.mjs](scripts/install-mode-entries.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/lib/a-prototype.mjs](scripts/lib/a-prototype.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/a-reference.mjs](scripts/lib/a-reference.mjs) | 脚本内部实现；维护对应功能时读取 |
+| [scripts/lib/animation-runtime.mjs](scripts/lib/animation-runtime.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/browser.mjs](scripts/lib/browser.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/copy-necessity.mjs](scripts/lib/copy-necessity.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/ego-visual-evidence.mjs](scripts/lib/ego-visual-evidence.mjs) | 脚本内部实现；维护对应功能时读取 |
@@ -185,6 +192,7 @@
 | [scripts/start-reference.mjs](scripts/start-reference.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/tests/a-lifecycle.test.mjs](scripts/tests/a-lifecycle.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/a-prototype.test.mjs](scripts/tests/a-prototype.test.mjs) | 修改对应实现后运行的回归测试 |
+| [scripts/tests/animation-runtime.test.mjs](scripts/tests/animation-runtime.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/basic-edition.test.mjs](scripts/tests/basic-edition.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/design-gate.spec.mjs](scripts/tests/design-gate.spec.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/fixtures/a-prototype.mjs](scripts/tests/fixtures/a-prototype.mjs) | 修改对应实现后运行的回归测试 |
@@ -196,3 +204,30 @@
 | [scripts/tests/scout-reference.test.mjs](scripts/tests/scout-reference.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/source-survey.test.mjs](scripts/tests/source-survey.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/workflow-check.mjs](scripts/workflow-check.mjs) | 对应功能的配置或实现；见脚本说明 |
+
+## 内置第三方源码
+
+| 文件 | 用途或阅读时机 |
+|---|---|
+| [vendor/reanimate/LICENSE](vendor/reanimate/LICENSE) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/SKILL.md](vendor/reanimate/SKILL.md) | reanimate |
+| [vendor/reanimate/UPSTREAM.md](vendor/reanimate/UPSTREAM.md) | 固定上游版本、MIT来源与本地兼容补丁 |
+| [vendor/reanimate/references/analysis.md](vendor/reanimate/references/analysis.md) | 按真实采样规格在原项目实现指定效果 |
+| [vendor/reanimate/references/capture.md](vendor/reanimate/references/capture.md) | 实际录屏、连续帧、GPU追踪与网络资产采集 |
+| [vendor/reanimate/references/implementation.md](vendor/reanimate/references/implementation.md) | 按真实采样规格在原项目实现指定效果 |
+| [vendor/reanimate/references/verify.md](vendor/reanimate/references/verify.md) | 同条件逐帧、属性与GPU通道对比；如实报告偏差 |
+| [vendor/reanimate/references/webgl.md](vendor/reanimate/references/webgl.md) | 实际录屏、连续帧、GPU追踪与网络资产采集 |
+| [vendor/reanimate/scripts/bun.lock](vendor/reanimate/scripts/bun.lock) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/capture.ts](vendor/reanimate/scripts/capture.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/compare.ts](vendor/reanimate/scripts/compare.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/easing.ts](vendor/reanimate/scripts/easing.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/frames.ts](vendor/reanimate/scripts/frames.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/gl.ts](vendor/reanimate/scripts/gl.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/inpage/clock.js](vendor/reanimate/scripts/inpage/clock.js) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/inpage/gl-hooks.js](vendor/reanimate/scripts/inpage/gl-hooks.js) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/lib.ts](vendor/reanimate/scripts/lib.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/package-lock.json](vendor/reanimate/scripts/package-lock.json) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/package.json](vendor/reanimate/scripts/package.json) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/platform.mjs](vendor/reanimate/scripts/platform.mjs) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/setup.sh](vendor/reanimate/scripts/setup.sh) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/reanimate/scripts/sheet.ts](vendor/reanimate/scripts/sheet.ts) | 对应功能的配置或实现；见脚本说明 |

@@ -10,7 +10,16 @@ test('每个模式与阶段的实际读取清单都可打开；只评审/提示�
     const plan=readingPlan({mode,stage});assert(plan.resources.length);
     for(const resource of plan.resources)assert((await readResource(resource)).text.trim(),resource);
   }
-  for(const mode of ['F','G','H'])assert(!readingPlan({mode}).resources.includes('references/制作流程.md'));
+  for(const mode of ['F','G','H','I'])assert(!readingPlan({mode}).resources.includes('references/制作流程.md'));
+  for(const stage of Object.keys(resourceMap.modes.I.stages)) {
+    const files=readingPlan({mode:'I',stage}).resources;
+    assert(!files.includes('references/五站调研与记忆点.md'));
+    assert(!files.includes('agents/copy-reviewer.toml'));
+    assert(!files.includes('references/独立评审入口.md'));
+  }
+  for(const stage of ['research','prototype','build','deliver']) {
+    assert(readingPlan({mode:'A',stage}).resources.includes('references/动画取证与逐帧对照.md'),stage);
+  }
   assert(!readingPlan({mode:'A',stage:'preview'}).resources.includes('references/原创构图方法库.md'));
   assert.throws(()=>readingPlan({mode:'F',stage:'build'}),/没有build阶段/);
   assert.throws(()=>readingPlan({mode:'A',topics:['made-up']}),/未知专题/);

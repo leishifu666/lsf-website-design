@@ -9,10 +9,68 @@
   "method": "实际浏览器截图；逐章或逐场景滚动后截图，等比缩放并拼接。未重绘或修改页面内容。长图是精选场景拼接，不是连续全页截图。",
   "samples": [
     {
+      "id": "shanshui-roam",
+      "title": "山水洲城 · 长沙漫游",
+      "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#overview",
+      "model": "GPT6 Pro",
+      "model_attribution": "作者确认使用 ChatGPT 网页版制作",
+      "used_skill": true,
+      "skill_status": "作者确认使用 LSF-网站设计",
+      "captured_on": "2026-11-19",
+      "browser": "Ego Lite",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "assets": [
+        {
+          "file": "examples/screenshots/changsha-shanshui-roam.jpg",
+          "label": "开场 / 湘江 / 岳麓 / 寻味 / 入夜",
+          "size": [
+            1080,
+            3750
+          ],
+          "sha256": "7dbade147abc594945a1e9fb908284f6422bee3945e574df2c804abdcf161f94"
+        }
+      ],
+      "source_scenes": [
+        {
+          "label": "开场",
+          "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#overview",
+          "scrollY": 0,
+          "source_sha256": "ad2875563c3eeb3c3c44ae2ec9ac8dee4d1b0186eb79da94eb9342f48e43389b"
+        },
+        {
+          "label": "湘江",
+          "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#river",
+          "scrollY": 1800,
+          "source_sha256": "4d322d4f8fca43d02e450ab5bd5707933a4bf24299f982baf9ad21d25ee99eb6"
+        },
+        {
+          "label": "岳麓",
+          "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#mountain",
+          "scrollY": 3850.28564453125,
+          "source_sha256": "f66a43041ddda5097c127160e28fdc5be9a2ca634296dcf4557ff9dbceb3c716"
+        },
+        {
+          "label": "寻味",
+          "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#taste",
+          "scrollY": 9600,
+          "source_sha256": "b6b1c290aa47f8d6058281eb7f662d21609ca6f5c81869efe06400f12f00f855"
+        },
+        {
+          "label": "入夜",
+          "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#night",
+          "scrollY": 11400,
+          "source_sha256": "892b4aff39bb7c5b5be883fb00224626a60fbfe1f4f9fe06cd987c3e47503470"
+        }
+      ]
+    },
+    {
       "id": "fieldnotes",
       "title": "长沙现场",
       "url": "https://changsha-city-fieldnotes.leir0491.chatgpt.site/#intro",
-      "model": "GPT 6 PRO",
+      "model": "GPT6 Pro",
       "model_attribution": "作者在本次对话确认",
       "skill_status": "作者提供的作品展示"
     },
@@ -20,7 +78,7 @@
       "id": "edition",
       "title": "长沙 · 山水洲城",
       "url": "https://changsha-city-edition-v34.leir0491.chatgpt.site/#xiangjiang",
-      "model": "GPT 6 PRO",
+      "model": "GPT6 Pro",
       "model_attribution": "作者在本次对话确认",
       "skill_status": "作者提供的作品展示"
     },

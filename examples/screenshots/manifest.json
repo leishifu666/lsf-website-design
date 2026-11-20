@@ -9,6 +9,69 @@
   "method": "实际浏览器截图；逐章或逐场景滚动后截图，等比缩放并拼接。未重绘或修改页面内容。长图是精选场景拼接，不是连续全页截图。",
   "samples": [
     {
+      "id": "hark-renwolfssance",
+      "title": "狼艺复兴版 冬季 '26 · 狼人杀",
+      "url": "https://hark.com/site/533df3ba-5c81-45b2-9d92-50281fb04326?hark_region=us",
+      "capture_url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app",
+      "model": "Claude Opus 5.5",
+      "model_attribution": "作者确认",
+      "captured_on": "2026-11-20",
+      "browser": "Ego Lite",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "assets": [
+        {
+          "file": "examples/screenshots/hark-renwolfssance.jpg",
+          "label": "开场 / 首屏转场 / 狼人 / 女巫 / 白天与投票 / 常见配置",
+          "size": [
+            1080,
+            4500
+          ],
+          "sha256": "134c45f4e8122ec8ed26f6eeb0dfa597c2583890e69b9859e05a67f996a73b8b"
+        }
+      ],
+      "source_scenes": [
+        {
+          "label": "开场",
+          "url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app#top",
+          "scrollY": 0,
+          "source_sha256": "a2a92c9b34cb27f56c46e48fb72b07523196cd27f72c1c789e850b5309d5573c"
+        },
+        {
+          "label": "首屏转场",
+          "url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app#top",
+          "scrollY": 962.4000244140625,
+          "source_sha256": "360563e9dda6bc200ac38ab6829d0371fd0609ef87fb8ede26ae403a2581bfd0"
+        },
+        {
+          "label": "狼人",
+          "url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app#ch-02",
+          "scrollY": 4893.60009765625,
+          "source_sha256": "6741727db0060e8da05ab5a3970b5a41eee490706a80b412f2d323892f37c1e0"
+        },
+        {
+          "label": "女巫",
+          "url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app#ch-04",
+          "scrollY": 10829.599609375,
+          "source_sha256": "f757257684404947d64de44f4ed4ed70814afaf57931e586e78b5a870c017a19"
+        },
+        {
+          "label": "白天与投票",
+          "url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app#ch-10",
+          "scrollY": 28212.80078125,
+          "source_sha256": "307d14c322c5719fea1317cd273a8f7b5b2c10115061be17d6857353c9cca4bd"
+        },
+        {
+          "label": "常见配置",
+          "url": "https://hark.site/s/533df3ba-5c81-45b2-9d92-50281fb04326/index.html?hark_region=us&via=app#ch-11",
+          "scrollY": 32287.19921875,
+          "source_sha256": "7fd3162882f6ecf77307d8c770d066013c3f8ec77ee6e6c50aa17e2cea6fcaaf"
+        }
+      ]
+    },
+    {
       "id": "shanshui-roam",
       "title": "山水洲城 · 长沙漫游",
       "url": "https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#overview",

@@ -51,8 +51,9 @@ LSF-网站设计是一套给 AI 编程助手用的网站设计技能。给它一
 | 长沙 · 山水洲城 | [打开作品](https://changsha-city-edition-v34.leir0491.chatgpt.site/#xiangjiang) | GPT6 Pro | [开场 / 湘江 / 风味](examples/screenshots/changsha-edition.jpg) |
 | 万圣夜 · 槐安里十三号 | [打开 Hark 作品](https://hark.com/site/6ea9e899-ceba-4306-966c-0622f3f47ee8?hark_region=us) | Claude Opus 5.5 | [开场 / 档案 / 轮播 / 球体](examples/screenshots/hark-halloween.jpg) |
 | 长沙特辑 · The Changsha Edition | [打开 Hark 作品](https://hark.com/site/77af0857-a085-4f73-9456-4db0641e3a45?hark_region=us) | Claude Opus 5.5 | [开场 / 湘江 / 岳麓 / 小吃](examples/screenshots/hark-changsha-edition.jpg) |
+| 狼艺复兴版 · 狼人杀 | [打开 Hark 作品](https://hark.com/site/533df3ba-5c81-45b2-9d92-50281fb04326?hark_region=us) | Claude Opus 5.5 | [开场 / 转场 / 狼人 / 女巫 / 投票 / 配置](examples/screenshots/hark-renwolfssance.jpg) |
 
-长图由实际页面截图拼接。截图拍摄于 2026-11-04 和 2026-11-19，桌面视口为 1440 × 1000。置顶案例另含 375 × 812 手机截图和 1440 × 810 录屏。模型信息来自作者提供的记录。详细来源见[作品展示](examples/作品展示.md)和[截图记录](examples/screenshots/manifest.json)。
+长图由实际页面截图拼接。截图拍摄于 2026-11-04、2026-11-19 和 2026-11-20，桌面视口为 1440 × 1000。置顶案例另含 375 × 812 手机截图和 1440 × 810 录屏。模型信息来自作者提供的记录。详细来源见[作品展示](examples/作品展示.md)和[截图记录](examples/screenshots/manifest.json)。
 
 ![LSF-网站设计作品截图](examples/screenshots/showcase-overview.jpg)
 

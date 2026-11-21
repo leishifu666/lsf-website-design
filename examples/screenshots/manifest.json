@@ -23,7 +23,7 @@
       ],
       "assets": [
         {
-          "file": "examples/screenshots/hark-renwolfssance.jpg",
+          "file": "examples/screenshots/cases/hark-renwolfssance.jpg",
           "label": "开场 / 首屏转场 / 狼人 / 女巫 / 白天与投票 / 常见配置",
           "size": [
             1080,
@@ -87,7 +87,7 @@
       ],
       "assets": [
         {
-          "file": "examples/screenshots/changsha-shanshui-roam.jpg",
+          "file": "examples/screenshots/cases/changsha-shanshui-roam.jpg",
           "label": "开场 / 湘江 / 岳麓 / 寻味 / 入夜",
           "size": [
             1080,
@@ -135,7 +135,18 @@
       "url": "https://changsha-city-fieldnotes.leir0491.chatgpt.site/#intro",
       "model": "GPT6 Pro",
       "model_attribution": "作者在本次对话确认",
-      "skill_status": "作者提供的作品展示"
+      "skill_status": "作者提供的作品展示",
+      "assets": [
+        {
+          "file": "examples/screenshots/cases/changsha-fieldnotes.jpg",
+          "size": [
+            1440,
+            4362
+          ],
+          "sha256": "7bddb134b110b3612477eac2b8de345a9b497f5a99fd7f4f8def53e3828a9119",
+          "label": "现场 / 山水 / 湘味 / 入夜"
+        }
+      ]
     },
     {
       "id": "edition",
@@ -143,7 +154,18 @@
       "url": "https://changsha-city-edition-v34.leir0491.chatgpt.site/#xiangjiang",
       "model": "GPT6 Pro",
       "model_attribution": "作者在本次对话确认",
-      "skill_status": "作者提供的作品展示"
+      "skill_status": "作者提供的作品展示",
+      "assets": [
+        {
+          "file": "examples/screenshots/cases/changsha-edition.jpg",
+          "size": [
+            1440,
+            3308
+          ],
+          "sha256": "f1c26e36c2def68c17285fd5be96fe1bb6b2c840f165c29d9c9463f4be76a1e3",
+          "label": "开场 / 湘江 / 风味"
+        }
+      ]
     },
     {
       "id": "hark",
@@ -152,7 +174,18 @@
       "capture_url": "https://hark.site/s/6ea9e899-ceba-4306-966c-0622f3f47ee8/index.html?hark_region=us&via=app",
       "model": "Claude Opus 5.5",
       "model_attribution": "作者在本次对话确认",
-      "skill_status": "作者提供的作品展示"
+      "skill_status": "作者提供的作品展示",
+      "assets": [
+        {
+          "file": "examples/screenshots/cases/hark-halloween.jpg",
+          "size": [
+            1440,
+            4362
+          ],
+          "sha256": "eaaaf84c2232b2c649475a9b0125690dc54a91ab2cebc60a68823201c63de661",
+          "label": "开场 / 档案 / 轮播 / 球体"
+        }
+      ]
     },
     {
       "id": "hark-changsha",
@@ -161,7 +194,18 @@
       "capture_url": "https://hark.site/s/77af0857-a085-4f73-9456-4db0641e3a45/index.html?hark_region=us&via=app",
       "model": "Claude Opus 5.5",
       "model_attribution": "作者在本次对话确认",
-      "skill_status": "作者提供的作品展示"
+      "skill_status": "作者提供的作品展示",
+      "assets": [
+        {
+          "file": "examples/screenshots/cases/hark-changsha-edition.jpg",
+          "size": [
+            1440,
+            4362
+          ],
+          "sha256": "6c11e3127566ccd2efdcf5d279dc145c9afb0a09976bd833c088c51410f81095",
+          "label": "开场 / 湘江 / 岳麓 / 小吃"
+        }
+      ]
     },
     {
       "id": "deepseek-a",
@@ -170,7 +214,27 @@
       "model": "DeepSeek V4.1 Flash",
       "model_version": "V4.1 Flash",
       "used_skill": true,
-      "attribution": "作者在本次对话确认"
+      "attribution": "作者在本次对话确认",
+      "assets": [
+        {
+          "file": "examples/screenshots/deepseek-comparison/with-skill.jpg",
+          "size": [
+            1440,
+            3308
+          ],
+          "sha256": "c6993eb9c88528728d4339774af2803e686ff4138fcaa602097843051968f72c",
+          "label": "使用 skill 长图"
+        },
+        {
+          "file": "examples/screenshots/deepseek-comparison/comparison.jpg",
+          "size": [
+            2160,
+            2544
+          ],
+          "sha256": "8d34d5445f117cc841a8ce18687510875a7410acd12e39098c658c18d3f51292",
+          "label": "使用与未使用对照"
+        }
+      ]
     },
     {
       "id": "deepseek-b",
@@ -179,7 +243,18 @@
       "model": "DeepSeek V4.1 Flash",
       "model_version": "V4.1 Flash",
       "used_skill": false,
-      "attribution": "作者在本次对话确认"
+      "attribution": "作者在本次对话确认",
+      "assets": [
+        {
+          "file": "examples/screenshots/deepseek-comparison/without-skill.jpg",
+          "size": [
+            1440,
+            3308
+          ],
+          "sha256": "fc29799a9876017b029418d20d1f823f80c120a91964ab4e8dab2b6b01cec09c",
+          "label": "未使用 skill 长图"
+        }
+      ]
     },
     {
       "id": "codex-model-guide",
@@ -374,15 +449,15 @@
       ],
       "composites": [
         {
-          "file": "examples/screenshots/codex-model-guide-featured.jpg",
+          "file": "examples/screenshots/codex-model-guide/featured.jpg",
           "sha256": "28b56374362d4e2dca1369f21defd4dd8a8ff4ccbeb6db8925c168f49a8723ed"
         },
         {
-          "file": "examples/screenshots/codex-model-guide-scenes.jpg",
+          "file": "examples/screenshots/codex-model-guide/scenes.jpg",
           "sha256": "7d9b644213e4d267e4b2f2d032db84b82e11e1cae4d032e456d88fa66dccfd92"
         },
         {
-          "file": "examples/screenshots/codex-model-guide-long.jpg",
+          "file": "examples/screenshots/codex-model-guide/long.jpg",
           "sha256": "ecc3c864ab721aa14305983df48e9198bdeac6df9c3d6183aa349c00a7d4037f"
         }
       ],
@@ -402,7 +477,7 @@
         "audio": false,
         "method": "Ego Lite CDP screencast 实际连续操作；按帧时间戳合成 H.264 MP4",
         "preview_gif": {
-          "file": "examples/screenshots/codex-model-guide-preview.gif",
+          "file": "examples/screenshots/codex-model-guide/preview.gif",
           "sha256": "2b05876cc41b8d761454a622bd1d173fe3594629d8f9566f140a8d498f066f65",
           "source_start_seconds": 7.5,
           "source_length_seconds": 12.5,
@@ -470,6 +545,220 @@
             "at": 36.443
           }
         ]
+      }
+    },
+    {
+      "id": "leishifu-coffee-opus",
+      "title": "雷师傅咖啡 · 冷萃遇见雷师傅",
+      "url": "https://hark.com/site/7aceefbc-de78-4c5b-9c8f-b8391929c674?hark_region=us",
+      "capture_url": "https://hark.site/s/7aceefbc-de78-4c5b-9c8f-b8391929c674/index.html?hark_region=us&via=app",
+      "model": "Claude Opus 5.5",
+      "model_attribution": "作者在本次对话确认",
+      "skill_status": "作者提供的同主题作品展示",
+      "captured_on": "2026-11-21",
+      "browser": "Chromium (Playwright)",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "assets": [
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus/01-hero.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "7d2a224a9d06b9c4564a853963d9f95d057fa0a5a080564ad574cf81053f99ac",
+          "label": "首屏转场与 3D 罐体",
+          "scrollY": 380
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus/02-lifestyle.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "11004778851f87a3f001222bb676ad8b1e7538704a2a5191117f5327955c5e4a",
+          "label": "视频卡片与品牌介绍",
+          "scrollY": 1520
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus/03-features.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "63cf7a7e24507875bb7c6ac5049fb868ed661cc323f5e07f38ca5adeff4d8b67",
+          "label": "卖点卡片与旋转罐体",
+          "scrollY": 4000
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus/04-comparison.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "f5a17bae42843e7a25c11957a267074ea2d2634d2e7a56201abe4ca631866c4b",
+          "label": "冷萃与速溶对比表",
+          "scrollY": 9820
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus/05-flavors.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "c453a77cee1dab91df6f3377850efc911a5ece0372cd7f4bf7ec529d983ca66c",
+          "label": "三种口味 3D 轮播",
+          "scrollY": 12120
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus/06-footer.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "267c152023e2ab41fcc77fd64e2710555cda5c558a670e43de7cf680599ec38e",
+          "label": "三罐合集与页脚水印",
+          "scrollY": 14350
+        }
+      ],
+      "composites": [
+        {
+          "file": "examples/screenshots/leishifu-coffee/comparison.jpg",
+          "size": [
+            1600,
+            1278
+          ],
+          "sha256": "7cf4196ed85b22618b52c90ec3b03e954e01881e4ab426d49f34f4b17fdad3bb",
+          "label": "双模型成品对照"
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/opus-scenes.jpg",
+          "size": [
+            1440,
+            1723
+          ],
+          "sha256": "1ddf1a06e7d22ab99304ae3a6071d03bf2169d859049b3074061aba5853dc8d3",
+          "label": "六个场景拼图"
+        }
+      ],
+      "preview_gif": {
+        "file": "examples/screenshots/leishifu-coffee/opus-preview.gif",
+        "size": [
+          800,
+          556
+        ],
+        "sha256": "7f23ce5e4ecc7b1539e3dda5cc16749a641f1bdb95081ac1fcebf2aaf6d2a260",
+        "frames": 31,
+        "method": "真实页面滚动与口味轮播点击连续截帧合成"
+      }
+    },
+    {
+      "id": "leishifu-coffee-gpt6",
+      "title": "雷师傅咖啡 · LEISHIFU COFFEE",
+      "url": "https://leishifu-coffee-76b741.leir0491.chatgpt.site/#top",
+      "model": "GPT6 Pro",
+      "model_attribution": "作者在本次对话确认",
+      "skill_status": "作者提供的同主题作品展示",
+      "captured_on": "2026-11-21",
+      "browser": "Chromium (Playwright)",
+      "viewport": [
+        1440,
+        1000
+      ],
+      "assets": [
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/01-hero.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "2d140d73b54fa4b756131fc5adc0a83086b5924cd90ca055e057217eec0049be",
+          "label": "首屏转场与罐体",
+          "scrollY": 380
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/02-videos.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "68d55963c97993bddaa279a587cec92569c1764409659a90d090dc249481cd9d",
+          "label": "视频卡片与搭配引导",
+          "scrollY": 1365
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/03-tips.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "5689fb343abd6369d153ba72cd5d8e887faa35031df1fe7f69f407414791d158",
+          "label": "旋转罐体与搭配要点",
+          "scrollY": 4800
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/04-comparison.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "f0e5e0e1e10c9db989d7fdb003094a9ca7af455a328c6b35194bb5706de1fe92",
+          "label": "黑咖与奶咖 7 项对比",
+          "scrollY": 9800
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/05-recipes.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "f86d398146b1dd7273bbcfd4cea470fd117f9cef49dd1952cdecb785c50c857e",
+          "label": "五种喝法配方轮播",
+          "scrollY": 11975
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/06-modal.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "2e9de37b68b57c404089203137b986b351a6b3da4362cf8644121f60468f59a6",
+          "label": "交互配方做法弹窗",
+          "scrollY": 12120
+        },
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6/07-footer.jpg",
+          "size": [
+            1440,
+            1000
+          ],
+          "sha256": "4217d6a0c173ec9a8161bf15b9948918aac90eceee23d8845b1226e9793b2c48",
+          "label": "页脚卡片与超大水印",
+          "scrollY": 13850
+        }
+      ],
+      "composites": [
+        {
+          "file": "examples/screenshots/leishifu-coffee/gpt6-scenes.jpg",
+          "size": [
+            1440,
+            1723
+          ],
+          "sha256": "be692bd632f4de518da3ef104e8600882d1361b91e369f962761e210c0e4135e",
+          "label": "六个场景拼图"
+        }
+      ],
+      "preview_gif": {
+        "file": "examples/screenshots/leishifu-coffee/gpt6-preview.gif",
+        "size": [
+          800,
+          556
+        ],
+        "sha256": "db2f6b0526b31fce2423618ba47adb14f961a1564f2dc74cfda1d27fc1ec3acc",
+        "frames": 28,
+        "method": "真实页面滚动、配方切换与弹窗点击连续截帧合成"
       }
     }
   ],

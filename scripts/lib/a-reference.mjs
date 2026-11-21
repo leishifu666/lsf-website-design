@@ -4,6 +4,7 @@ import { isAbsolute, relative, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { inspectSourceSurvey } from './source-survey.mjs';
 import { inspectPrototype, checkFrameImages } from './a-prototype.mjs';
+import { inspectAssetsPlan } from './assets-plan.mjs';
 
 const widths = [375, 768, 1440];
 const kinds = ['palette', 'control', 'surface', 'asset'];
@@ -17,7 +18,7 @@ const fields = {
   asset: ['resource', 'binding', 'shape', 'motion']
 };
 
-export async function inspectAReference(site, { reference, stage = 'paired', requirePrototype = false, requireSurvey = false } = {}) {
+export async function inspectAReference(site, { reference, stage = 'paired', requirePrototype = false, requireSurvey = false, requireCore = false } = {}) {
   const problems = [], files = {}, sourceFiles = {}, prototypeFiles = {}, images = [], drifts = [];
   const imageHashes = new Map();
   const manifest = 'ref/a-reference.json';
@@ -157,13 +158,18 @@ export async function inspectAReference(site, { reference, stage = 'paired', req
     for (const id of samples.keys()) if (!sampleKeys.has(id)) problems.push('样本不在原站清单 ' + id);
     for (const kind of kinds) if (!sampled.has(kind) && (!['control', 'asset'].includes(kind) || !text(inventory.absent?.[kind]))) problems.push('缺原站 ' + kind + ' 取证');
     if (requireSurvey) {
-      const survey = await inspectSourceSurvey({survey:result.survey, inventory, contract, stage, prototype, evidence});
+      const survey = await inspectSourceSurvey({survey:result.survey, inventory, contract, stage, prototype, evidence, requireCore});
       sourceRows.push(survey.source);
       result.surveyGaps = survey.gaps;
       result.earlyBehaviors = survey.earlyBehaviors;
       result.surveyOutputs = survey.outputs;
       result.layoutPairs = survey.layouts;
       if (stage !== 'source') prototypeRows.push(result.survey.behaviors.filter(b => survey.earlyBehaviors.includes(b.id)));
+    }
+    if (requireCore && paired) {
+      result.componentReuse = await inspectAssetsPlan(site);
+      problems.push(...result.componentReuse.problems);
+      Object.assign(files,result.componentReuse.files);
     }
     result.sourceHash = hash(JSON.stringify([contract.source, sourceFiles, sourceRows]));
     if (prototype) {

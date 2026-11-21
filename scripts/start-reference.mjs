@@ -41,7 +41,7 @@ async function runResearch([address, ...args]) {
   if (nested === '..' || nested.startsWith('../') || nested.startsWith('..\\') || isAbsolute(nested))
     throw Error('网站目录必须在原项目内');
   if (config) {
-    if (config.design_mode !== 'A' || config.purpose !== 'website' || config.a_reference_version !== 34 ||
+    if (config.design_mode !== 'A' || config.purpose !== 'website' || ![33,34,36].includes(config.a_reference_version) ||
         await realpath(resolve(root,config.site)) !== site || (config.reference && new URL(config.reference).href !== reference.href)) {
       throw Error('已有流程的版本、站点或主参考与本次不符，请使用原流程或在本次原项目的独立目录开展测试');
     }
@@ -69,6 +69,7 @@ async function runResearch([address, ...args]) {
   console.log(JSON.stringify({stage:'research', survey:surveyFile, topology:topologyFile, discovered:topology.entries.length,
     entries_pending:survey.coverage.filter(row=>row.disposition==='pending').reduce((sum,row)=>sum+row.entries.length,0),
     categories_unchecked:survey.categories.filter(row=>row.status==='未检查').map(row=>row.id),
-    new_entries_to_classify:newIds, next:'检查可达页面和区块，逐类回放六类输入。核心动效按 references/动画取证与逐帧对照.md 运行 animation-tool.mjs；Canvas/WebGL 加 --gl --assets，保存 shader、JS/模型和连续帧，保留真实滚轮复核。完成原站取证后运行 reference-check --stage source。'},null,2));
+    new_entries_to_classify:newIds, core_motion:survey.core_motion?.status ?? 'unknown',
+    next:'检查可达页面和区块，逐类回放六类输入，明确 core_motion。核心动效按 references/动画取证与逐帧对照.md 采集真实资源和输出；Canvas/WebGL 动态场景加 --gl --assets，静态内容不强制 GPU。未知或受阻不能默认跳过。source 通过才做样段，prototype 通过才展开整站；两者失败时保留材料并补证，不依靠视觉评分覆盖。旧版本按提示从 source --upgrade 迁移。'},null,2));
 }
 runResearch(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode=1; });

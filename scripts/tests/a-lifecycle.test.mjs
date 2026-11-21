@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {surveyFixture} from './fixtures/source-survey.mjs';
 import {prototypeFixture} from './fixtures/a-prototype.mjs';
+import {componentReuseFixture} from './fixtures/component-reuse.mjs';
 import {inspectAReference} from '../lib/a-reference.mjs';
 import {inspectWorkflow} from '../workflow-check.mjs';
 import {prepareReview,ledger,buildSnapshot,evidenceProblems} from '../lib/review-workflow.mjs';
@@ -52,6 +53,7 @@ async function project(t,initial) {
     await writeJson(manifest,c);
     await survey.stage(which);
     await cp(join(seed,'ref/source-survey.json'),join(root,'ref/source-survey.json'));
+    if (which === 'paired') await componentReuseFixture(root);
   }
   await stage('source');
   return {root,contract,stage};
@@ -153,21 +155,68 @@ test('已有项目基线沿用，旧 A 的 source/paired 不能追认为 v33 样
   assert.match(config.reference_existing_draft,/begin/);
   delete config.a_reference_version;
   await writeJson(join(root,'.lsf/workflow.json'),config);
-  fails(check(root,'prototype'),/旧 A/);
+  fails(check(root,'prototype'),/历史 A/);
   assert.equal((await readConfig(root)).a_reference_version,undefined);
 });
 
-test('已登记 v33 项目继续沿用原站、样段和整站流程',async t => {
+test('历史项目保留材料，完整制作须显式升级；失败迁移不覆盖历史锁',async t => {
   const {root,stage} = await project(t);
   const config = await readConfig(root);
-  assert.equal(config.a_reference_version,34);
+  assert.equal(config.a_reference_version,36);
   config.a_reference_version = 33;
+  config.reference_source_hash = 'historical-source';
+  config.reference_prototype = {source_hash:'historical-source',evidence_hash:'historical-prototype'};
+  config.reference_paired_hash = 'historical-paired';
   await writeJson(join(root,'.lsf/workflow.json'),config);
-  for (const phase of ['source','prototype','paired']) {
-    await stage(phase);
-    await rm(join(root,'ref/source-survey.json'));
-    assert.match(succeeds(check(root,phase)),/v33-source-prototype-paired/);
-  }
+  fails(check(root,'paired'),/历史 A.*--upgrade/);
+  const path = join(root,'ref/source-survey.json');
+  const source = JSON.parse(await readFile(path,'utf8'));
+  delete source.core_motion; await writeJson(path,source);
+  fails(check(root,'source','--upgrade','--existing-draft','--reason','从历史稿补v36观察'),/core_motion/);
+  const unchanged = await readConfig(root);
+  assert.equal(unchanged.a_reference_version,33);
+  assert.equal(unchanged.reference_source_hash,'historical-source');
+  assert.deepEqual(unchanged.reference_prototype,config.reference_prototype);
+  assert.equal(unchanged.reference_paired_hash,'historical-paired');
+  await stage('source');
+  assert.match(succeeds(check(root,'source','--upgrade','--existing-draft','--reason','从历史稿补v36观察')),/v36-source-prototype-paired/);
+  const adopted = await readConfig(root);
+  assert.equal(adopted.a_reference_version,36);
+  assert(!adopted.reference_prototype && !adopted.reference_paired_hash && !adopted.reference_failure);
+  for (const phase of ['prototype','paired']) {await stage(phase); succeeds(check(root,phase));}
+});
+
+test('失败 source 不能由旧锁、恢复文件或后续失败命令自动洗掉',async t => {
+  const {root,stage} = await project(t);
+  for (const phase of ['source','prototype','paired']) {await stage(phase); succeeds(check(root,phase));}
+  const before = await readConfig(root), path = join(root,'ref/source-survey.json');
+  const old = await readFile(path,'utf8'), source = JSON.parse(old);
+  source.core_motion.status = 'blocked'; source.core_motion.reason = '侦察 socket 权限失败，尚未确认主场景';
+  await writeJson(path,source);
+  fails(check(root,'source','--reason','重新取证遇阻'),/受阻/);
+  assert.equal((await readConfig(root)).reference_paired_hash,before.reference_paired_hash);
+  await writeFile(path,old);
+  fails(check(root,'prototype'),/上次 source 核验未通过/);
+  fails(check(root,'paired'),/上次 source 核验未通过/);
+  assert.match((await inspectWorkflow(root)).problems.join('\n'),/上次 source/);
+  const options = await reviewMaterials(root);
+  await assert.rejects(prepareReview(root,options),/上次 source/);
+  assert.deepEqual(await ledger(root),[]);
+  await stage('source'); succeeds(check(root,'source','--reason','已恢复浏览器并补齐原站实测'));
+  assert.equal((await readConfig(root)).reference_failure,undefined);
+  fails(check(root,'paired'),/--stage prototype/);
+});
+
+test('静态托管 dist 的提前制作被记录，源码与 hosting 配置不因目录名漏检',async t => {
+  const {root} = await project(t,async site => {
+    await mkdir(join(site,'.openai')); await mkdir(join(site,'dist'));
+    await writeJson(join(site,'.openai/hosting.json'),{static:{directory:'dist'}});
+    await writeFile(join(site,'dist/index.html'),'<script src="app.js"></script>');
+    await writeFile(join(site,'dist/app.js'),'document.body.dataset.stage = "initial";');
+  });
+  await writeFile(join(root,'dist/app.js'),'document.body.dataset.stage = "premature";');
+  fails(check(root,'source'),/dist\/app\.js/);
+  succeeds(check(root,'source','--existing-draft','--reason','保留提前写入的静态稿，从该稿补原站对照'));
 });
 
 test('普通中文建站提示触发 A 提醒；只分析时保持安静，提醒不代办登记', async t => {
@@ -182,5 +231,8 @@ test('普通中文建站提示触发 A 提醒；只分析时保持安静，提�
   assert.equal(reminder.status,0);
   assert.match(JSON.parse(reminder.stdout).hookSpecificOutput.additionalContext,/--stage source.*--stage prototype/);
   assert.equal(submit('先分析如何'+task).stdout,'');
+  assert.equal(submit('请制作这个网站的一份 DESIGN.md。').stdout,'');
+  assert.equal(submit('使用 $lsf-web-design-md 整理本地仓库的规范。').stdout,'');
+  assert.match(submit('根据 DESIGN.md 制作一个新网站。').stdout,/--stage source/);
   assert.deepEqual(await readdir(root),[]);
 });

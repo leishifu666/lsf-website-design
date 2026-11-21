@@ -1,8 +1,10 @@
 import { validateDesignReview } from './review-policy.mjs';
-import { makeReviewPlan, prepareReview, finishReview, inspectReview, reviewConfig, ledger, budgetFor, buildSnapshot, within, requiresAPrototype, referenceLockProblem, currentAPairs, pairedHash } from './lib/review-workflow.mjs';
+import { makeReviewPlan, prepareReview, finishReview, inspectReview, reviewConfig, ledger, budgetFor, buildSnapshot, within, requiresAPrototype, referenceLockProblem, referencePolicyProblem, currentAPairs, pairedHash } from './lib/review-workflow.mjs';
 import { appendFile } from 'node:fs/promises';
 import { inspectAReference } from './lib/a-reference.mjs';
 import { candidateCopyProblems, pageCopyProblems } from './lib/copy-necessity.mjs';
+import { productionSnapshot } from './lib/production-snapshot.mjs';
+import { inspectAssetsPlan } from './lib/assets-plan.mjs';
 // Website lifecycle checks also work without installed/trusted native hooks.
 // begin --root <workspace> --site <site-directory> [--reference <URL>]
 // check --root <workspace> [--site <site-directory>] [--url <local-preview>]
@@ -20,32 +22,6 @@ const digest = async p => createHash('sha256').update(await readFile(p)).digest(
 function inside(root, target) {
   const r = relative(root, target);
   return r !== '..' && !r.startsWith('..\\') && !r.startsWith('../') && !isAbsolute(r);
-}
-
-// Compare known production outputs with begin, not with timestamps. Existing
-// projects may already contain a working site. Ignore tooling, research and caches.
-async function productionSnapshot(site, includePages) {
-  const files = {};
-  const pageRoots = new Set(['src','app','pages','components','styles','public']);
-  const skip = new Set(['node_modules','dist','build','coverage','ref','vendor','__tests__','tests','fixtures']);
-  async function visit(dir = '') {
-    for (const entry of await readdir(join(site, dir), {withFileTypes:true})) {
-      const name = entry.name, key = dir ? dir+'/'+name : name;
-      if (name.startsWith('.') || skip.has(name)) continue;
-      const inPage = includePages && pageRoots.has(key.split('/')[0]);
-      if (entry.isDirectory()) {
-        if (inPage || ['copy','copy/gemini','rounds'].includes(key) || /^rounds\/round-\d+$/.test(key))
-          await visit(key);
-      } else if (entry.isFile()) {
-        const receipt = /^copy\/(brief|approved|review|page-review)\.json$|^copy\/gemini\/[^/]+\.json$|^rounds\/round-\d+\/(motion-evidence|final-score)\.json$/.test(key);
-        const pageFile = inPage && /\.(html?|[cm]?[jt]sx?|vue|svelte|astro|css|s[ac]ss)$/i.test(name);
-        const entryPoint = includePages && !dir && (/\.(html?|css)$/i.test(name) || /^(app|main|index|script)\.[cm]?[jt]sx?$/i.test(name));
-        if (receipt || pageFile || entryPoint) files[key] = await digest(join(site,key));
-      }
-    }
-  }
-  await visit();
-  return files;
 }
 
 function firstBuiltOutside(contract, scope = {states:[], samples:[]}) {
@@ -73,9 +49,10 @@ async function recordAReference(config, site, stage, proof, reason, existingDraf
     if (config.reference_source_hash !== proof.sourceHash || config.reference_prototype)
       throw Error('重新实测原站须提供 --reason；重测会使已有样段及整站对照失效');
   }
-  const baseline = config.reference_start;
+  const baseline = config.reference_start || {};
   const current = await productionSnapshot(site, stage === 'source');
-  const changed = Object.keys(current).filter(key => baseline[key] !== current[key]);
+  const compared = stage === 'source' ? new Set([...Object.keys(current),...Object.keys(baseline)]) : Object.keys(current);
+  const changed = [...compared].filter(key => baseline[key] !== current[key]);
   const remeasure = stage === 'source' && config.reference_prototype && reason;
   if (changed.length && !existingDraft && !remeasure)
     throw Error('早于'+(stage === 'source'?'原站锁定':'样段通过')+'的制作记录：'+changed.join('、')+'。保留文件，用 --stage source --existing-draft --reason <原因> 登记为已有稿再实测，结论从该稿起算');
@@ -125,6 +102,8 @@ export async function inspectWorkflow(root, { site: override, url } = {}) {
   const strictA = requiresAPrototype(config);
   const workflow = config.design_mode === 'A' ? {reference_workflow:referenceWorkflow(config)} : {};
   const existingDraft = strictA && config.reference_existing_draft ? {existing_draft:config.reference_existing_draft} : {};
+  const migration = referencePolicyProblem(config);
+  if (migration) return {passed:false,root,site,...workflow,...existingDraft,problems:[migration],review_status:config.review_status};
   if (strictA) {
     const locked = await currentAPairs(site,config);
     if (locked.problems.length) return {passed:false,root,site,...workflow,...existingDraft,problems:locked.problems,review_status:config.review_status};
@@ -225,14 +204,14 @@ export async function inspectWorkflow(root, { site: override, url } = {}) {
     if (proof.drifts.length) problems.push('A 模式仍有参考偏离：' + proof.drifts.join('、'));
   }
   // v34 consumes per-section source observations and replay values above.
-  if (config.reference && !(strictA && config.a_reference_version === 34)) {
+  if (config.reference && !(strictA && [34,36].includes(config.a_reference_version))) {
     let motion;
     for (const file of ['ref/motion/motion.json', 'ref/motion-measured.json']) {
       try { motion = await readJson(join(site, file)); break; } catch {}
     }
     if (!motion || (motion.source || motion.url) !== config.reference) problems.push('缺当前参考站的动效取证：滚动曲线、导航前后状态和场景触发方式必须记录');
   }
-  await missing('assets-plan.json', '缺 assets-plan.json：逐项记录库图标、生成图片、实际动态组件及来源');
+  if (!strictA) problems.push(...(await inspectAssetsPlan(site)).problems);
   if (url) {
     const style = spawnSync(process.execPath, [join(here, 'check-copy.mjs'), '--style-only', '--url', url], { cwd: site, encoding: 'utf8', windowsHide: true });
     if (style.status !== 0) problems.push('页面标题/按钮标点检查未通过：' + (style.stdout || style.stderr || '').split('\n').filter(s => s.startsWith('✗')).slice(0, 3).join('；'));
@@ -257,7 +236,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       if (await exists(configPath)) throw new Error('已有流程记录；先读现有配置，不覆盖正在进行的任务');
       const strictA = purpose === 'website' && designMode === 'A';
       const baseline = strictA ? await productionSnapshot(site,true) : {};
-      const aConfig = strictA ? {a_reference_version:34, reference_start:baseline} : {};
+      const aConfig = strictA ? {a_reference_version:36, reference_start:baseline} : {};
       if (Object.keys(baseline).length) aConfig.reference_existing_draft = 'begin 时已有制作文件，见 reference_start 清单';
       await mkdir(dirname(configPath), { recursive: true });
       await writeFile(configPath, JSON.stringify({ schema: 2, purpose, design_mode:designMode, ...aConfig, review_plan: makeReviewPlan(opt('--review-plan', 'default')), review_status: 'in-progress', site, reference: opt('--reference', null), status: 'in-progress', requirements: purpose==='review'?['design-review']:['gemini-copy', 'copy-review', 'page-copy-review', 'design-review', 'visual-checks'], created_at: new Date().toISOString() }, null, 2));
@@ -265,40 +244,46 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       if (strictA) console.log('✓ A 制作已登记。下一步运行 start-reference.mjs（可恢复本次登记）进行现场侦察，完成逐区块台账后运行 reference-check --stage source，再做真实样段。prototype 通过才展开整站文案、素材和章节。');
       else console.log(purpose==='review'?'✓ 仅视觉评审已登记；不启动建站或Gemini，结论不代表完整网站制作验收。':'✓ 网站流程已开始。文案先 Gemini → copy_reviewer，页面完成后 design_reviewer；未通过不得作为完成交付。');
     } else if (command === 'reference-check') {
-      const config = await readJson(configPath);
+      const previous = await readJson(configPath), config = structuredClone(previous);
       const site = resolve(root, config.site);
       if (!inside(root, site) || config.design_mode !== 'A' || config.purpose === 'review')
         throw Error('此命令用于当前原项目内的 A 模式制作');
       const requested = opt('--stage', 'paired'), stage = requested === 'final' ? 'paired' : requested;
-      const strictA = requiresAPrototype(config);
       if (!['source','prototype','paired'].includes(stage)) throw Error('stage 只能是 source、prototype、paired（final）');
-      if (stage === 'prototype' && !strictA) throw Error('旧 A 制作保留原有 source/paired 记录，不能追认为 v33 早期样段');
-      const existingDraft = args.includes('--existing-draft'), reason = (opt('--reason') || '').trim();
+      const upgrade = args.includes('--upgrade'), existingDraft = args.includes('--existing-draft'), reason = (opt('--reason') || '').trim();
       if (args.includes('--reason') && (!reason || reason.startsWith('--'))) throw Error('--reason 须填写重测或已有稿的具体依据');
-      if (existingDraft && (!strictA || stage !== 'source' || !reason))
-        throw Error('--existing-draft 仅用于新 A 的 source，须记录已有稿的 --reason');
-      if (strictA && stage !== 'source') {
-        const missing = referenceLockProblem(config, stage);
-        if (missing) throw Error(missing);
-      }
-      const proof = await inspectAReference(site, { reference: config.reference, stage, requirePrototype:strictA, requireSurvey:config.a_reference_version === 34 });
-      if (strictA) {
-        await recordAReference(config, site, stage, proof, reason, existingDraft);
-        if (proof.passed) await writeFile(configPath, JSON.stringify(config, null, 2));
-      } else if (proof.passed && stage === 'source') {
-        if (config.reference_source_hash && config.reference_source_hash !== proof.sourceHash && !opt('--reason'))
-          throw Error('原站锁定内容已变；核对差异后用 --reason 记录重新实测的具体依据');
-        config.reference = proof.contract.source;
-        config.reference_source_hash = proof.sourceHash;
-        if (opt('--reason')) config.reference_change_reason = opt('--reason');
-        await writeFile(configPath, JSON.stringify(config, null, 2));
-      } else if (stage === 'paired') {
-        if (!config.reference_source_hash || config.reference_source_hash !== proof.sourceHash)
-          proof.problems.push('须先锁定相同的原站取证');
-        if (proof.drifts.length) proof.problems.push('未解决参考偏离：' + proof.drifts.join('、'));
+      if (upgrade && (stage !== 'source' || !existingDraft || !reason)) throw Error('--upgrade 只用于 source，须同时提供 --existing-draft --reason；历史文件保留');
+      const policy = referencePolicyProblem(config);
+      if (policy && !upgrade) throw Error(policy);
+      if (existingDraft && (stage !== 'source' || !reason))
+        throw Error('--existing-draft 仅用于 source，须记录已有稿的 --reason');
+      if (stage === 'prototype' && config.reference_prototype && !config.reference_failure)
+        throw Error('样段已登记；成品用 paired 对照。原站确有变化时从 source 重新实测并记录 --reason');
+      const failed = async problems => {
+        // Failed attempts never replace historical locks or migrate the saved version.
+        const order = {source:0,prototype:1,paired:2};
+        if (!previous.reference_failure || order[stage] <= order[previous.reference_failure.stage])
+          previous.reference_failure = {stage,problems,checked_at:new Date().toISOString()};
+        await writeFile(configPath, JSON.stringify(previous,null,2));
+      };
+      let proof;
+      try {
+        if (stage !== 'source') {
+          const missing = referenceLockProblem(config,stage);
+          if (missing) throw Error(missing);
+        }
+        proof = await inspectAReference(site, { reference:config.reference, stage, requirePrototype:true, requireSurvey:true, requireCore:true });
+        if (proof.passed) {
+          if (upgrade) config.a_reference_version = 36;
+          await recordAReference(config,site,stage,proof,reason,existingDraft);
+          delete config.reference_failure;
+          await writeFile(configPath,JSON.stringify(config,null,2));
+        } else await failed(proof.problems);
+      } catch (error) {
+        await failed([error.message]); throw error;
       }
       const next = {source:'实测代表样段后运行 reference-check --stage prototype', prototype:'展开整站文案、素材与章节，再运行 reference-check --stage paired', paired:'核对当前成品并准备独立评审'};
-      console.log(JSON.stringify({ stage, reference_workflow:referenceWorkflow(config), passed: !proof.problems.length, problems: proof.problems, ...(proof.surveyGaps?.length ? {source_gaps:proof.surveyGaps} : {}), ...(strictA && proof.passed ? {next:next[stage], existing_draft:config.reference_existing_draft || null} : {}) }, null, 2));
+      console.log(JSON.stringify({ stage, reference_workflow:referenceWorkflow(config), passed:proof.passed, problems: proof.problems, ...(proof.surveyGaps?.length ? {source_gaps:proof.surveyGaps} : {}), ...(proof.passed ? {next:next[stage], existing_draft:config.reference_existing_draft || null} : {next:'保留已有文件，补齐失败证据后重跑当前阶段；不进入依赖它的下游阶段'}) }, null, 2));
       process.exitCode = proof.problems.length ? 1 : 0;
     } else if (command === 'adopt-review-policy') {
       const config = await readJson(configPath);

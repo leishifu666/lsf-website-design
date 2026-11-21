@@ -22,6 +22,7 @@ export function draftSourceSurvey(topology, topologyPath = 'ref/scout/topology.j
       section: sections.includes(e) ? e.id : '', reason: '' })),
     sections: sections.map(e => ({ id: e.id, spec: '', states: [], samples: [], layout:{state:'', file:''} })),
     categories: behaviorCategories.map(id => ({ id, scope: '*', status: '未检查', basis: '', observation: '' })),
+    core_motion: {status:'unknown',reason:'尚未实测核心动态是否适用',basis:'',effects:[]},
     behaviors: []
   };
 }
@@ -168,7 +169,7 @@ function matches(a, b, tolerance) {
 const preview = value => Array.isArray(value) && value.length > 16 ?
   {count:value.length,first:value.slice(0,4),last:value.slice(-4)} : value;
 
-async function compareAssertions(behavior, compare, evidence, jsonRecord, reserved, outputs) {
+async function compareAssertions(behavior, compare, evidence, jsonRecord, reserved, outputs, requireCore = false) {
   demand(list(behavior.assertions), behavior.id + ' 缺可追溯的行为断言');
   const roles = new Map();
   let sampled = false;
@@ -210,6 +211,8 @@ async function compareAssertions(behavior, compare, evidence, jsonRecord, reserv
       return {value:jsonValue(record,ref.pointer), plan:record.planSha256, stepIndex};
     }
     const src = await reading(item.source,true);
+    if (requireCore && item.role === 'renderer')
+      demand(item.grade !== 'direct' && ['webgl','webgl2','webgpu'].includes(src.value), label + ' 须实测正常环境的 GPU 上下文；fallback 不能代替主场景');
     if (tolerance > 0) demand(text(item.note),label + ' 非零容差须说明原站采样误差依据');
     if (item.grade !== 'direct') sampled = true;
     const readingPair = {ref:item.source, value:src.value, grade:item.grade};
@@ -235,6 +238,8 @@ async function compareAssertions(behavior, compare, evidence, jsonRecord, reserv
     demand(geometry.some(r => r.grade !== 'direct' && numeric(r.value) &&
       /geometry|mesh|triangles|vertices|vertex|positionAttribute|skeleton|bone|camera|quaternion|matrixWorld|drawElements/i.test(r.ref.pointer)), behavior.id + ' 缺模型几何、骨骼或相机的数值观测');
   }
+  if (requireCore && ['model-3d','webgl','webgpu','shader'].includes(behavior.mechanism))
+    demand((roles.get('renderer') ?? []).some(r => r.grade !== 'direct'), behavior.id + ' 缺正常环境 renderer 上下文实测；降级分支单列，不能据此确认原主场景');
   if (behavior.mechanism === 'scene-composite') {
     const layers = ['outgoing','incoming'].map(role => (roles.get(role) ?? []).filter(r => r.grade !== 'direct'));
     for (const layer of layers) demand(layer.some(r => numeric(r.value)) &&
@@ -249,7 +254,51 @@ async function compareAssertions(behavior, compare, evidence, jsonRecord, reserv
 const numeric = v => Array.isArray(v) ? list(v) && v.every(numeric) :
   Number.isFinite(v) || (text(v) && Number.isFinite(Number(v)));
 
-export async function inspectSourceSurvey({ survey, inventory, contract, stage, prototype, evidence }) {
+async function checkCoreMotion(survey, inventory, contract, prototype, behaviors, sections, evidence, reserved) {
+  const core = survey.core_motion;
+  demand(core && ['required','none','unknown','blocked'].includes(core.status),
+    '缺 core_motion 适用判断；旧台账保留，按 v36 补 status/reason/basis/effects 后从 source 重新核验');
+  demand(text(core.reason),'core_motion 缺适用、无核心动态或受阻的实际依据');
+  demand(!['unknown','blocked'].includes(core.status),'核心动态尚未确认或受阻：'+core.reason+'；补取证后重跑 source，不能默认跳过');
+  demand(text(core.basis) && !reserved.has(core.basis),'core_motion.basis 须引用实际观察文件，清单不能自证');
+  await evidence(core.basis,true);
+  demand(Array.isArray(core.effects),'core_motion 缺 effects 清单');
+  const probes = new Map((prototype?.original?.probes ?? []).map(p=>[p.id,p]));
+  const dynamic = [...probes.values()].filter(p => p.mapping !== 'static');
+  if (core.status === 'none') {
+    demand(!core.effects.length && !inventory.sequences.length && !dynamic.length,
+      'core_motion=none 与已实测的标志性动态序列或动态样段冲突；静态 Canvas/模型本身不要求核心动态');
+    return new Set();
+  }
+  demand(core.effects.length,'核心动态 required 却未登记 effect');
+  const ids = new Set(), used = new Set(), boundProbes = new Set();
+  const samples = new Map(inventory.samples.filter(s=>s.kind === 'asset').map(s=>[s.id,s]));
+  for (const effect of core.effects) {
+    demand(text(effect.id) && !ids.has(effect.id) && text(effect.behavior) && !used.has(effect.behavior),'核心 effect ID 或 behavior 为空/重复');
+    ids.add(effect.id); used.add(effect.behavior);
+    const b = behaviors.get(effect.behavior), probe = probes.get(effect.probe);
+    demand(b && observed.includes(b.status) && text(b.mechanism), effect.id+' 须绑定已实测行为和 mechanism，不能只列库名或研究文件');
+    demand(b.variant !== 'fallback',effect.id+' 引用了 fallback 行为；降级分支另记，正常主场景仍须实测');
+    const sequence = b.sequence ?? b.id;
+    if (effect.probe != null) {
+      demand(probe && probe.mapping !== 'static' && probe.role === 'scene',effect.id+' 缺关联的动态主场景样段 probe');
+      demand(sequence === probe.sequence && probe.frames.some(f=>sections.get(b.section)?.states.includes(f.state)),
+        effect.id+' 的行为、区块和样段不是同一动态序列');
+      boundProbes.add(probe.id);
+    } else demand(b.prototype !== true,effect.id+' 已选入代表样段却未关联 probe');
+    demand(Array.isArray(effect.assets) && (effect.assets.length || text(effect.assetsAbsent)),effect.id+' 须关联资产样本或说明无独立素材');
+    demand(new Set(effect.assets).size === effect.assets.length && effect.assets.every(id=>samples.has(id) && (!probe || probe.samples.includes(id)) && sections.get(b.section).samples.includes(id)),
+      effect.id+' 的资源未关联本区块、asset 样本和样段');
+    const resourceNames = [probe?.resource,probe?.locator,...effect.assets.map(id=>contract.samples.find(s=>s.id===id)?.original?.values?.resource)];
+    if (resourceNames.some(file=>/\.(glb|gltf)(?:$|[?#])/i.test(file ?? '')))
+      demand(b.mechanism === 'model-3d',effect.id+' 已关联动态模型资源，须核验 model-3d 运行输出；研究 GLB 后改用自写平面动画不能代替');
+  }
+  demand(boundProbes.size,'核心动态 required 至少选择一个真正核心 effect 的代表样段 probe；其余在 paired 对照');
+  for (const probe of dynamic.filter(p=>p.role === 'scene')) demand(boundProbes.has(probe.id),'核心动态台账遗漏主场景样段 '+probe.id);
+  return used;
+}
+
+export async function inspectSourceSurvey({ survey, inventory, contract, stage, prototype, evidence, requireCore = false }) {
   demand(survey.version === 1 && text(survey.topology), 'source-survey 版本或 topology 缺失');
   const paired = stage === 'paired', gaps = [], outputs = [], layouts = [];
   // Many assertions point into the same pair of large replay files.
@@ -272,6 +321,7 @@ export async function inspectSourceSurvey({ survey, inventory, contract, stage, 
   }
   const audited = new Map(), measured = new Set();
   const reserved = new Set(['ref/source-survey.json','ref/a-reference.json',contract.inventory,survey.topology]);
+  const coreBehaviors = requireCore ? await checkCoreMotion(survey,inventory,contract,prototype,behaviors,sections,evidence,reserved) : new Set();
   for (const c of survey.categories ?? []) {
     demand(behaviorCategories.includes(c.id) && text(c.observation) && text(c.basis), c.id + ' 缺六类审计的范围、观察或依据');
     demand(!reserved.has(c.basis), c.id + ' 请引用现场输入证据，清单不能自证');
@@ -336,7 +386,7 @@ export async function inspectSourceSurvey({ survey, inventory, contract, stage, 
     if (early) earlyBehaviors.push(b.id);
     const focus = stage === 'prototype' && early;
     if (paired || focus) demand(b.status === '已验证' && resolved(b.built) && fields(b.built,['difference','action']), b.id + ' 须完成双边验证并记录差异处理');
-    await compareAssertions(b, paired || focus, evidence,jsonRecord,reserved,outputs);
+    await compareAssertions(b, paired || focus, evidence,jsonRecord,reserved,outputs,coreBehaviors.has(b.id));
   }
   for (const probe of prototype?.original.probes ?? []) {
     if (probe.mapping === 'static') continue;

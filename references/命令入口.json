@@ -3,7 +3,7 @@
     "name": "lsf-web-replica",
     "title": "风格参考",
     "mode": "A",
-    "description": "风格参考：高精度参考主站的视觉、交互与真实技术，默认直接制作一套，可选同提示词的三个预览",
+    "description": "风格参考：先判断核心动效与源码，按原站机制完成样段和整站对照，默认一套，可选三个同提示词预览",
     "kind": "replica"
   },
   {
@@ -52,7 +52,7 @@
     "name": "lsf-web-animate",
     "title": "复刻动画",
     "mode": "I",
-    "description": "复刻动画：从网页或录屏复刻指定动画与交互，抓取 Three.js、Canvas、WebGL 证据并逐帧对照",
+    "description": "复刻动画：只复刻网页或录屏中的指定效果，取机制与连续帧证据并逐帧对照，不扩成整站或五项组件配额",
     "kind": "animation"
   },
   {

@@ -9,10 +9,12 @@
       ]
     },
     "a-start": {
-      "purpose": "A高精度风格参考、统一提示词与直接制作/可选预览分流",
+      "purpose": "A开工的核心动效判断、源码选型、统一提示词与制作分流",
       "files": [
         "templates/风格参考统一提示词.md",
-        "references/原站侦察与回放.md"
+        "references/原站侦察与回放.md",
+        "references/趣味动效与交互选型.md",
+        "references/组件书签与源码复用.md"
       ]
     },
     "research": {
@@ -22,7 +24,7 @@
       ]
     },
     "a-research": {
-      "purpose": "主参考的状态、素材与机制取证",
+      "purpose": "主参考的状态、素材与机制取证；核心动效按实际渲染采集",
       "files": [
         "references/原站侦察与回放.md",
         "references/动画取证与逐帧对照.md",
@@ -125,7 +127,7 @@
       ]
     },
     "fun": {
-      "purpose": "有趣动效、模型、鼠标交互与实际开源组件",
+      "purpose": "A自动判断核心动效；按目标选择交互机制与可用源码",
       "files": [
         "references/趣味动效与交互选型.md",
         "references/产品参考与复用来源.md"
@@ -197,8 +199,7 @@
     "a-proof": {
       "purpose": "A 模式的原站锁定、可运行样段与整站对照",
       "files": [
-        "references/A模式证据格式.md",
-        "references/动画取证与逐帧对照.md"
+        "references/A模式证据格式.md"
       ]
     },
     "animation-start": {
@@ -233,17 +234,26 @@
     },
     "design-md": {
       "purpose": "J 的范围、网站取证、Google DESIGN.md 格式与 CLI 验证",
-      "files": ["references/design-md.md", "vendor/google-design-md/upstream/docs/spec.md", "templates/DESIGN.md"]
+      "files": [
+        "references/design-md.md",
+        "vendor/google-design-md/upstream/docs/spec.md",
+        "templates/DESIGN.md"
+      ]
     },
     "design-preview": {
       "purpose": "J 模式的项目化 HTML 参考样板与已有预览生成工具",
-      "files": ["templates/design-preview-example.html", "templates/design-preview.html", "templates/design-preview.json", "scripts/render-design-preview.py"]
+      "files": [
+        "templates/design-preview-example.html",
+        "templates/design-preview.html",
+        "templates/design-preview.json",
+        "scripts/render-design-preview.py"
+      ]
     }
   },
   "modes": {
     "A": {
       "title": "风格参考",
-      "scope": "有参考网址先在原项目实查其页面、六类行为、主角与资产，再做样段、逐块对照。默认直接制作一套，用户明确比较时才做三个同提示词预览。",
+      "scope": "先实查主参考并判断核心动效、选择源码；有核心动效必读取证，静态站不强塞WebGL。source通过后做必要样段，prototype通过后扩全站素材/文案，paired另核每页五项源码与动态对照。失败补当前阶段，不改目标。默认一套，明确比较时才三个同提示词预览。",
       "stages": {
         "start": [
           "production-start",
@@ -254,19 +264,23 @@
           "a-research"
         ],
         "prototype": [
-          "a-proof"
+          "a-proof",
+          "sources",
+          "images"
         ],
         "preview": [
           "previews",
           "sources",
-          "images"
+          "images",
+          "a-proof"
         ],
         "copy": [
           "copy"
         ],
         "build": [
           "build",
-          "a-proof"
+          "a-proof",
+          "images"
         ],
         "review": [
           "page-copy",
@@ -389,7 +403,7 @@
     },
     "I": {
       "title": "复刻动画",
-      "scope": "只复刻用户指定的动画、交互、场景或视频时段，在原项目实现并逐帧对照；不自动启动整站制作、文案或评分。",
+      "scope": "只复刻用户指定的动画、交互、场景或视频时段，在原项目实现并逐帧对照；不自动启动整站制作、每页五项组件配额、文案或评分。",
       "stages": {
         "start": [
           "animation-start"
@@ -412,14 +426,19 @@
       "title": "DESIGN.md",
       "scope": "从网址或仓库提取，或按明确的设计要求起草。默认只交付 DESIGN.md，按需交付独立预览，不启动网页制作与评审。",
       "stages": {
-        "start": ["design-md"],
-        "verify": ["design-md"]
+        "start": [
+          "design-md"
+        ],
+        "verify": [
+          "design-md"
+        ]
       }
     }
   },
   "topics": {
     "design-preview": "design-preview",
     "motion": "motion",
+    "animation-capture": "animation-capture",
     "motion-state": "motion-state",
     "motion-input": "motion-input",
     "fun": "fun",
@@ -432,8 +451,7 @@
     "surface": "surface",
     "sources": "sources",
     "install": "install",
-    "copy-sources": "copy-sources",
-    "animation-capture": "animation-capture"
+    "copy-sources": "copy-sources"
   },
   "hubs": [
     {
@@ -472,13 +490,11 @@
     }
   ],
   "purposes": {
-    "scripts/sync-design-md.py": "检查或更新内置 Google DESIGN.md 规范快照",
-    "vendor/google-design-md/upstream/docs/spec.md": "Google DESIGN.md 完整官方规范，模式 J 本地读取",
-    "vendor/google-design-md/UPSTREAM.md": "Google DESIGN.md 的来源、版本和更新方法",
     "SKILL.md": "常驻总入口：自动路由、共享边界和索引",
     "README.md": "安装和使用说明；首次安装才触发依赖引导",
     "INDEX.md": "全部资源的可点击总索引；不是加载清单",
     "references/模式阅读导航.md": "按模式和当前阶段选读；由资源路由生成",
+    "references/模式与入口.md": "自动判断任务与基础版模式",
     "references/资源路由.json": "模式、阶段、专题和拆分文件映射的维护源",
     "references/component-bookmarks.json": "组件来源数据；按所选站点读取，不整份注入上下文",
     "references/design-review-policy.json": "评分、预算、渠道及按制作模式选取评审资料的唯一配置",
@@ -491,6 +507,9 @@
     "references/资料索引.md": "保留的原有专题资料、来源与章节指引",
     "templates/风格参考统一提示词.md": "用户确认的A制作提示词；原文复用，三预览逐字相同；含Shopify填写案例",
     "scripts/animation-tool.mjs": "内置reanimate的跨平台入口：检查、安装局部依赖、采集与比较",
-    "vendor/reanimate/UPSTREAM.md": "固定上游版本、MIT来源与本地兼容补丁"
+    "vendor/reanimate/UPSTREAM.md": "固定上游版本、MIT来源与本地兼容补丁",
+    "vendor/google-design-md/UPSTREAM.md": "Google DESIGN.md 的来源、版本和更新方法",
+    "vendor/google-design-md/upstream/docs/spec.md": "Google DESIGN.md 完整官方规范，模式 J 本地读取",
+    "scripts/sync-design-md.py": "检查或更新内置 Google DESIGN.md 规范快照"
   }
 }

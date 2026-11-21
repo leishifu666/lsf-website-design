@@ -16,7 +16,7 @@ let config;
 try { config = JSON.parse(readFileSync(join(root,'.lsf/workflow.json'),'utf8')); } catch {}
 let action = '已有主参考的新 A 先运行 start-reference.mjs，逐页逐块实测六类行为并运行 reference-check --stage source，再实测代表样段并运行 --stage prototype，通过后才展开整站文案、素材与章节。';
 if (config?.purpose === 'review') action = '当前仅做独立评审。';
-else if ([33, 34].includes(config?.a_reference_version)) {
+else if ([33, 34, 36].includes(config?.a_reference_version)) {
   action = !config.reference_source_hash ? '从当前原站侦察记录继续，补齐关键状态后运行 reference-check --stage source。' :
     !config.reference_prototype ? '下一步只实现代表样段，实际对照后运行 reference-check --stage prototype。' :
     !config.reference_paired_hash ? '样段已登记，现在可展开整站文案、素材和章节，完成后运行 reference-check --stage paired。' :

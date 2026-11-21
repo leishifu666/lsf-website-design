@@ -21,7 +21,7 @@
 
 | 文件 | 用途或阅读时机 |
 |---|---|
-| [references/A模式证据格式.md](references/A模式证据格式.md) | 主参考的状态、素材与机制取证；A 模式的原站锁定、可运行样段与整站对照 |
+| [references/A模式证据格式.md](references/A模式证据格式.md) | 主参考的状态、素材与机制取证；核心动效按实际渲染采集；A 模式的原站锁定、可运行样段与整站对照 |
 | [references/GSAP动效联动与审查.md](references/GSAP动效联动与审查.md) | 场景动效、参数和逐项落地 |
 | [references/component-bookmarks.json](references/component-bookmarks.json) | 组件来源数据；按所选站点读取，不整份注入上下文 |
 | [references/design-md.md](references/design-md.md) | J 的范围、网站取证、Google DESIGN.md 格式与 CLI 验证 |
@@ -31,7 +31,7 @@
 | [references/三方向预览与确认.md](references/三方向预览与确认.md) | A可选三预览同提示词、同主题、同参考；C原创探索按范围执行 |
 | [references/五站调研与记忆点.md](references/五站调研与记忆点.md) | 实际五站研究与产品记忆点 |
 | [references/交互动效.md](references/交互动效.md) | 场景动效、参数和逐项落地 |
-| [references/产品参考与复用来源.md](references/产品参考与复用来源.md) | 原创产品候选、方法筛选与种子；有趣动效、模型、鼠标交互与实际开源组件；组件来源、源码与许可证；按所选网站查询数据 |
+| [references/产品参考与复用来源.md](references/产品参考与复用来源.md) | 原创产品候选、方法筛选与种子；A自动判断核心动效；按目标选择交互机制与可用源码；组件来源、源码与许可证；按所选网站查询数据 |
 | [references/从零型与找参考.md](references/从零型与找参考.md) | 先找站或原创路径边界；只读对应C/D小节 |
 | [references/以人为中心的交互设计.md](references/以人为中心的交互设计.md) | 可发现入口、反馈、恢复和直接操作 |
 | [references/关联技能.md](references/关联技能.md) | Gemini候选与独立审核；成品审核另读page模式 |
@@ -39,10 +39,10 @@
 | [references/制作约定.md](references/制作约定.md) | 制作任务的范围与共享约束 |
 | [references/前卫设计与前端技巧.md](references/前卫设计与前端技巧.md) | 前卫设计与前端技巧 |
 | [references/动态输入回放.md](references/动态输入回放.md) | 两侧动态输入回放 |
-| [references/动画取证与逐帧对照.md](references/动画取证与逐帧对照.md) | 主参考的状态、素材与机制取证；A 模式的原站锁定、可运行样段与整站对照；I独立复刻指定动画的范围、保真目标与执行方式；实际录屏、连续帧、GPU追踪与网络资产采集；同条件逐帧、属性与GPU通道对比；如实报告偏差 |
+| [references/动画取证与逐帧对照.md](references/动画取证与逐帧对照.md) | 主参考的状态、素材与机制取证；核心动效按实际渲染采集；I独立复刻指定动画的范围、保真目标与执行方式；实际录屏、连续帧、GPU追踪与网络资产采集；同条件逐帧、属性与GPU通道对比；如实报告偏差 |
 | [references/原创构图方法库.md](references/原创构图方法库.md) | 原创产品候选、方法筛选与种子 |
-| [references/原站侦察与回放.md](references/原站侦察与回放.md) | A高精度风格参考、统一提示词与直接制作/可选预览分流；主参考的状态、素材与机制取证 |
-| [references/参考取证与组件规格.md](references/参考取证与组件规格.md) | 主参考的状态、素材与机制取证 |
+| [references/原站侦察与回放.md](references/原站侦察与回放.md) | A开工的核心动效判断、源码选型、统一提示词与制作分流；主参考的状态、素材与机制取证；核心动效按实际渲染采集 |
+| [references/参考取证与组件规格.md](references/参考取证与组件规格.md) | 主参考的状态、素材与机制取证；核心动效按实际渲染采集 |
 | [references/参考网站反推提示词.md](references/参考网站反推提示词.md) | F只反推提示词与素材方案 |
 | [references/反套路清单.md](references/反套路清单.md) | 反套路清单（AI 生成感 / 行业平均值） |
 | [references/命令入口.json](references/命令入口.json) | 对应功能的配置或实现；见脚本说明 |
@@ -62,7 +62,7 @@
 | [references/滚动叙事.md](references/滚动叙事.md) | 滚动叙事、分镜、pin与进度驱动 |
 | [references/特殊渲染.md](references/特殊渲染.md) | 正式实现的素材、技术与源码要求 |
 | [references/独立评审入口.md](references/独立评审入口.md) | 独立视觉评审的派发、证据、来源和预算 |
-| [references/组件书签与源码复用.md](references/组件书签与源码复用.md) | 正式实现的素材、技术与源码要求；组件来源、源码与许可证；按所选网站查询数据 |
+| [references/组件书签与源码复用.md](references/组件书签与源码复用.md) | A开工的核心动效判断、源码选型、统一提示词与制作分流；正式实现的素材、技术与源码要求；组件来源、源码与许可证；按所选网站查询数据 |
 | [references/组件网站源码核查.md](references/组件网站源码核查.md) | 组件网站与源码核查（2026-10-19） |
 | [references/自动化与门槛.md](references/自动化与门槛.md) | 最终核验、脚本边界与如实交付 |
 | [references/获奖级品质标准.md](references/获奖级品质标准.md) | 获奖级品质标准（Awwwards / Webby / FWA） |
@@ -73,7 +73,7 @@
 | [references/评审适用范围.md](references/评审适用范围.md) | 按制作模式选择评审口径 |
 | [references/资料索引.md](references/资料索引.md) | 保留的原有专题资料、来源与章节指引 |
 | [references/资源路由.json](references/资源路由.json) | 模式、阶段、专题和拆分文件映射的维护源 |
-| [references/趣味动效与交互选型.md](references/趣味动效与交互选型.md) | 有趣动效、模型、鼠标交互与实际开源组件 |
+| [references/趣味动效与交互选型.md](references/趣味动效与交互选型.md) | A开工的核心动效判断、源码选型、统一提示词与制作分流；A自动判断核心动效；按目标选择交互机制与可用源码 |
 | [references/风格还原.md](references/风格还原.md) | 风格还原：让 AI 按参考站的真实数值做，不瞎编（模式A） |
 | [references/首次安装与依赖.md](references/首次安装与依赖.md) | 仅首次安装交接的三个免费组件 |
 
@@ -168,9 +168,11 @@
 | [scripts/lib/a-prototype.mjs](scripts/lib/a-prototype.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/a-reference.mjs](scripts/lib/a-reference.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/animation-runtime.mjs](scripts/lib/animation-runtime.mjs) | 脚本内部实现；维护对应功能时读取 |
+| [scripts/lib/assets-plan.mjs](scripts/lib/assets-plan.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/browser.mjs](scripts/lib/browser.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/copy-necessity.mjs](scripts/lib/copy-necessity.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/ego-visual-evidence.mjs](scripts/lib/ego-visual-evidence.mjs) | 脚本内部实现；维护对应功能时读取 |
+| [scripts/lib/production-snapshot.mjs](scripts/lib/production-snapshot.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/replay-plan.mjs](scripts/lib/replay-plan.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/replay-recorder.mjs](scripts/lib/replay-recorder.mjs) | 脚本内部实现；维护对应功能时读取 |
 | [scripts/lib/resources.mjs](scripts/lib/resources.mjs) | 脚本内部实现；维护对应功能时读取 |
@@ -183,6 +185,7 @@
 | [scripts/lighthouserc.json](scripts/lighthouserc.json) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/lsf-prompt-hook.mjs](scripts/lsf-prompt-hook.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/lsf-stop-gate.mjs](scripts/lsf-stop-gate.mjs) | 对应功能的配置或实现；见脚本说明 |
+| [scripts/package-lock.json](scripts/package-lock.json) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/package.json](scripts/package.json) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/playwright.config.mjs](scripts/playwright.config.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/process-image.mjs](scripts/process-image.mjs) | 对应功能的配置或实现；见脚本说明 |
@@ -200,11 +203,15 @@
 | [scripts/tests/a-lifecycle.test.mjs](scripts/tests/a-lifecycle.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/a-prototype.test.mjs](scripts/tests/a-prototype.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/animation-runtime.test.mjs](scripts/tests/animation-runtime.test.mjs) | 修改对应实现后运行的回归测试 |
+| [scripts/tests/assets-plan.test.mjs](scripts/tests/assets-plan.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/basic-edition.test.mjs](scripts/tests/basic-edition.test.mjs) | 修改对应实现后运行的回归测试 |
+| [scripts/tests/core-motion.test.mjs](scripts/tests/core-motion.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/design-gate.spec.mjs](scripts/tests/design-gate.spec.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/fixtures/a-prototype.mjs](scripts/tests/fixtures/a-prototype.mjs) | 修改对应实现后运行的回归测试 |
+| [scripts/tests/fixtures/component-reuse.mjs](scripts/tests/fixtures/component-reuse.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/fixtures/source-survey.mjs](scripts/tests/fixtures/source-survey.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/original-directions.test.mjs](scripts/tests/original-directions.test.mjs) | 修改对应实现后运行的回归测试 |
+| [scripts/tests/production-snapshot.test.mjs](scripts/tests/production-snapshot.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/replay-behavior.test.mjs](scripts/tests/replay-behavior.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/resources.test.mjs](scripts/tests/resources.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/review-workflow.test.mjs](scripts/tests/review-workflow.test.mjs) | 修改对应实现后运行的回归测试 |

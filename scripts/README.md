@@ -18,9 +18,22 @@ node animation-tool.mjs compare --help
 
 实际命令、GPU/JS/资产保存、真实与虚拟时钟、滚动坐标、比较口径见[动画取证与逐帧对照](../references/动画取证与逐帧对照.md)。I 从[独立模式](../references/复刻动画.md)开始；A 仍沿用原站侦察和 source/prototype/paired，核心动画补此证据。不要把像素比较退出码 0 当成复刻验收通过。
 
-### 安装模式 I 入口
+### v36 原站、样段与源码复用
 
-在技能的根目录执行 `node scripts/install-mode-entries.mjs --mode I`，生成 `$lsf-web-animate` 入口。需要指定技能安装目录时使用现有的 `--skills-dir` 参数。
+`start-reference.mjs` 的草稿在既有 `ref/source-survey.json` 增加 `core_motion`：`status` 为 `required`、`none`、`unknown` 或 `blocked`，配套 `reason`、真实观察 `basis` 和 `effects`。每个核心 effect 绑定既有 behavior 和 asset 样本；选入代表样段的 effect 再填写 `probe`，其余在 paired 核对。未知或受阻不能锁 source；静态参考可以依据实测填 none，Canvas 标签或静态模型本身不触发 GPU 要求。动态模型使用原有 assertions 的 `geometry` 数值与 `renderer` 上下文读数；`variant: fallback` 单独登记，不能抵正常环境的主场景。
+
+source 通过后制作代表样段，prototype 通过后展开整站，paired 核对当前成品。失败写入 `reference_failure`，当前 `reference-check`、`check` 与正式 `prepare-review` 会保留并检查该状态；同阶段或更早阶段补证通过才能解除。重复请求已登记样段只提示正确阶段，不将有效历史证据改成失败。脚本不能阻止任意外部工具写文件或发布，Agent 仍须遵守阶段约束。
+
+paired 与网站 check 读取 `assets-plan.json` 的 `component_reuse`，按已登记 `pages` 分别核对至少五个不同适用源码组件。每项保留具体来源、源文件、许可、版本、落地文件、调用片段和独立 DOM 观察指针；保留片段可用 `retained_excerpt` 或带实际两段代码的 `adaptation` 映射。库、图标、候选、同页同源重复、仅导入与未能确认接入的条目不计数。脚本校验文件、调用关联和测量结构，不自动证明源码历史、许可适用性、完整页面覆盖或视觉一致；完整格式见[组件源码规则](../references/组件书签与源码复用.md)。静态依赖分析支持本地字面量引用与常见 `@/` 路径；框架路由或动态 loader 须登记可核对的实际调用入口，不把无法分析冒充已接入。I 局部任务不执行整站五项配额。
+
+历史 A 文件及结论保留，新完整制作/正式复核按提示升级；失败升级不覆盖旧版本与历史锁，只有 source 成功才切换 v36 并使旧下游锁失效：
+
+```text
+node workflow-check.mjs reference-check --root <原项目> --stage source --upgrade --existing-draft --reason <迁移与已有稿依据>
+node --test tests/core-motion.test.mjs tests/a-lifecycle.test.mjs tests/assets-plan.test.mjs tests/production-snapshot.test.mjs
+```
+
+`productionSnapshot` 按源入口、托管目录和已识别构建关系取范围。`.openai/hosting.json` 的 `static.directory` 为 `dist` 且没有构建来源时，`dist/index.html`、CSS、JS 等按实际源码记录；有真实源输入和已识别 Vite 等生产命令时排除对应生成输出。不会读取 `.env`，也不遍历依赖与构建缓存。
 
 ## 脚本和评审的分工
 - 默认两次真实独立调用、一批集中修改。首审通过就结束；按需定向复核，到限如实闭合，命令见[自动化与门槛](../references/自动化与门槛.md)。
@@ -58,7 +71,7 @@ node extract-tokens.mjs https://example.com ./out-m 375   # 再跑一次移动�
 node audit-a11y.mjs https://example.com ./out
 ```
 输出：`a11y.json` 与终端摘要表。只跑 WCAG 2.0 / 2.1 的 A 与 AA 规则。
-用在：步骤8 验收。
+用在：模式E 现状评估；步骤8 验收。
 
 ## 注意
 - 有登录墙、强反爬或 Cookie 弹窗的网站，截图可能被遮挡，需要手动关闭弹窗后用 DevTools 截图。
@@ -156,7 +169,7 @@ node check-samples.mjs ../dist
 - `node draw-original.mjs --brief <五站调研输入JSON> --out <新候选JSON>`：只用于C原创探索，记录种子与资源条件；候选不算真实预览。
 - Ego Lite现场取证：在当前指南要求的轮次脚本中导入`lib/ego-visual-evidence.mjs`，传入已有Page和原项目的绝对证据目录；不单独用node启动浏览器。
 - `node --test tests/original-directions.test.mjs tests/review-workflow.test.mjs`：候选、图标边界及原评审流程回归；不发送外部模型请求。
-- 模式入口由`references/命令入口.json`和install-mode-entries.mjs生成，显示基础版八种模式。视觉评审优先Gemini/Claude，安装引导只在首次安装执行。
+- 模式入口由`references/命令入口.json`和install-mode-entries.mjs生成。I只复刻指定动画；J单独提取、制作和验证 DESIGN.md。需要视觉评审时优先Gemini/Claude，安装引导只在首次安装执行。
 
 ## v31渐进式披露与三版预览
 
@@ -166,6 +179,7 @@ node check-samples.mjs ../dist
 node read-plan.mjs --mode A --stage preview             # 仅列当前阶段需要的文件
 node read-plan.mjs --mode G --stage review --design-mode A # 按参考模式列实际评审材料
 node read-plan.mjs --mode C --stage build --topic scroll  # 需要时补一个专题
+node read-plan.mjs --mode J --stage verify                # 列出 DESIGN.md 取证与验证指南
 node resource-index.mjs                                # 更新总索引、阶段导航、三个专题兼容索引
 node resource-index.mjs --check                        # 只校验生成文件是否同步
 node --test tests/resources.test.mjs tests/original-directions.test.mjs tests/review-workflow.test.mjs
@@ -173,7 +187,7 @@ node --test tests/resources.test.mjs tests/original-directions.test.mjs tests/re
 
 维护源是`references/资源路由.json`与`references/topics/`中的专题文件，生成的INDEX、模式阅读导航和三个旧文件索引不手改；旧章节锚点继续可用。正文迁移不把技巧变成额外门禁，历史案例与工程建议仍不覆盖当前用户偏好。
 
-`workflow-check.mjs begin --design-mode A|B|C`记录制作模式，`prepare-review --design-mode ...`可显式指定旧项目口径；它与`--mode full|verify|comparison`是两个不同参数。缺制作模式时按目标卡核对，不默认为C。审查包保留完整项目规则正文，只减少不适用的技能材料，不改变评分或两次调用预算。
+`workflow-check.mjs begin --design-mode A|B|C|E`记录制作模式，`prepare-review --design-mode ...`可显式指定旧项目口径；它与`--mode full|verify|comparison`是两个不同参数。缺制作模式时按目标卡核对，不默认为C。审查包保留完整项目规则正文，只减少不适用的技能材料，不改变评分或两次调用预算。
 
 A 默认直接做一段并延续为整站，明确比较时才做三个预览；C 原创探索首批做三个高质量关键片段；具体分工和确认见`references/三方向预览与确认.md`。C的输入可用`exclude_methods`排除已否定方法、`allow_methods`限定适用池、`count: 1..3`按反馈补方案；首批默认3，后续输出必须是新文件。16项方法与28个产品线索不代表已经完成预览或实际站点研究。
 

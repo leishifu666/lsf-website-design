@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile,mkdtemp,rm} from 'node:fs/promises';
+import {readFile,mkdtemp,rm,readdir} from 'node:fs/promises';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {spawnSync} from 'node:child_process';
@@ -18,24 +18,41 @@ test('每个模式与阶段的实际读取清单都可打开；只评审/提示�
     assert(!files.includes('agents/copy-reviewer.toml'));
     assert(!files.includes('references/独立评审入口.md'));
   }
-  for(const stage of ['research','prototype','build','deliver']) {
-    assert(readingPlan({mode:'A',stage}).resources.includes('references/动画取证与逐帧对照.md'),stage);
-  }
+  assert(readingPlan({mode:'A',stage:'research'}).resources.includes('references/动画取证与逐帧对照.md'));
+  for (const file of ['references/趣味动效与交互选型.md','references/组件书签与源码复用.md'])
+    assert(readingPlan({mode:'A',stage:'start'}).resources.includes(file));
   assert(!readingPlan({mode:'A',stage:'preview'}).resources.includes('references/原创构图方法库.md'));
   assert.throws(()=>readingPlan({mode:'F',stage:'build'}),/没有build阶段/);
   assert.throws(()=>readingPlan({mode:'A',topics:['made-up']}),/未知专题/);
 });
 
-test('生成模式 J 独立入口，HTML 样板按需读取',async t=>{
-  const dir=await mkdtemp(join(tmpdir(),'lsf-mode-j-'));
+test('实际生成 A/I/J 入口保留整站、局部动画与设计文档各自的范围',async t=>{
+  const dir=await mkdtemp(join(tmpdir(),'lsf-mode-entry-'));
   t.after(()=>rm(dir,{recursive:true,force:true}));
-  const run=spawnSync(process.execPath,[join(skillRoot,'scripts/install-mode-entries.mjs'),'--skills-dir',dir,'--mode','J'],{encoding:'utf8',windowsHide:true});
-  assert.equal(run.status,0,run.stdout+run.stderr);
-  const entry=await readFile(join(dir,'lsf-web-design-md','SKILL.md'),'utf8');
-  assert(entry.includes('references/design-md.md'));
-  assert(entry.includes('vendor/google-design-md/upstream/docs/spec.md'));
-  assert(!entry.includes('references/制作流程.md'));
-  assert(readingPlan({mode:'J',topics:['design-preview']}).resources.includes('templates/design-preview-example.html'));
+  const catalog=JSON.parse(await readFile(join(skillRoot,'references/命令入口.json'),'utf8'));
+  for (const mode of ['A','I','J']) {
+    const run=spawnSync(process.execPath,[join(skillRoot,'scripts/install-mode-entries.mjs'),'--skills-dir',dir,'--mode',mode],{encoding:'utf8',windowsHide:true});
+    assert.equal(run.status,0,run.stdout+run.stderr);
+    const entry=catalog.find(e=>e.mode===mode);
+    const content=await readFile(join(dir,entry.name,'SKILL.md'),'utf8');
+    if(mode==='A') {
+      assert.match(content,/core_motion/); assert.match(content,/source 通过后.*prototype 通过后/);
+      assert.match(content,/静态参考可据实 none/); assert.match(content,/每页至少五个/);
+    } else if (mode==='I') {
+      assert.match(content,/只复刻指定动画、区块交互或视频时段/);
+      assert.match(content,/不启动整站begin.*每页五组件配额/);
+      assert.match(content,/不扩成整站重做/);
+    } else {
+      assert.match(content,/references\/design-md\.md\)/);
+      assert.match(content,/vendor\/google-design-md\/upstream\/docs\/spec\.md\)/);
+      assert.match(content,/templates\/DESIGN\.md\)/);
+      assert.doesNotMatch(content,/references\/制作流程\.md\)/);
+      assert.deepEqual(readingPlan({mode,stage:'verify'}).resources,[
+        'references/design-md.md','vendor/google-design-md/upstream/docs/spec.md','templates/DESIGN.md'
+      ]);
+    }
+  }
+  assert.deepEqual((await readdir(dir)).sort(),['lsf-web-animate','lsf-web-design-md','lsf-web-replica']);
 });
 
 test('评审按制作模式只取相应原文章节，保留共同约束并移除整份建站入口',async()=>{

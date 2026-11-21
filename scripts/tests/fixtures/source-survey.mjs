@@ -33,22 +33,26 @@ export async function surveyFixture(site, contract) {
   for (const c of survey.categories) Object.assign(c,{status:c.id === 'pointer' ? '已测量' : '已确认无此效果',
     basis:'ref/input-observations.json', observation:c.id === 'pointer' ? '拖动门时两扇移动' : '测试环境已运行此类输入，未发现变化'});
   const record = {id:'drag',section:'intro',category:'pointer',target:'两扇门',trigger:'拖动',precondition:'入口出现',
+    mechanism:'dom-transform',
     states:{initial:'闭合',transition:'横移',end:'打开'},timing:{duration:'用户驱动',delay:0,easing:'线性'},
     response:{exit:'松手停住',reverse:'反向合上',repeat:'可重复',responsive:'窄屏触摸'},
     status:'已测量',assertions:[{property:'左扇位移',grade:'measured',
       source:{file:'ref/prototype-original.json',pointer:'/probes/0/frames/1/value'}}]};
   survey.behaviors.push(record);
+  survey.core_motion = {status:'required',reason:'真实拖动产生连续开门变化，属于此页主场景',basis:'ref/input-observations.json',
+    effects:[{id:'gate-motion',behavior:'drag',assets:['gate'],probe:'panel'}]};
   async function stage(which) {
     const result = structuredClone(survey);
     if (which !== 'source') {
-      const b = result.behaviors[0];
-      b.built = {verdict:'match',difference:'中点位移相同',action:'保持实测映射'};
-      b.status = '已验证';
-      for (const a of b.assertions) if (a.grade !== 'unknown')
-        a.built = {file:a.source.file.replace('original','built'),pointer:a.source.pointer};
+      for (const b of result.behaviors.filter(b => which === 'paired' || b.prototype || (b.sequence ?? b.id) === 'drag')) {
+        b.built = {verdict:'match',difference:'中点位移相同',action:'保持实测映射'};
+        b.status = '已验证';
+        for (const a of b.assertions) if (a.grade !== 'unknown')
+          a.built = {file:a.source.file.replace('original','built'),pointer:a.source.pointer};
+      }
     }
     if (which === 'paired') {
-      result.categories.find(c => c.id === 'pointer').status = '已验证';
+      for (const c of result.categories) if (c.status === '已测量') c.status = '已验证';
       for (const s of result.sections) s.built = {verdict:'adapted',layout:{file:s.layout.file.replace('original','built')},locator:'#'+s.id,difference:'相同输入下排版与变化关系吻合',action:'保留中文文本适配'};
     }
     await write('ref/source-survey.json',result);

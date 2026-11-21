@@ -9,12 +9,19 @@ import {inspectAReference} from './a-reference.mjs';
 const skill=resolve(dirname(fileURLToPath(import.meta.url)),'../..');
 export const readJson=p=>readFile(p,'utf8').then(JSON.parse);
 const hash=s=>createHash('sha256').update(s).digest('hex');
-export const requiresAPrototype = config => [33,34].includes(config.a_reference_version) && config.design_mode === 'A' && config.purpose === 'website';
+export const requiresAPrototype = config => [33,34,36].includes(config.a_reference_version) && config.design_mode === 'A' && config.purpose === 'website';
+export const referencePolicyProblem = config => config.design_mode === 'A' && config.purpose !== 'review' && config.a_reference_version !== 36
+  ? '历史 A 证据保留；本次完整制作/正式复核需补 v36 台账。运行 reference-check --stage source --upgrade --existing-draft --reason <迁移与已有稿依据>；局部修字/修 Bug 不自动启动整站流程'
+  : null;
 export const pairedHash = proof => hash(JSON.stringify(Object.entries(proof.files).sort(([a],[b]) => a.localeCompare(b))));
 
 // The prototype receipt describes the early sample. Final copy and implementation
 // can change afterwards; verify today's complete pairs separately.
 export function referenceLockProblem(config, stage, proof) {
+  const order = {source:0,prototype:1,paired:2,review:3};
+  const failure = config.reference_failure;
+  if (failure && order[stage] > order[failure.stage])
+    return '上次 '+failure.stage+' 核验未通过：'+failure.problems.join('；')+'。补证后重跑 reference-check --stage '+failure.stage;
   if (!config.reference_source_hash || (proof && proof.sourceHash !== config.reference_source_hash))
     return '缺当前原站锁定或原站材料已变；先运行 reference-check --stage source';
   if (stage === 'prototype') return null;
@@ -28,9 +35,11 @@ export function referenceLockProblem(config, stage, proof) {
 }
 
 export async function currentAPairs(site, config) {
+  const policy = referencePolicyProblem(config);
+  if (policy) return {problems:[policy]};
   const missing = referenceLockProblem(config,'review');
   if (missing) return {problems:[missing]};
-  const proof = await inspectAReference(site,{reference:config.reference,requirePrototype:true,requireSurvey:config.a_reference_version === 34});
+  const proof = await inspectAReference(site,{reference:config.reference,requirePrototype:true,requireSurvey:true,requireCore:true});
   const problems = [...proof.problems];
   if (proof.passed) {
     const stale = referenceLockProblem(config,'review',proof);
@@ -157,6 +166,8 @@ export async function evidenceProblems(site,input){
 }
 export async function prepareReview(root,{round,channel='host',mode='full',scope='default',target=null,responses=null,fallbackReason=null,designMode=null}={}){
   root=resolve(root);const config=await reviewConfig(root),site=local(root,config.site),dir=local(site,round);
+  const policy = mode !== 'comparison' && referencePolicyProblem(config);
+  if (policy) throw Error(policy);
   const strictA = requiresAPrototype(config) && mode !== 'comparison';
   const locked = strictA ? await currentAPairs(site,config) : null;
   if (locked?.problems.length) throw Error(locked.problems.join('；'));

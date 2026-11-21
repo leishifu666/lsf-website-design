@@ -79,9 +79,11 @@ async function referenceFixture(root) {
   }
   await json(join(root,'ref/a-reference.json'),contract);
   const path=join(root,'.lsf/workflow.json'),config=await readJson(path);
-  config.design_mode='A';config.reference=siteRef;await json(path,config);
-  const lock=spawnSync(process.execPath,[join(scripts,'workflow-check.mjs'),'reference-check','--root',root,'--stage','source'],{encoding:'utf8',windowsHide:true});
-  assert.equal(lock.status,0,lock.stdout+lock.stderr);
+  // These old contract fixtures exercise read-only historical review, not a new v36 build.
+  config.design_mode='A';config.purpose='review';config.reference=siteRef;
+  const historical=await inspectAReference(root,{stage:'source',reference:siteRef});
+  assert(historical.passed,historical.problems.join('\n'));
+  config.reference_source_hash=historical.sourceHash;await json(path,config);
   return contract;
 }
 
@@ -326,13 +328,13 @@ test('A：证据缺失不占额度；审查包冻结两侧；高分空白参考�
   assert(receipt.errors.some(p=>p.includes('同态对照')));
 });
 
-test('A：更改已锁原站需重测，外部素材路径不可逃逸，充分配对的报告可结算',async()=>{
+test('历史 A 只读报告保留；原站变化可辨认、外部素材不可逃逸、充分配对可结算',async()=>{
   const root=await fixture(), c=await referenceFixture(root), path=join(root,'ref/a-reference.json'), round=await evidence(root,1);
   const image=c.states[0].original.image;
   c.states[0].original.image='../outside.png';await json(path,c);assert(!(await inspectAReference(root)).passed);
   c.states[0].original.image=image;await json(path,c);
   await writeFile(join(root,'ref/sweep.json'),'changed source data');
-  await assert.rejects(prepareReview(root,{round,target:'target.md'}),/锁定/);
+  assert.notEqual((await inspectAReference(root,{stage:'source'})).sourceHash,(await readJson(join(root,'.lsf/workflow.json'))).reference_source_hash);
   await json(join(root,'ref/sweep.json'),{entry:'拖动到门中段，记录输入/帧'});
   const prepared=await prepareReview(root,{round,target:'target.md'});
   const reply=report();reply.style_fidelity=prepared.input.fidelity_aspects.map(aspect=>({aspect,status:'一致',evidence:'合成配对观察 [' + prepared.input.fidelity_ids[aspect][0] + ']'}));

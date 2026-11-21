@@ -1,0 +1,36 @@
+{
+  "name": "产品名称",
+  "description": "用已核实的内容介绍这份规范。",
+  "source": { "label": "查看 DESIGN.md ↗", "href": "./DESIGN.md" },
+  "hero": {
+    "colors": ["#1E3A8A", "#7E22CE"],
+    "sample": "Aa",
+    "label": "品牌标志或代表性设计元素"
+  },
+  "sections": {
+    "colors": {
+      "description": "写明色彩在产品中的角色。",
+      "items": [{ "label": "主色", "value": "#1E3A8A" }]
+    },
+    "type": {
+      "description": "说明字体及字号层级。",
+      "items": [{ "label": "正文", "sample": "Aa 中文", "size": 16, "weight": 400, "line": 1.5, "detail": "16px / 400 / 1.5" }]
+    },
+    "layout": {
+      "description": "说明已确认的间距、网格及响应式。",
+      "items": [{ "label": "内容区域", "detail": "填写当前站点的容器规则。" }]
+    },
+    "surfaces": {
+      "description": "说明形状、阴影与材质。",
+      "items": [{ "label": "卡片", "detail": "填写适用位置及视觉规则。" }]
+    },
+    "motion": {
+      "description": "说明已验证的交互和动效。",
+      "items": [{ "label": "控件反馈", "detail": "填写触发、反馈和退出条件。" }]
+    },
+    "components": {
+      "description": "在这里验证可操作的组件。",
+      "href": "./DESIGN-demo.html"
+    }
+  }
+}

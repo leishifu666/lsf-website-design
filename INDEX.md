@@ -24,6 +24,7 @@
 | [references/A模式证据格式.md](references/A模式证据格式.md) | 主参考的状态、素材与机制取证；A 模式的原站锁定、可运行样段与整站对照 |
 | [references/GSAP动效联动与审查.md](references/GSAP动效联动与审查.md) | 场景动效、参数和逐项落地 |
 | [references/component-bookmarks.json](references/component-bookmarks.json) | 组件来源数据；按所选站点读取，不整份注入上下文 |
+| [references/design-md.md](references/design-md.md) | J 的范围、网站取证、Google DESIGN.md 格式与 CLI 验证 |
 | [references/design-review-policy.json](references/design-review-policy.json) | 评分、预算、渠道及按制作模式选取评审资料的唯一配置 |
 | [references/unslop-审查法.md](references/unslop-审查法.md) | unslop 评审专用适配 |
 | [references/workflow-defaults.json](references/workflow-defaults.json) | 现有文案入口与工作流偏好；按需读取 |
@@ -106,8 +107,12 @@
 | [agents/openai.yaml](agents/openai.yaml) | 对应功能的配置或实现；见脚本说明 |
 | [agents/website-prompt-reverser.md](agents/website-prompt-reverser.md) | 角色：参考网站反推建站提示词专家 |
 | [agents/website-prompt-reverser.toml](agents/website-prompt-reverser.toml) | 对应功能的配置或实现；见脚本说明 |
+| [templates/DESIGN.md](templates/DESIGN.md) | J 的范围、网站取证、Google DESIGN.md 格式与 CLI 验证 |
 | [templates/behavior-replay.example.json](templates/behavior-replay.example.json) | 对应任务的模板；采用时再读取 |
 | [templates/codex-hooks/hooks.json](templates/codex-hooks/hooks.json) | 对应任务的模板；采用时再读取 |
+| [templates/design-preview-example.html](templates/design-preview-example.html) | J 模式的项目化 HTML 参考样板与已有预览生成工具 |
+| [templates/design-preview.html](templates/design-preview.html) | J 模式的项目化 HTML 参考样板与已有预览生成工具 |
+| [templates/design-preview.json](templates/design-preview.json) | J 模式的项目化 HTML 参考样板与已有预览生成工具 |
 | [templates/motion-tokens.css](templates/motion-tokens.css) | 对应任务的模板；采用时再读取 |
 | [templates/reference-spec.json](templates/reference-spec.json) | 对应任务的模板；采用时再读取 |
 | [templates/review-rules.example.json](templates/review-rules.example.json) | 对应任务的模板；采用时再读取 |
@@ -182,6 +187,7 @@
 | [scripts/playwright.config.mjs](scripts/playwright.config.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/process-image.mjs](scripts/process-image.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/read-plan.mjs](scripts/read-plan.mjs) | 只查询模式/阶段读取清单，不执行页面工作 |
+| [scripts/render-design-preview.py](scripts/render-design-preview.py) | J 模式的项目化 HTML 参考样板与已有预览生成工具 |
 | [scripts/replay-behavior.mjs](scripts/replay-behavior.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/resource-index.mjs](scripts/resource-index.mjs) | 从资源路由与真实文件生成总索引、阅读导航和专题兼容索引 |
 | [scripts/review-policy.mjs](scripts/review-policy.mjs) | 对应功能的配置或实现；见脚本说明 |
@@ -190,6 +196,7 @@
 | [scripts/scout-reference.mjs](scripts/scout-reference.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/spec-draft.mjs](scripts/spec-draft.mjs) | 对应功能的配置或实现；见脚本说明 |
 | [scripts/start-reference.mjs](scripts/start-reference.mjs) | 对应功能的配置或实现；见脚本说明 |
+| [scripts/sync-design-md.py](scripts/sync-design-md.py) | 检查或更新内置 Google DESIGN.md 规范快照 |
 | [scripts/tests/a-lifecycle.test.mjs](scripts/tests/a-lifecycle.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/a-prototype.test.mjs](scripts/tests/a-prototype.test.mjs) | 修改对应实现后运行的回归测试 |
 | [scripts/tests/animation-runtime.test.mjs](scripts/tests/animation-runtime.test.mjs) | 修改对应实现后运行的回归测试 |
@@ -209,6 +216,33 @@
 
 | 文件 | 用途或阅读时机 |
 |---|---|
+| [vendor/google-design-md/UPSTREAM.json](vendor/google-design-md/UPSTREAM.json) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/UPSTREAM.md](vendor/google-design-md/UPSTREAM.md) | Google DESIGN.md 的来源、版本和更新方法 |
+| [vendor/google-design-md/upstream/LICENSE](vendor/google-design-md/upstream/LICENSE) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/PHILOSOPHY.md](vendor/google-design-md/upstream/PHILOSOPHY.md) | DESIGN.md Philosophy |
+| [vendor/google-design-md/upstream/README.md](vendor/google-design-md/upstream/README.md) | DESIGN.md |
+| [vendor/google-design-md/upstream/docs/spec.md](vendor/google-design-md/upstream/docs/spec.md) | Google DESIGN.md 完整官方规范，模式 J 本地读取 |
+| [vendor/google-design-md/upstream/examples/atmospheric-glass/DESIGN.md](vendor/google-design-md/upstream/examples/atmospheric-glass/DESIGN.md) | Brand & Style |
+| [vendor/google-design-md/upstream/examples/atmospheric-glass/README.md](vendor/google-design-md/upstream/examples/atmospheric-glass/README.md) | Atmospheric Glass |
+| [vendor/google-design-md/upstream/examples/atmospheric-glass/design_tokens.json](vendor/google-design-md/upstream/examples/atmospheric-glass/design_tokens.json) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/examples/atmospheric-glass/tailwind.config.js](vendor/google-design-md/upstream/examples/atmospheric-glass/tailwind.config.js) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/examples/paws-and-paths/DESIGN.md](vendor/google-design-md/upstream/examples/paws-and-paths/DESIGN.md) | Brand & Style |
+| [vendor/google-design-md/upstream/examples/paws-and-paths/README.md](vendor/google-design-md/upstream/examples/paws-and-paths/README.md) | Paws & Paths |
+| [vendor/google-design-md/upstream/examples/paws-and-paths/design_tokens.json](vendor/google-design-md/upstream/examples/paws-and-paths/design_tokens.json) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/examples/paws-and-paths/tailwind.config.js](vendor/google-design-md/upstream/examples/paws-and-paths/tailwind.config.js) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/examples/totality-festival/DESIGN.md](vendor/google-design-md/upstream/examples/totality-festival/DESIGN.md) | Brand & Style |
+| [vendor/google-design-md/upstream/examples/totality-festival/README.md](vendor/google-design-md/upstream/examples/totality-festival/README.md) | Totality Festival |
+| [vendor/google-design-md/upstream/examples/totality-festival/design_tokens.json](vendor/google-design-md/upstream/examples/totality-festival/design_tokens.json) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/examples/totality-festival/tailwind.config.js](vendor/google-design-md/upstream/examples/totality-festival/tailwind.config.js) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-config.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-config.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-config.yaml](vendor/google-design-md/upstream/packages/cli/src/linter/spec-config.yaml) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/compiler.test.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/compiler.test.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/compiler.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/compiler.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/generate.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/generate.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/renderers.test.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/renderers.test.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/renderers.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/renderers.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/spec-helpers.test.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/spec-helpers.test.ts) | 对应功能的配置或实现；见脚本说明 |
+| [vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/spec-helpers.ts](vendor/google-design-md/upstream/packages/cli/src/linter/spec-gen/spec-helpers.ts) | 对应功能的配置或实现；见脚本说明 |
 | [vendor/reanimate/LICENSE](vendor/reanimate/LICENSE) | 对应功能的配置或实现；见脚本说明 |
 | [vendor/reanimate/SKILL.md](vendor/reanimate/SKILL.md) | reanimate |
 | [vendor/reanimate/UPSTREAM.md](vendor/reanimate/UPSTREAM.md) | 固定上游版本、MIT来源与本地兼容补丁 |

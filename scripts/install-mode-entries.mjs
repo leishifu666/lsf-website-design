@@ -24,12 +24,17 @@ for(const e of entries){
   const dir=join(skills,e.name),base=path(relative(dir,core));
   const displayName='LSF-网站设计｜'+e.mode+' '+e.title;
   const description='网站设计｜模式'+e.mode+' '+e.description;
-  const scope=e.kind==='animation'?'只复刻指定动画、区块交互或视频时段。使用内置reanimate的真实采集、shader/JS/资产与逐帧比较，在原项目实现；不启动整站begin、五站调研、文案生成或整站评分。只要求分析时停在分析范围。':e.kind==='review'?'默认只评审现有页面，不改稿；独立Agent通过Ego Lite现场取证，优先Gemini/Claude评分，无可用渠道才用当前模型的新子Agent，同一预算。':e.kind==='copy-review'?'只执行成品页面page模式的独立文案审核，不默认重写文案或删模块，不启用制作流程。':e.kind==='prompt'?'只按模式F委派专属反推子Agent并交付提示词和素材方案，不自动建站或运行评分。':e.kind==='discover'?'先展示至少五个真实候选及特色/技术分析；用户选站与处理方式后再转模式B或A，不默认代选制作。':'根据本次请求直接推进本模式；用户只要分析则停在分析范围，不另加完整六版或不适用阶段。';
+  const isDesignMd=e.kind==='design-md';
+  const scope=isDesignMd
+    ? '根据用户提供的网址、项目仓库或设计要求撰写 DESIGN.md，按 Google 规范使用官方 CLI 验证。仅在用户要求时制作独立预览，不启动整站制作、文案或评审。'
+    : e.kind==='animation'?'只复刻指定动画、区块交互或视频时段。使用内置reanimate的真实采集、shader/JS/资产与逐帧比较，在原项目实现；不启动整站begin、五站调研、文案生成或整站评分。只要求分析时停在分析范围。':e.kind==='review'?'默认只评审现有页面，不改稿；独立Agent通过Ego Lite现场取证，优先Gemini/Claude评分，无可用渠道才用当前模型的新子Agent，同一预算。':e.kind==='copy-review'?'只执行成品页面page模式的独立文案审核，不默认重写文案或删模块，不启用制作流程。':e.kind==='prompt'?'只按模式F委派专属反推子Agent并交付提示词和素材方案，不自动建站或运行评分。':e.kind==='discover'?'先展示至少五个真实候选及特色/技术分析；用户选站与处理方式后再转模式B或A，不默认代选制作。':'根据本次请求直接推进本模式；用户只要分析则停在分析范围，不另加完整六版或不适用阶段。';
   const links=readingPlan({mode:e.mode,stage:'start'}).resources.map(file=>`[${file.split('/').at(-1).replace(/\.md$/,'')}](${base}/${file})`).join('、');
   const preview=e.mode==='A'?'默认由当前对话主Agent直接制作一套，不另派构建Agent或另开用户聊天；用户明确想比较时才先出三个预览，三份使用统一提示词、相同主题和同一主参考网址，不另设不同设计任务。子任务范围为完成一个方向预览时只做一个，不递归派发三版。\n':e.mode==='C'?'原创探索首批做三个高质量产品方向预览；用户明确只做一套时由当前对话主Agent直接制作。用户全不满意时按反馈继续新方案，确认后只展开一个方向。\n':'';
-  const inherited=e.kind==='animation'?'延续用户最新更正、原项目改动、真实采样与实际偏差报告要求。':'延续用户最新更正、原项目改动与主技能的真实机制、素材、文案审核和预算要求。';
+  const inherited=isDesignMd?'只记录有依据的设计规则，保留项目已有规范。':e.kind==='animation'?'延续用户最新更正、原项目改动、真实采样与实际偏差报告要求。':'延续用户最新更正、原项目改动与主技能的真实机制、素材、文案审核和预算要求。';
   const skill=`---\nname: ${e.name}\ndescription: ${quote(description)}\n---\n\n${marker}\n# ${displayName}\n\n本次固定进入模式${e.mode}（${e.title}），不再让用户选择模式。\n先读取共享[网站设计入口](${base}/SKILL.md)与本模式start资料：${links}；后续阶段按[阅读导航](${base}/references/模式阅读导航.md)补读，使用当前文件版本，不凭记忆复制规则。\n${scope}\n${preview}${inherited}入口仅锁定本次工作模式，不额外授权发布、安装全局工具或外发资料。\n`;
-  const defaultPrompt=e.mode==='A'?referencePrompt:e.mode==='I'?`使用 $${e.name}，在现有项目复刻我指定的动画，采集原效果并逐帧对照验证。`:`使用 $${e.name} 完成本次${e.title}任务，按用户提供的参考、主题或项目范围执行。`;
+  const defaultPrompt=isDesignMd
+    ? `使用 $${e.name}，从我提供的网站或仓库提取设计规则，制作并验证 DESIGN.md。`
+    : e.mode==='A'?referencePrompt:e.mode==='I'?`使用 $${e.name}，在现有项目复刻我指定的动画，采集原效果并逐帧对照验证。`:`使用 $${e.name} 完成本次${e.title}任务，按用户提供的参考、主题或项目范围执行。`;
   const ui=`interface:\n  display_name: ${quote(displayName)}\n  short_description: ${quote(description)}\n  default_prompt: ${quote(defaultPrompt)}\n`;
   pending.push([join(dir,'SKILL.md'),skill],[join(dir,'agents/openai.yaml'),'# '+marker+'\n'+ui]);
   if(prompts){

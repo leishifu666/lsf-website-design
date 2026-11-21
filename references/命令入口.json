@@ -54,5 +54,12 @@
     "mode": "I",
     "description": "复刻动画：从网页或录屏复刻指定动画与交互，抓取 Three.js、Canvas、WebGL 证据并逐帧对照",
     "kind": "animation"
+  },
+  {
+    "name": "lsf-web-design-md",
+    "title": "DESIGN.md",
+    "mode": "J",
+    "description": "从网址或项目仓库提取设计系统，或按设计要求制作和更新 DESIGN.md，并用 Google 官方 CLI 验证",
+    "kind": "design-md"
   }
 ]

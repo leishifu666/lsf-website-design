@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/google-labs-code/design.md.git",
+  "branch": "main",
+  "paths": [
+    "LICENSE",
+    "README.md",
+    "PHILOSOPHY.md",
+    "docs",
+    "examples",
+    "packages/cli/src/linter/spec-config.ts",
+    "packages/cli/src/linter/spec-config.yaml",
+    "packages/cli/src/linter/spec-gen"
+  ]
+}

@@ -6,11 +6,11 @@ import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {skillRoot,readingPlan,reviewFiles} from '../lib/resources.mjs';
 
-test('基础版安装器仅生成八个公开入口，移出的入口不可安装',async()=>{
+test('基础版安装器仅生成九个公开入口，移出的入口不可安装',async()=>{
   const temp=await mkdtemp(join(tmpdir(),'lsf-basic-'));
   try{
     const catalog=JSON.parse(await readFile(join(skillRoot,'references/命令入口.json'),'utf8'));
-    assert.deepEqual(catalog.map(e=>e.mode),['A','B','C','D','F','G','H','I']);
+    assert.deepEqual(catalog.map(e=>e.mode),['A','B','C','D','F','G','H','I','J']);
     const skills=join(temp,'skills');
     const result=spawnSync(process.execPath,[join(skillRoot,'scripts/install-mode-entries.mjs'),'--skills-dir',skills],{encoding:'utf8',windowsHide:true});
     assert.equal(result.status,0,result.stdout+result.stderr);

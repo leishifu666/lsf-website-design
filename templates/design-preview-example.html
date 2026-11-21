@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>示例清单 · DESIGN</title>
+<!-- 【项目替换】令牌值、字体、背景、材质全部换成项目自己的。变量名可沿用，方便读数脚本复用。 -->
+<style>
+:root{
+  --bg:#F6F6F4;--surface:#FFFFFF;--ink:#1C1C1C;--muted:#5E5E5E;--line:#DADAD6;--accent:#2563EB;
+  --font:system-ui,"PingFang SC","Microsoft YaHei",sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace;
+  --r-sm:8px;--r-md:14px;--shadow:0 4px 16px rgba(0,0,0,.06);
+  --t-fast:150ms;--ease:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--font);overflow-x:clip}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.skip{position:fixed;left:12px;top:-60px;z-index:9;padding:8px 12px;background:var(--ink);color:#fff;border-radius:var(--r-sm)}
+.skip:focus{top:12px}
+/* 【示例】单行顶栏。品牌、章节目录和源文档入口可随项目重新组织。 */
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:16px;align-items:center;height:56px;padding:0 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.toc{flex:1;min-width:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.toc a{flex:none;display:flex;gap:6px;align-items:center;padding:6px 10px;border-radius:var(--r-sm);color:inherit;text-decoration:none;font-size:14px}
+.toc a:hover{background:var(--bg)}
+.toc i{width:10px;height:10px;border-radius:3px;background:var(--cue,var(--muted))} /* 图形线索，项目可换成缩略图 */
+.wrap{max-width:1080px;margin:0 auto;padding:72px 20px}
+section+section{border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,40px);line-height:1.1;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;min-width:0}
+.label{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--muted)}
+.out,pre{font:13px/1.6 var(--mono);background:#EFEFEC;border-radius:var(--r-sm);padding:10px 12px;margin:12px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.todo{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:#FFF4D6;color:#6B4E00}
+.btn{height:40px;padding:0 16px;border:1px solid transparent;border-radius:var(--r-sm);font:600 14px var(--font);cursor:pointer;transition:background-color var(--t-fast) var(--ease)}
+.btn[data-variant=primary]{background:var(--ink);color:#fff}
+.btn[data-variant=primary]:hover{background:#3A3A3A}
+.btn[data-variant=secondary]{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn[data-size=l]{height:48px;padding:0 22px;font-size:16px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.stage{display:grid;place-items:center;min-height:140px;border-radius:var(--r-md);background:var(--bg)}
+fieldset{border:0;padding:0;margin:0 0 12px}
+@media (max-width:639px){.wrap{padding:56px 16px}.bar{padding:0 12px}.bar b{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:0s!important;animation-duration:0s!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="bar">
+  <b>示例清单</b>
+  <nav class="toc" aria-label="章节目录">
+    <a href="#overview"><i></i>概览</a><a href="#colors"><i style="--cue:var(--accent)"></i>配色</a>
+    <a href="#type"><i></i>排版</a><a href="#layout"><i></i>布局</a><a href="#surfaces"><i></i>材质与形状</a>
+    <a href="#motion"><i></i>动效与交互</a><a href="#components"><i></i>组件样例</a>
+  </nav>
+  <a href="./DESIGN.md">DESIGN.md</a>
+  <!-- 【条件】只有存在第二份预览时才加：<a href="./other-preview.html">对照</a> -->
+</header>
+
+<!-- 【固定】main 只有七个直属 section，顺序和 id 不变；章内构图由项目自定 -->
+<main id="main" tabindex="-1">
+<section id="overview"><div class="wrap">
+  <p class="label">概览</p>
+  <h1 style="font-size:clamp(40px,7vw,72px);line-height:1;margin:8px 0 16px">示例清单</h1>
+  <!-- 【项目替换】首屏用实际产品界面与代表性交互展示设计语言。 -->
+  <p style="color:var(--muted);max-width:520px">勾选待办，查看它的完成状态。</p>
+  <div class="card" style="max-width:420px;margin-top:24px">
+    <label style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="task"> 整理本周会议记录</label>
+    <p class="out" id="taskOut" aria-live="polite"></p>
+  </div>
+</div></section>
+
+<section id="colors"><div class="wrap">
+  <h2>配色</h2>
+  <!-- 【示例】从这里使用的 CSS 变量读取色值，确保色卡与数值一致。 -->
+  <div class="grid" id="swatches"></div>
+</div></section>
+
+<section id="type"><div class="wrap">
+  <h2>排版</h2>
+  <div class="card"><p data-spec style="font-size:32px;font-weight:700;line-height:1.2">标题 Heading</p><p class="out"></p></div>
+  <div class="card" style="margin-top:20px"><p data-spec>整理会议记录，确认本周待办。</p><p class="out"></p></div>
+</div></section>
+
+<section id="layout"><div class="wrap">
+  <h2>布局</h2>
+  <p style="color:var(--muted);margin-bottom:20px">内容最宽 1080px，卡片最小 260px，自动换列。改变窗口宽度看列数。</p>
+  <div class="grid" id="cols"><div class="card">A</div><div class="card">B</div><div class="card">C</div></div>
+  <p class="out" id="colsOut"></p>
+</div></section>
+
+<section id="surfaces"><div class="wrap">
+  <h2>材质与形状</h2>
+  <div class="grid">
+    <div class="card" style="border-radius:var(--r-sm)">小圆角 --r-sm</div>
+    <div class="card" style="box-shadow:var(--shadow)">卡片 --r-md + --shadow</div>
+  </div>
+  <!-- 【如实标注】没有验证过的材质不要编，写明待补 -->
+  <p style="margin-top:16px"><span class="todo">待补充</span> 深色模式表面尚未定稿。</p>
+</div></section>
+
+<section id="motion"><div class="wrap">
+  <h2>动效与交互</h2>
+  <div class="grid">
+    <div class="card"><p class="label">控件</p><p>主按钮的背景过渡为 150ms，可在组件样例中悬停查看。</p></div>
+    <div class="card"><p class="label">减少动态效果</p><p id="rmOut"></p></div>
+  </div>
+</div></section>
+
+<section id="components"><div class="wrap">
+  <h2>组件样例</h2>
+  <!-- 【固定】Spectrum 式小样：原生控件 → 真实组件 → 同步代码与令牌。组件本身由项目替换 -->
+  <div class="grid">
+    <div class="card">
+      <fieldset><legend class="label" id="variantLabel">变体</legend>
+        <select id="variant" aria-labelledby="variantLabel"><option value="primary">主要</option><option value="secondary">次要</option></select></fieldset>
+      <fieldset><legend class="label">尺寸</legend>
+        <label><input type="radio" name="size" value="m" checked> 中</label>
+        <label><input type="radio" name="size" value="l"> 大</label></fieldset>
+      <label><input type="checkbox" id="disabled"> 禁用</label>
+    </div>
+    <div class="card">
+      <div class="stage"><button class="btn" id="demoBtn" type="button">切换待办状态</button></div>
+      <p id="btnResult" aria-live="polite"></p>
+      <p class="out" id="btnState" aria-live="polite"></p>
+    </div>
+    <div class="card"><p class="label">代码</p><pre id="code" tabindex="0"></pre></div>
+  </div>
+</div></section>
+</main>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+  var root=getComputedStyle(document.documentElement);
+  // 概览：核心体验的现场读数
+  var task=$("#task");
+  function updateTask(){
+    var state=task.checked?"已完成":"未完成";
+    $("#taskOut").textContent="状态："+state;
+    $("#btnResult").textContent="待办"+state;
+  }
+  task.addEventListener("change",updateTask);
+  updateTask();
+  // 配色：从变量读取
+  $("#swatches").innerHTML=["--bg","--surface","--ink","--muted","--line","--accent"].map(function(v){
+    var c=root.getPropertyValue(v).trim();
+    return '<div class="card"><div style="height:64px;border-radius:8px;border:1px solid var(--line);background:'+c+'"></div><p class="out">'+v+" "+c+'</p></div>'}).join("");
+  // 排版：读计算值
+  $$("[data-spec]").forEach(function(el){var s=getComputedStyle(el);el.nextElementSibling.textContent=s.fontSize+" / "+s.fontWeight+" / "+s.lineHeight});
+  // 布局：当前列数
+  function cols(){$("#colsOut").textContent="视口 "+innerWidth+"px → "+getComputedStyle($("#cols")).gridTemplateColumns.split(" ").length+" 列"}
+  addEventListener("resize",cols);cols();
+  // 动效：系统设置
+  var mq=matchMedia("(prefers-reduced-motion: reduce)");
+  function rm(){$("#rmOut").textContent=mq.matches?"已开启：过渡为 0ms":"未开启：按令牌时长过渡"}
+  mq.addEventListener("change",rm);rm();
+  // 组件：控件 → 组件 → 代码
+  var btn=$("#demoBtn");
+  btn.addEventListener("click",function(){task.checked=!task.checked;updateTask()});
+  function sync(){
+    var v=$("#variant").value,s=$('input[name=size]:checked').value,d=$("#disabled").checked;
+    btn.dataset.variant=v;btn.dataset.size=s;btn.disabled=d;
+    var cs=getComputedStyle(btn);
+    $("#btnState").textContent="disabled = "+btn.disabled+" · 高 "+cs.height;
+    $("#code").textContent='<button class="btn" data-variant="'+v+'" data-size="'+s+'"'+(d?" disabled":"")+'>切换待办状态</button>\n\n'+
+      "token: "+(v==="primary"?"--ink":"--surface")+" · "+(s==="l"?"48px":"40px")+" · --r-sm";
+  }
+  ["#variant","#disabled"].forEach(function(s){$(s).onchange=sync});
+  $$('input[name=size]').forEach(function(r){r.onchange=sync});sync();
+})();
+</script>
+</body>
+</html>

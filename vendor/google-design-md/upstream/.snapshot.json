@@ -1,0 +1,46 @@
+{
+  "commit": "db977b3c1d1f309269f43d5d17ae828d54bd6ae3",
+  "source": {
+    "repository": "https://github.com/google-labs-code/design.md.git",
+    "branch": "main",
+    "paths": [
+      "LICENSE",
+      "README.md",
+      "PHILOSOPHY.md",
+      "docs",
+      "examples",
+      "packages/cli/src/linter/spec-config.ts",
+      "packages/cli/src/linter/spec-config.yaml",
+      "packages/cli/src/linter/spec-gen"
+    ]
+  },
+  "format": "git-blobs",
+  "sha256": {
+    "docs/spec.md": "8cb9671805be22b27ab12e4613312682716115fd40d6b17b5152dc11e9c99f7a",
+    "examples/atmospheric-glass/DESIGN.md": "66ad920a828142fca6e47d632755c71f14b4ffc5eae848fb1c4ad2a7e293f0f4",
+    "examples/atmospheric-glass/design_tokens.json": "cd61fb52af028c398a94376ec49224de8cd55b047d718c189dfa16fefe5ae569",
+    "examples/atmospheric-glass/README.md": "c7acbe1bf50cf3d3813946dab957a31a99a813f5eefdfb7e40f9ca21a3225d8d",
+    "examples/atmospheric-glass/tailwind.config.js": "f5fdb7e3a1eaaf6f9fdde81d99b72e77999e129317785cd40531dcdd625b3c23",
+    "examples/paws-and-paths/DESIGN.md": "467717bdcd6cfc7d58d54b8337eb8964c08f813a04f5f918c068693a7f144208",
+    "examples/paws-and-paths/design_tokens.json": "622bc37369d5dfedfc20583e28f6842c989d634f858cb73d3a5641b7819c650c",
+    "examples/paws-and-paths/README.md": "7796eb305e28e4d46fc154739d720a2973000f1250635f3e28ae667c18d04206",
+    "examples/paws-and-paths/tailwind.config.js": "96d4a987e603c3084d40929da3840d41167471cde4faf0b1270b19d73e532f57",
+    "examples/totality-festival/DESIGN.md": "aa255842f7059ba1d463e5dab408fff427d95312c6cb503e1dfde16dc9cf5619",
+    "examples/totality-festival/design_tokens.json": "f2fbce4031ef051bfc32ea893fa3680c003ea17631e29a3d74c02e19d77444e6",
+    "examples/totality-festival/README.md": "f4d5678c9f36f7333c0116fed51fe0ce2a59d0b400ef1adbcad24636f30d0db9",
+    "examples/totality-festival/tailwind.config.js": "8d520098dec6d6f5592a47a97579e40a9dfa5b54fac15de2acac3936924f263c",
+    "LICENSE": "1bdd03995456d191707e379eb06ceac20cf30d520bec90c97c2b6d220906c66e",
+    "packages/cli/src/linter/spec-config.ts": "d7edd89d798b9fdb875f97feebab4a0c391988a65ec89a3120c1f3eaf0745182",
+    "packages/cli/src/linter/spec-config.yaml": "6436935bab8162f88c8d2bce220bc979f27a51442d44a820b79207c840e9ad1e",
+    "packages/cli/src/linter/spec-gen/compiler.test.ts": "3407b55a276d107c061ec7475b4ae5f7ae0c1a8bc4c747e383b39df0874efef0",
+    "packages/cli/src/linter/spec-gen/compiler.ts": "5e25a9b9b6b09e22baab209eb0ca83afa766e8f09209966f6f25cdf618f5ca9c",
+    "packages/cli/src/linter/spec-gen/generate.ts": "b41a0f632f58727763ea367bd545db1e4e581e1cd3aca2d2f4dbe12627f1d4ae",
+    "packages/cli/src/linter/spec-gen/renderers.test.ts": "d61ed296b46d4dba02c1943bb6a6b54996fb8d79f6bc02f87c33a4002662131d",
+    "packages/cli/src/linter/spec-gen/renderers.ts": "6f13fb229953196d5520ea67e23cb5fc363d274652cda474cbf660468d05edf9",
+    "packages/cli/src/linter/spec-gen/spec-helpers.test.ts": "2015cccd0d0ec01466760517c7939b7f519738f2896dbe1280388ff27ea7a3b1",
+    "packages/cli/src/linter/spec-gen/spec-helpers.ts": "463dc31de1288f6fc2540eb67a98b8173544b9b1bdb9451f021ecdc30e943c20",
+    "packages/cli/src/linter/spec-gen/spec.mdx": "ec8bcbeb5488fbef404756628122b628e2d3c378a70e735c14ec7f612cb06774",
+    "PHILOSOPHY.md": "d4536b779910f94a364783135d9763c42669e6e01db059323d6d520694a0f6a4",
+    "README.md": "c809b71af045b4d326c506ec1efe01199e45e15a2134637d5a525b02ab65b9b6"
+  }
+}

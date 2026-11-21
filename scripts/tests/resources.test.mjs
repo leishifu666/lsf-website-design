@@ -1,7 +1,8 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,mkdtemp,rm} from 'node:fs/promises';
 import {join} from 'node:path';
+import {tmpdir} from 'node:os';
 import {spawnSync} from 'node:child_process';
 import {skillRoot,resourceMap,readingPlan,readResource,reviewFiles,markdownHeadings,listResources} from '../lib/resources.mjs';
 
@@ -10,7 +11,7 @@ test('每个模式与阶段的实际读取清单都可打开；只评审/提示�
     const plan=readingPlan({mode,stage});assert(plan.resources.length);
     for(const resource of plan.resources)assert((await readResource(resource)).text.trim(),resource);
   }
-  for(const mode of ['F','G','H','I'])assert(!readingPlan({mode}).resources.includes('references/制作流程.md'));
+  for(const mode of ['F','G','H','I','J'])assert(!readingPlan({mode}).resources.includes('references/制作流程.md'));
   for(const stage of Object.keys(resourceMap.modes.I.stages)) {
     const files=readingPlan({mode:'I',stage}).resources;
     assert(!files.includes('references/五站调研与记忆点.md'));
@@ -23,6 +24,18 @@ test('每个模式与阶段的实际读取清单都可打开；只评审/提示�
   assert(!readingPlan({mode:'A',stage:'preview'}).resources.includes('references/原创构图方法库.md'));
   assert.throws(()=>readingPlan({mode:'F',stage:'build'}),/没有build阶段/);
   assert.throws(()=>readingPlan({mode:'A',topics:['made-up']}),/未知专题/);
+});
+
+test('生成模式 J 独立入口，HTML 样板按需读取',async t=>{
+  const dir=await mkdtemp(join(tmpdir(),'lsf-mode-j-'));
+  t.after(()=>rm(dir,{recursive:true,force:true}));
+  const run=spawnSync(process.execPath,[join(skillRoot,'scripts/install-mode-entries.mjs'),'--skills-dir',dir,'--mode','J'],{encoding:'utf8',windowsHide:true});
+  assert.equal(run.status,0,run.stdout+run.stderr);
+  const entry=await readFile(join(dir,'lsf-web-design-md','SKILL.md'),'utf8');
+  assert(entry.includes('references/design-md.md'));
+  assert(entry.includes('vendor/google-design-md/upstream/docs/spec.md'));
+  assert(!entry.includes('references/制作流程.md'));
+  assert(readingPlan({mode:'J',topics:['design-preview']}).resources.includes('templates/design-preview-example.html'));
 });
 
 test('评审按制作模式只取相应原文章节，保留共同约束并移除整份建站入口',async()=>{

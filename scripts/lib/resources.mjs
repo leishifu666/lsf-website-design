@@ -57,7 +57,7 @@ export async function listResources(dir=skillRoot,prefix=''){
     if(entry.name.startsWith('.')||['node_modules','__pycache__'].includes(entry.name))continue;
     const file=prefix+entry.name;
     if(entry.isDirectory())files.push(...await listResources(join(dir,entry.name),file+'/'));
-    else if(/\.(md|mjs|py|json|toml|yaml|css|ts|js|sh|lock)$/.test(entry.name)||entry.name==='LICENSE')files.push(file);
+    else if(/\.(md|mjs|py|json|toml|yaml|css|ts|js|sh|lock|html)$/.test(entry.name)||entry.name==='LICENSE')files.push(file);
   }
   return files;
 }

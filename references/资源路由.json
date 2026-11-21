@@ -230,6 +230,14 @@
         "references/动画取证与逐帧对照.md",
         "vendor/reanimate/references/verify.md"
       ]
+    },
+    "design-md": {
+      "purpose": "J 的范围、网站取证、Google DESIGN.md 格式与 CLI 验证",
+      "files": ["references/design-md.md", "vendor/google-design-md/upstream/docs/spec.md", "templates/DESIGN.md"]
+    },
+    "design-preview": {
+      "purpose": "J 模式的项目化 HTML 参考样板与已有预览生成工具",
+      "files": ["templates/design-preview-example.html", "templates/design-preview.html", "templates/design-preview.json", "scripts/render-design-preview.py"]
     }
   },
   "modes": {
@@ -399,9 +407,18 @@
           "animation-verify"
         ]
       }
+    },
+    "J": {
+      "title": "DESIGN.md",
+      "scope": "从网址或仓库提取，或按明确的设计要求起草。默认只交付 DESIGN.md，按需交付独立预览，不启动网页制作与评审。",
+      "stages": {
+        "start": ["design-md"],
+        "verify": ["design-md"]
+      }
     }
   },
   "topics": {
+    "design-preview": "design-preview",
     "motion": "motion",
     "motion-state": "motion-state",
     "motion-input": "motion-input",
@@ -455,6 +472,9 @@
     }
   ],
   "purposes": {
+    "scripts/sync-design-md.py": "检查或更新内置 Google DESIGN.md 规范快照",
+    "vendor/google-design-md/upstream/docs/spec.md": "Google DESIGN.md 完整官方规范，模式 J 本地读取",
+    "vendor/google-design-md/UPSTREAM.md": "Google DESIGN.md 的来源、版本和更新方法",
     "SKILL.md": "常驻总入口：自动路由、共享边界和索引",
     "README.md": "安装和使用说明；首次安装才触发依赖引导",
     "INDEX.md": "全部资源的可点击总索引；不是加载清单",

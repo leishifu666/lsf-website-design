@@ -9,7 +9,8 @@ if (/关掉\s*LSF|关闭\s*LSF|LSF\s*门槛\s*关/i.test(prompt)) {
   process.stdout.write(JSON.stringify({ systemMessage: 'LSF 可选 Hook 门槛已关闭；按本次用户要求执行流程。' })); process.exit(0);
 }
 const inspectOnly = /(?:只|先)(?:看[看下]?|分析|讨论|评审|给思路)|(?:优化|更新|修改)(?:这个|该)?(?:技能|skill)/i.test(prompt);
-const making = /(?:制作|新建|生成|重做|设计|实现|做(?:一个|一套|一版|个)|build|create).{0,30}(?:网站|网页|落地页|官网|website|landing)/i.test(prompt);
+if (/\$lsf-web-design-md\b|(?:进入|使用|走)\s*模式\s*J\b/i.test(prompt)) process.exit(0);
+const making = /(?:制作|新建|生成|重做|设计|实现|做(?:一个|一套|一版|个)|build|create).{0,30}(?:网站|网页|落地页|官网|website|landing)(?!\s*的\s*(?:一[份个]\s*)?["“「`]?DESIGN\.md\b)/i.test(prompt);
 if (!existsSync(active) && (!making || inspectOnly)) process.exit(0);
 let config;
 try { config = JSON.parse(readFileSync(join(root,'.lsf/workflow.json'),'utf8')); } catch {}

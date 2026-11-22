@@ -100,7 +100,7 @@
       ]
     },
     "prompt": {
-      "purpose": "F只反推提示词与素材方案",
+      "purpose": "F反推L1+L2原站基准提示词、阶段3.5统一派改写子Agent定制改写，并支持自建或派发构建子Agent提示词复刻建站",
       "files": [
         "references/参考网站反推提示词.md"
       ]
@@ -367,7 +367,7 @@
     },
     "F": {
       "title": "反推提示词",
-      "scope": "只反推和交付提示词，不运行建站begin、生图或评分。",
+      "scope": "派反推子Agent忠实反推L1+L2多级原站基准提示词，有定制需求时阶段3.5统一派改写子Agent全链路改写；分支A交付提示词，分支B由主Agent按执行版自建或派1–4个构建子Agent生图并建站，不调用A/C的begin/workflow-check。",
       "stages": {
         "start": [
           "prompt"

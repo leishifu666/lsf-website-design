@@ -31,7 +31,7 @@
     "name": "lsf-web-prompt",
     "title": "反推提示词",
     "mode": "F",
-    "description": "反推提示词：只取证参考并交付建站与素材提示词，不自动建站",
+    "description": "反推提示词：派反推子Agent忠实反推L1+L2原站基准提示词，有定制需求再由改写子Agent阶段3.5改写；仅要提示词时直接交付，提示词复刻网站时由主Agent自建或派构建子Agent生图并建站",
     "kind": "prompt"
   },
   {

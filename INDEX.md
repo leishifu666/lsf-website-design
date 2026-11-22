@@ -43,7 +43,7 @@
 | [references/原创构图方法库.md](references/原创构图方法库.md) | 原创产品候选、方法筛选与种子 |
 | [references/原站侦察与回放.md](references/原站侦察与回放.md) | A开工的核心动效判断、源码选型、统一提示词与制作分流；主参考的状态、素材与机制取证；核心动效按实际渲染采集 |
 | [references/参考取证与组件规格.md](references/参考取证与组件规格.md) | 主参考的状态、素材与机制取证；核心动效按实际渲染采集 |
-| [references/参考网站反推提示词.md](references/参考网站反推提示词.md) | F只反推提示词与素材方案 |
+| [references/参考网站反推提示词.md](references/参考网站反推提示词.md) | F反推L1+L2原站基准提示词、阶段3.5统一派改写子Agent定制改写，并支持自建或派发构建子Agent提示词复刻建站 |
 | [references/反套路清单.md](references/反套路清单.md) | 反套路清单（AI 生成感 / 行业平均值） |
 | [references/命令入口.json](references/命令入口.json) | 对应功能的配置或实现；见脚本说明 |
 | [references/图标与插画.md](references/图标与插画.md) | 只用开源图标库；SVG立体示意的适用边界 |
@@ -105,7 +105,9 @@
 | [agents/copy-reviewer.toml](agents/copy-reviewer.toml) | 成品页面冗余审核；文字与模块分别判断 |
 | [agents/design-reviewer.toml](agents/design-reviewer.toml) | 对应功能的配置或实现；见脚本说明 |
 | [agents/openai.yaml](agents/openai.yaml) | 对应功能的配置或实现；见脚本说明 |
-| [agents/website-prompt-reverser.md](agents/website-prompt-reverser.md) | 角色：参考网站反推建站提示词专家 |
+| [agents/website-prompt-adapter.md](agents/website-prompt-adapter.md) | website_prompt_adapter 系统提示词 |
+| [agents/website-prompt-adapter.toml](agents/website-prompt-adapter.toml) | 对应功能的配置或实现；见脚本说明 |
+| [agents/website-prompt-reverser.md](agents/website-prompt-reverser.md) | website_prompt_reverser 系统提示词 |
 | [agents/website-prompt-reverser.toml](agents/website-prompt-reverser.toml) | 对应功能的配置或实现；见脚本说明 |
 | [templates/DESIGN.md](templates/DESIGN.md) | J 的范围、网站取证、Google DESIGN.md 格式与 CLI 验证 |
 | [templates/behavior-replay.example.json](templates/behavior-replay.example.json) | 对应任务的模板；采用时再读取 |
@@ -121,7 +123,7 @@
 | [templates/拆解报告模板.md](templates/拆解报告模板.md) | 拆解报告：〔网站名〕 |
 | [templates/独立评审固定提示词.md](templates/独立评审固定提示词.md) | 独立视觉评审固定提示词 |
 | [templates/组件还原规格模板.md](templates/组件还原规格模板.md) | <组件名> 还原规格 |
-| [templates/网站制作提示词.md](templates/网站制作提示词.md) | 网站制作提示词：{{项目名}} |
+| [templates/网站制作提示词.md](templates/网站制作提示词.md) | {{原站基准制作提示词 / 定制版网站制作提示词}}：{{项目名}} |
 | [templates/评审评分表.md](templates/评审评分表.md) | 设计美感评审表（100分） |
 | [templates/轮次记录模板.md](templates/轮次记录模板.md) | 本批修改记录（rounds/round-NN/changes.md） |
 | [templates/风格参考统一提示词.md](templates/风格参考统一提示词.md) | 用户确认的A制作提示词；原文复用，三预览逐字相同；含Shopify填写案例 |

@@ -6,12 +6,15 @@
 
 ![Version 37](https://img.shields.io/badge/version-37-1d4f3d)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![作品画廊](https://img.shields.io/badge/作品画廊-lsfweb.pantoria.cn-111111)](https://lsfweb.pantoria.cn)
 
 **给 AI 编程助手用的网页设计与工程交付技能**：让 AI 告别千篇一律的“默认模板脸”，从真实参考站侦察、交互与源码组件复用，到动画逐帧复刻与独立浏览器评审，交付真正达到上线水准的网页作品。
 
 给它一个主题就能从零开始；再附上一个参考网址，它会先拆解原站的版式节奏、设计令牌与核心动效，再围绕你的主题重新设计并实现。也可以单独用来找设计参考、反推建站提示词、提取 `DESIGN.md` 设计规范，或评审已有页面。
 
-[核心模式](#模式与能力) · [作品展示](#作品展示) · [快速安装](#安装) · [模型建议](#首版制作的模型建议) · [使用示例](#怎么用) · [工作方式](#工作方式)
+**在线作品画廊**：<https://lsfweb.pantoria.cn> —— 收录多模型真实生成网站，支持按模型与模式筛选、桌面 / 平板 / 手机视口实时预览、场景长图浏览，以及参考网站与建站提示词查看。
+
+[在线画廊](https://lsfweb.pantoria.cn) · [作品展示](#作品展示) · [核心模式](#模式与能力) · [快速安装](#安装) · [模型建议](#首版制作的模型建议) · [使用示例](#怎么用) · [工作方式](#工作方式)
 
 ---
 
@@ -27,79 +30,11 @@
 
 ## 作品展示
 
-> 全部展示图片与 GIF 均来自真实浏览器（`1440 × 1000` 等视口）实拍或连续操作录屏，未经重绘。完整目录与各图来源见 [作品展示详细页](examples/作品展示.md) 与 [manifest.json](examples/screenshots/manifest.json)。
+全部真实网页案例已统一收录至在线作品画廊 **<https://lsfweb.pantoria.cn>**，涵盖 Claude Opus 5.5、GPT 6 PRO、GPT-6.2 / 6.1 / 6 系列与 DeepSeek V4.1 Flash 等模型在风格参考（A）、反推提示词建站（F）等模式下的成品，提供实时交互预览、多幕场景长图、参考来源与提示词对照。
 
-### 1. 置顶案例：Codex 模型怎么选
+[![LSF-网站设计在线作品画廊首页](assets/showcase-gallery.jpg)](https://lsfweb.pantoria.cn)
 
-**制作模型：Claude Opus 5.5**（雷师傅目前最满意的作品之一）
-
-[在线体验](https://hark.com/site/6987019b-6557-46da-bf40-a0ed2d58dcfe?hark_region=us) · [观看 / 下载约 39 秒录屏 (MP4)](https://github.com/leishifu666/lsf-website-design/raw/refs/heads/main/examples/videos/codex-model-guide.mp4) · [15 张独立截图](examples/screenshots/codex-model-guide) · [九个场景长图](examples/screenshots/codex-model-guide/long.jpg)
-
-[![Claude Opus 5.5 制作的 Codex 模型选择指南](examples/screenshots/codex-model-guide/featured.jpg)](https://hark.com/site/6987019b-6557-46da-bf40-a0ed2d58dcfe?hark_region=us)
-
-六个章节涵盖日常开发、复杂项目、协作文案、预算路线、轻量任务与作品选择，内置章节转场、任务偏好选择器与模型搜索。下方 GIF 为约 10 秒加速节选，点击可查看完整 MP4：
-
-[![Claude Opus 5.5 作品的章节转场动态预览](examples/screenshots/codex-model-guide/preview.gif)](https://github.com/leishifu666/lsf-website-design/raw/refs/heads/main/examples/videos/codex-model-guide.mp4)
-
-![Claude Opus 5.5 作品的六个章节场景](examples/screenshots/codex-model-guide/scenes.jpg)
-
----
-
-### 2. 新增案例 · 同主题双模型对照：雷师傅咖啡（Claude Opus 5.5 vs GPT6 Pro）
-
-两份作品均以「**雷师傅咖啡**」为同一主题、参照同类立体罐装交互参考制作，分别由 **Claude Opus 5.5** 与 **GPT6 Pro** 独立生成，可直接对比两大旗舰模型在视觉体系、3D 罐体呈现与交互组件上的不同解法：
-
-![同主题雷师傅咖啡双模型成品对照](examples/screenshots/leishifu-coffee/comparison.jpg)
-
-| 对比项 | Claude Opus 5.5（冷萃遇见雷师傅） | GPT6 Pro（LEISHIFU COFFEE） |
-|---|---|---|
-| 在线体验 | [打开 Hark 作品](https://hark.com/site/7aceefbc-de78-4c5b-9c8f-b8391929c674?hark_region=us) | [打开 GPT 作品](https://leishifu-coffee-76b741.leir0491.chatgpt.site/#top) |
-| 视觉风格 | 暖米卡其与深烘咖色、环形主视觉与弧形标语 | 鼠尾草绿与森林绿、清爽白环与手绘箭头注解 |
-| 核心交互 | 双 `<canvas>` 程序化 3D 罐体、冷萃 vs 速溶对比、三种口味 3D 轮播 | GSAP + Lottie 滚动驱动、倾斜要点卡、五种喝法轮播与**交互配方弹窗** |
-| 动态预览 | [查看 GIF](examples/screenshots/leishifu-coffee/opus-preview.gif) | [查看 GIF](examples/screenshots/leishifu-coffee/gpt6-preview.gif) |
-| 场景拼图 & 单图 | [六场景拼图](examples/screenshots/leishifu-coffee/opus-scenes.jpg) · [独立截图](examples/screenshots/leishifu-coffee/opus) | [六场景拼图](examples/screenshots/leishifu-coffee/gpt6-scenes.jpg) · [独立截图](examples/screenshots/leishifu-coffee/gpt6) |
-
-#### Claude Opus 5.5 · 雷师傅咖啡（冷萃版）动态与场景
-
-[![Claude Opus 5.5 雷师傅咖啡动态预览](examples/screenshots/leishifu-coffee/opus-preview.gif)](https://hark.com/site/7aceefbc-de78-4c5b-9c8f-b8391929c674?hark_region=us)
-
-![Claude Opus 5.5 雷师傅咖啡六个场景](examples/screenshots/leishifu-coffee/opus-scenes.jpg)
-
-#### GPT6 Pro · 雷师傅咖啡（五种喝法概念版）动态与场景
-
-[![GPT6 Pro 雷师傅咖啡动态预览](examples/screenshots/leishifu-coffee/gpt6-preview.gif)](https://leishifu-coffee-76b741.leir0491.chatgpt.site/#top)
-
-![GPT6 Pro 雷师傅咖啡六个场景](examples/screenshots/leishifu-coffee/gpt6-scenes.jpg)
-
----
-
-### 3. 同模型对照：DeepSeek V4.1 Flash（使用 vs 未使用 Skill）
-
-两份长沙主题作品均由 **DeepSeek V4.1 Flash** 制作。左侧使用了 `lsf-website-design`，右侧未使用，使用情况由作者确认。可按**山水、文化、饮食**三个板块对照版式与视觉层次：
-
-![DeepSeek 使用与未使用 LSF-网站设计的同主题作品对照](examples/screenshots/deepseek-comparison/comparison.jpg)
-
-| 作品 | 模型 | Skill 使用情况 | 原始样本 | 长图 |
-|---|---|---|---|---|
-| 长沙志 · 冬 2026 | DeepSeek V4.1 Flash | 使用 LSF-网站设计 | `000e433564488284` | [查看截图](examples/screenshots/deepseek-comparison/with-skill.jpg) |
-| 长沙志 · 城市版本 | DeepSeek V4.1 Flash | 未使用 skill | `c73a2a18a05ddb58` | [查看截图](examples/screenshots/deepseek-comparison/without-skill.jpg) |
-
-> 截图来自作者提供的本地成品；由于未保留同一提示词与采样参数记录，本组仅作为成品展示，不作严格受控评测结论。
-
----
-
-### 4. 更多精选作品
-
-| 作品 | 制作模型 | 在线体验 | 场景长图 |
-|---|---|---|---|
-| 山水洲城 · 长沙漫游 | GPT6 Pro | [打开作品](https://changsha-shanshui-edition-2026.leir0491.chatgpt.site/#overview) | [开场 / 湘江 / 岳麓 / 寻味 / 入夜](examples/screenshots/cases/changsha-shanshui-roam.jpg) |
-| 长沙现场 | GPT6 Pro | [打开作品](https://changsha-city-fieldnotes.leir0491.chatgpt.site/#intro) | [现场 / 山水 / 湘味 / 入夜](examples/screenshots/cases/changsha-fieldnotes.jpg) |
-| 长沙 · 山水洲城 | GPT6 Pro | [打开作品](https://changsha-city-edition-v34.leir0491.chatgpt.site/#xiangjiang) | [开场 / 湘江 / 风味](examples/screenshots/cases/changsha-edition.jpg) |
-| 万圣夜 · 槐安里十三号 | Claude Opus 5.5 | [打开 Hark 作品](https://hark.com/site/6ea9e899-ceba-4306-966c-0622f3f47ee8?hark_region=us) | [开场 / 档案 / 轮播 / 球体](examples/screenshots/cases/hark-halloween.jpg) |
-| 长沙特辑 · The Changsha Edition | Claude Opus 5.5 | [打开 Hark 作品](https://hark.com/site/77af0857-a085-4f73-9456-4db0641e3a45?hark_region=us) | [开场 / 湘江 / 岳麓 / 小吃](examples/screenshots/cases/hark-changsha-edition.jpg) |
-| 狼艺复兴版 · 狼人杀 | Claude Opus 5.5 | [打开 Hark 作品](https://hark.com/site/533df3ba-5c81-45b2-9d92-50281fb04326?hark_region=us) | [开场 / 转场 / 狼人 / 女巫 / 投票 / 配置](examples/screenshots/cases/hark-renwolfssance.jpg) |
-
-更多单作品分屏说明与早期四合一总览见 [作品展示详细页](examples/作品展示.md) 与 [总览拼图](examples/screenshots/cases/overview.jpg)。
+[![作品预览工作台：多端视口切换、实时预览与提示词查看](assets/showcase-workbench.jpg)](https://lsfweb.pantoria.cn/showcase/qidou-coffee)
 
 ---
 
@@ -160,7 +95,7 @@ Windows 可使用 `%USERPROFILE%\.agents\skills\lsf-website-design`，具体路�
 | 方案 | 模型 | 说明 |
 |---|---|---|
 | 推荐首选 | **Claude Opus 5.5、GPT 6 Ultra、GPT 6 Pro** | 推荐用来制作网站的第一版 |
-| 平替方案 | **DeepSeek V4.1 Flash** | 可用于真实项目试做，上方已附使用前后对照截图 |
+| 平替方案 | **DeepSeek V4.1 Flash** | 可用于真实项目试做，实测成品见[在线作品画廊](https://lsfweb.pantoria.cn) |
 | 待测方案 | **Kimi K3.1** | 雷师傅尚未测试，欢迎测试后提交案例，帮助完善仓库 |
 
 欢迎通过 Issue 或 PR 分享 **Kimi K3.1** 的实测案例：请提供实际入口、模型名称、技能版本、任务和参考网址，并附成品链接/截图及可复现记录（如有耗时和用量数据可一并附上，提交前请移除密钥和账号凭据）。
@@ -245,4 +180,4 @@ node scripts/resource-index.mjs --check
 
 ## 开源许可
 
-本仓库的原创技能文档和脚本采用 [MIT License](LICENSE)，允许使用、修改和分发。第三方组件、字体、网站素材和商标遵循各自许可；作品截图与录屏仅用于展示输出效果，不代表其素材另行授予 MIT 许可。
+本仓库的原创技能文档和脚本采用 [MIT License](LICENSE)，允许使用、修改和分发。第三方组件、字体、网站素材和商标遵循各自许可；画廊与作品截图仅用于展示输出效果，不代表其素材另行授予 MIT 许可。

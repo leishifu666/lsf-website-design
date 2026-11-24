@@ -133,9 +133,6 @@
 | 文件 | 用途或阅读时机 |
 |---|---|
 | [examples/1B脚本实测记录.md](examples/1B脚本实测记录.md) | 模式A 脚本实测记录（2026-10-19） |
-| [examples/screenshots/manifest.json](examples/screenshots/manifest.json) | 对应功能的配置或实现；见脚本说明 |
-| [examples/videos/README.md](examples/videos/README.md) | 作品录屏 |
-| [examples/作品展示.md](examples/作品展示.md) | 作品展示与截图来源 |
 | [examples/试跑案例.md](examples/试跑案例.md) | 试跑案例：咖啡豆订阅品牌官网（模式B 参考型，参考 linear.app） |
 | [library/original-directions.json](library/original-directions.json) | C原创构图方法；按行业与真实资源条件筛选 |
 | [library/product-reference-seeds.json](library/product-reference-seeds.json) | 按条件筛选的方法数据；不整份加载 |
